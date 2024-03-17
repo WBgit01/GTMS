@@ -9,7 +9,7 @@ include_once 'layout_head.php';
 <form action="">
     <div class="form-container">
         <div class="header">
-            <span>Login</span>
+            <span>Signin</span>
         </div>
         <div class="form-content">
             <input type="text" name='email' placeholder="Username" required><br>
