@@ -19,9 +19,10 @@
                 echo "<div class='banner'>";
                 echo "<h1> Garments Transaction Management System</h1>";
                 echo "<img src='IMG/MSC_Logo.png' class='logoMain'>";
-                echo "<a class='button1' href='GTMS-sub.php'>TEST</a>";
+                echo "<a class='button1' href='login.php'>START</a>";
                 
             }elseif ($page_title=="Login") {
                 
             }
         ?>
+        

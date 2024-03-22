@@ -1,186 +1,200 @@
 body{
-	margin: 0;
-	padding: 0;
-	background: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0)), url(../../IMG/MSC_background3.jpg);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0)), url(../../IMG/MSC_background3.jpg);
     font-family: "Times New Roman", Times, serif;
 }
 .container{
-	width: 100%;
-	background-position: center;
-	background-size: cover;
-	box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
 
 }
 .navi{
-	box-sizing: border-box;
-	background-color: green;
-	background-size: cover;
+    box-sizing: border-box;
+    background-color: maroon;
+    background-size: cover;
 }
 .navi{
-	height: 70px;
-	display: flex;
-	align-items: center;
-	padding-left: 8%;
-	padding-right: 8%;
-	
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    padding-right: 8%;
+    
 }
 .logo{
-	width: 40px;
-	cursor: pointer;
-	
+    width: 40px;
+    cursor: pointer;
+    
 }
 .logo2{
-	width: 200px;
-	cursor: pointer;
-	padding-left: 20px;
-	background-size: cover;
-	
+    width: 200px;
+    cursor: pointer;
+    padding-left: 20px;
+    background-size: cover;
+    
 }
 nav{
-	flex: 1;
-	text-align: right;
+    flex: 1;
+    text-align: right;
 }
 nav ul li{
-	list-style: none;
-	display: inline-block;
-	margin-left: 60px;
+    list-style: none;
+    display: inline-block;
+    margin-left: 60px;
 }
 nav ul li a{
-	text-decoration: none;
-	color: white;
-	text-transform: uppercase;
-	font-size: 18px;
-	padding: 25px;
-	transition: ease 0.3s;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 14px;
+    transition: ease 0.2s;
+    font-weight: bold;
+    font-family: Roboto;
 }
 nav ul li a:hover{
-	background-color: #66FF66;
+    background-color: red;
 }
 .banner{
-	box-sizing: border-box;
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
 }
 h1{
-	position: absolute;
-	width: 100%;
-	top: 16%;
-	text-align: center;
-	font-size: 60px;
-	font-weight: 50px;
-	color: black;
+    position: absolute;
+    width: 100%;
+    top: 16%;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: black;
 }
 .logoMain{
-	position: absolute;
-	width: 185px;
-	top: 40%;
+    position: absolute;
+    width: 185px;
+    top: 40%;
 }
 .button1{
-	background: green;
-	color: white;
-	font-size: 23px;
-	text-decoration: none;
-	text-align: center;
-	cursor: pointer;
-	position: absolute;
-	border: 2px solid black;
-	border-radius: 10px;
-	margin: 18px;
-	padding: 18px 60px;
-	display: inline-block;
-	top: 83%;
+    background: maroon;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 18px;
+    padding: 18px 60px;
+    display: inline-block;
+    top: 83%;
+    font-weight: bold;
+    font-family: Roboto;
 }
 .footer{
-	position: relative;
-	bottom: 0;
-	left: 0;
-	top: 100px;
-	width: 100%;
-	height: 65px;
-	background-color: green;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    height: 65px;
+    background-color: maroon;
 }
 .footer p1{
-	position: absolute;
-	color: lightgrey;
-	top: 26px;
-	padding-left: 4%;
-	font-size: 14px;
+    position: absolute;
+    color: lightgrey;
+    top: 26px;
+    padding-left: 4%;
+    font-size: 14px;
 
 }
 .footer p2{
-	position: relative;
-	color: white;
-	top: 26px;
-	padding-right: 4%;
-	font-size: 14px;
-	margin-left: 85%;
-	text-align: right;
+    position: relative;
+    color: white;
+    top: 26px;
+    padding-right: 4%;
+    font-size: 14px;
+    margin-left: 85%;
+    text-align: right;
 }
 footer{
     flex-shrink: 0;
 }
 
 /* login form styling */
-
-.form-container .header{
-    margin-bottom: 15px;
-    font-size: 30px;
+.logo-login {
+    width: 280px;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: -60px;
 }
 
-.form-container{
+.form-container .header {
+    margin-bottom: 35px;
+    font-size: 40px;
+    text-align: center;
+    margin-top: -150px;
+    font-weight: bold;
+    font-family: Roboto;
+}
+
+.form-container {
     max-width: 500px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: -500px;
+    margin-bottom: 50px;
     padding: 50px;
     text-align: center;
-    background: lightgrey;
+    background: white;
+    border: 3px solid maroon;
+    border-radius: 20px;
 }
-.form-container .form-content input[type='text']{
-    margin-bottom: 15px;
-    width: 50%;
+
+.form-container .form-content input[type='text'],
+.form-container .form-content input[type='password'] {
+    margin-bottom: 30px;
+    width: 70%;
     height: 40px;
     font-size: 15px;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 1px solid;
-
-    outline: none;;
-}
-.form-container .form-content input[type='password']{
-    margin-bottom: 15px;
-    width: 50%;
-    height: 40px;
-    font-size: 15px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid;
-
     outline: none;
+
 }
-.form-container .form-content input[type='submit']{
+
+.form-container .form-content input[type='submit'] {
     margin-bottom: 15px;
     width: 50%;
-    height: 40px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 20px;
     border: none;
-    background-color: green;
+    background-color: maroon;
     transition: ease 0.3s;
     cursor: pointer;
-    font-family: "Times New Roman", Times, serif;
+    color: white;
+    font-weight: bold;
+    font-family: Roboto;
 }
-.form-container .form-content input[type='submit']:hover{
-    background-color: #66FF66;
+
+.form-container .form-content input[type='submit']:hover {
+    background-color: red;
 }
 
 /* signup page styling */
 
 .form-container .form-content-signup input[type='text']{
     margin-bottom: 15px;
-    width: 50%;
+    width: 65%;
     height: 40px;
     font-size: 15px;
     border-top: none;
@@ -192,7 +206,7 @@ footer{
 }
 .form-container .form-content-signup input[type='password']{
     margin-bottom: 15px;
-    width: 50%;
+    width: 65%;
     height: 40px;
     font-size: 15px;
     border-top: none;
@@ -205,14 +219,78 @@ footer{
 .form-container .form-content-signup input[type='submit']{
     margin-bottom: 15px;
     width: 50%;
-    height: 40px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 20px;
     border: none;
-    background-color: green;
+    background-color: maroon;
     transition: ease 0.3s;
     cursor: pointer;
-    font-family: "Times New Roman", Times, serif;
+    color: white;
+    font-weight: bold;
+    font-family: Roboto;
 }
 .form-container .form-content-signup input[type='submit']:hover{
-    background-color: #66FF66;
+    background-color: red;
+}
+
+/* search bar */
+.logo-searchbar {
+    width: 280px;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: -60px;
+}
+.instruction-text {
+    color: maroon;
+    font-weight: bold;
+}
+.searchform-container .header2 {
+    margin-bottom: 35px;
+    font-size: 19px;
+    text-align: center;
+    margin-top: -150px;
+    font-family: Roboto;
+}
+
+.searchform-container {
+    max-width: 800px;
+    margin: auto;
+    margin-top: -650px;
+    margin-bottom: 80px;
+    padding: 50px;
+    text-align: center;
+    background: white;
+    border: 3px solid maroon;
+    border-radius: 20px;
+    align-items: center;
+}
+.searchform-container .searchform-content input[type='text']{
+    margin-bottom: 30px;
+    width: 58%;
+    height: 45px;
+    font-size: 18px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid;
+    outline: none;
+}
+.searchform-container .searchform-content input[type='submit'] {
+    margin-bottom: 15px;
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    background-color: maroon;
+    transition: ease 0.3s;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-family: Roboto;
+}
+
+.searchform-container .searchform-content input[type='submit']:hover {
+    background-color: red;
 }

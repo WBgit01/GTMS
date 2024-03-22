@@ -9,10 +9,11 @@ include_once 'layout_head.php';
 <form action="">
     <div class="form-container">
         <div class="header">
-            <span>Signin</span>
+            <img src="IMG/GTMS_logo1.png" class="logo-login">
+            <span>Login</span>
         </div>
         <div class="form-content">
-            <input type="text" name='email' placeholder="Username" required><br>
+            <input type="text" name='email' placeholder="School ID" required><br>
             <input type="password" name='password' placeholder="Password" required><br>
             <input type="submit" value='LOGIN'><br>
             forgot password? <a href="">HERE!</a>
