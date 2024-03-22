@@ -1,8 +1,15 @@
 <?php
+include_once "config/database.php";
+include_once "config/core.php";
+
 
 $page_title = "Login";
 include_once 'layout_head.php';
+
+
 ?>
+
+
 
 <!-- html form here -->
 

@@ -191,7 +191,6 @@ footer{
 }
 
 /* signup page styling */
-
 .form-container .form-content-signup input[type='text']{
     margin-bottom: 15px;
     width: 65%;
@@ -233,7 +232,9 @@ footer{
     background-color: red;
 }
 
-/* search bar */
+
+
+/* search bar styling */
 .logo-searchbar {
     width: 280px;
     cursor: pointer;
@@ -257,7 +258,7 @@ footer{
 .searchform-container {
     max-width: 800px;
     margin: auto;
-    margin-top: -650px;
+    margin-top: -510px;
     margin-bottom: 80px;
     padding: 50px;
     text-align: center;
