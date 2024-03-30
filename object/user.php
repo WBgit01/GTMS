@@ -85,6 +85,42 @@ class User{
 
 
 
+	//////
+	function emailExists(){
+
+		$query = "SELECT id, firstname, lastname, access_level, password
+					FROM " . $this->table_name . "
+					WHERE email_address = ? OR student_id = ?
+					LIMIT 0, 1";
+		
+		$stmt = $this->conn->prepare($query);
+		
+		$this->email_address = htmlspecialchars(strip_tags($this->email_address));
+		$this->student_id = htmlspecialchars(strip_tags($this->student_id));
+
+		$stmt->bindParam(1, $this->email_address);
+		$stmt->bindParam(2, $this->student_id);
+
+		$stmt->execute();
+		
+		$num = $stmt->rowCount();
+
+		if ($num>0) {
+			$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			$this->id = $row['id'];
+			$this->firstname = $row['firstname'];
+			$this->lastname = $row['lastname'];
+			$this->access_level = $row['access_level'];
+			$this->password = $row['password'];
+			
+			return true;
+		}
+		return false;
+	}
+
+
+
 
 
 

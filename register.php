@@ -12,7 +12,9 @@ $user = new User($db);
 $page_title = "Register";
 include_once 'layout_head.php';
 
-echo "<div class='alert-message'>here</div>";
+echo "<div class='alert-message'>";
+    echo "<span>Messages Here</span>";
+echo "</div>";
 if ($_POST) {
 
     $user->firstname = $_POST['firstname'];
