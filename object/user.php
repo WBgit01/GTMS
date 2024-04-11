@@ -119,6 +119,29 @@ class User{
 		return false;
 	}
 
+	function checkemailExists(){
+
+		$query = "SELECT id
+					FROM " . $this->table_name . "
+					WHERE email_address = ?
+					LIMIT 0, 1";
+		
+		$stmt = $this->conn->prepare($query);
+		
+		$this->email_address = htmlspecialchars(strip_tags($this->email_address));
+
+		$stmt->bindParam(1, $this->email_address);
+
+		$stmt->execute();
+		
+		$num = $stmt->rowCount();
+
+		if ($num>0) {
+			return true;
+		}
+		return false;
+	}
+
 
 
 

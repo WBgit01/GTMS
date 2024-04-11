@@ -5,7 +5,7 @@
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<!-- <li><a href="tracking.php">Track</a></li> -->
-					<li><a href="login.php">Login</a></li>
+					<li><a href="login.php?action=login_required">Login</a></li>
 					<li><a href="register.php">SignUp</a></li>
 				</ul>
 			</nav>

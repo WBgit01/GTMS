@@ -2,9 +2,9 @@
 
 include_once "../config/core.php";
 
+
 $require_login = true;
 include_once "../login_checker.php";
-
 ?>
 
 

@@ -54,7 +54,7 @@ if($_POST){
             <input type="text" name='email_address' placeholder="School ID/Username" required><br>
             <input type="password" name='password' placeholder="Password" required><br>
             <input type="submit" value='LOGIN'><br>
-            forgot password? <a href="">HERE!</a>
+            Forgot password? <a href="forgot_password.php">HERE!</a>
         </div>
     </div>
 </form>

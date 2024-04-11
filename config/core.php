@@ -4,7 +4,6 @@ error_reporting(E_ALL);
 
 // start php session
 session_start();
-echo print_r($_SESSION);
 
 
 // set your default time-zone

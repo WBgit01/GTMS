@@ -22,14 +22,14 @@ if ($_POST) {
     $user->email_address = $_POST['email_address'];
     $user->password = $_POST['password'];
     $user->student_id = "22b093";
-    $user->access_level = "Admin";
+    $user->access_level = "Student";
 
     if ($user->createUser()) {
            // style this shit
         echo "<div class='alert-message-success'>";
             echo "Registration Success!.";
         echo "</div>";
-    }else{
+    }elseif(){
         echo "<div class='alert-message-failed'>";
             echo "Registration Failed, Please Try Again.";
         echo "</div>";
