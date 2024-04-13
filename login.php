@@ -17,7 +17,7 @@ include_once 'head_layout.php';
                         <form action="#">
                             <h3>Login</h3>
                             <div class="input_box">
-                                <input type="email" placeholder="Enter your email" required/>
+                                <input type="email" placeholder="Enter Email or Student ID" required/>
                                 <i class="fa-regular fa-envelope email"></i>
                             </div>
                             <div class="input_box">

@@ -14,34 +14,29 @@
         <ul class="menu">
             <li class="dash">
                 <a href="#">
-                    <i class="fa-regular fa-rectangle-list"></i>
+                    <i class="fa-brands fa-dashcube"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Profile</span>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Sales</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa-solid fa-file-circle-question"></i>
-                    <span>Example1</span>
+                    <i class="fa-regular fa-rectangle-list"></i>
+                    <span>Product List</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <i class="fa-solid fa-file-circle-question"></i>
-                    <span>Example2</span>
+                    <i class="fa-solid fa-users"></i>
+                    <span>Users</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-file-circle-question"></i>
-                    <span>Example3</span>
-                </a>
-            </li>
+
             <li class="logout">
                 <a href="#">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
