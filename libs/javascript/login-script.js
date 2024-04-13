@@ -1,22 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     // CLOSE THE FORM TRANSFER TO INDEX.PHP
-    document.querySelector('.form_close').addEventListener('click', function() {
-        document.querySelector('.form_center').classList.remove('show');
-        window.location.href = 'index.php';
-    });
-
-    // TOGGLE SIGNUP TO LOGIN
-    document.getElementById('signup').addEventListener('click', function() {
-        document.querySelector('.login_form').style.display = 'none';
-        document.querySelector('.signup_form').style.display = 'block';
-        document.querySelector('.form_center').classList.add('show');
+    document.querySelectorAll('.form_close').forEach(closeButton => {
+        closeButton.addEventListener('click', function() {
+            this.closest('.form_center').classList.remove('show');
+            window.location.href = 'index.php';
+        });
     });
 
     // TOGGLE LOGIN TO SIGNUP FORM
-    document.getElementById('login-link').addEventListener('click', function() {
-        document.querySelector('.signup_form').style.display = 'none';
-        document.querySelector('.login_form').style.display = 'block';
-        document.querySelector('.form_center').classList.add('show');
+    document.querySelectorAll('.login-link').forEach(loginLink => {
+        loginLink.addEventListener('click', function() {
+            this.closest('.form_container').querySelector('.signup_form').style.display = 'none';
+            this.closest('.form_container').querySelector('.login_form').style.display = 'block';
+            this.closest('.form_center').classList.add('show');
+        });
+    });
+
+    // TOGGLE VISIBILITY OF SIGNUP FORM
+    document.querySelectorAll('.signup').forEach(signupButton => {
+        signupButton.addEventListener('click', function() {
+            // Toggle visibility of the signup form
+            document.querySelector('.signup_form').classList.toggle('show');
+        });
+    });
+
+    // REDIRECT TO REGISTER.PHP WHEN SIGNUP BUTTON CLICKED
+    document.querySelectorAll('.signup').forEach(signupButton => {
+        signupButton.addEventListener('click', function() {
+            window.location.href = 'register.php';
+        });
     });
 
     // SHOW/HIDE PASSWORD
