@@ -1,5 +1,4 @@
 <?php
-
 class Database{
 
 	private $host = "localhost";
@@ -16,7 +15,6 @@ class Database{
 		echo "Connection ERROR: " . $exception->getMessage();
 	}
 	return $this->conn;
+    }
 }
-}
-
 ?>

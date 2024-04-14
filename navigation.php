@@ -1,13 +1,22 @@
-<div class="navi">
-			<img src="IMG/MSC_Logo.png" class="logo">
-			<img src="IMG/GTMS_logo2.png" class="logo2">
-			<nav>
-				<ul>
-					<li><a href="index.php">Home</a></li>
-					<!-- <li><a href="tracking.php">Track</a></li> -->
-					<li><a href="login.php?action=login_required">Login</a></li>
-					<li><a href="register.php">SignUp</a></li>
-				</ul>
-			</nav>
-		</div>	
-	</div>
+<header>
+    <div class="navi">
+        <div class="logo">
+            <a href="index.php">
+                GTMS PORTAL
+            </a>
+        </div>
+        <ul class="links">
+            <li><a href="about.php">About</a></li>
+            <li><a href="services.php">Services</a></li>
+            <li><a href="contact.php">Contact</a></li>
+        </ul>
+        <div class="toggle_btn">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+    </div>
+    <div class="drop-menu">
+        <li><a href="about.php">About</a></li>
+        <li><a href="services.php">Services</a></li>
+        <li><a href="contact.php">Contact</a></li>
+    </div>
+</header>

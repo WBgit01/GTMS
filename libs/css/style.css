@@ -1,299 +1,368 @@
-body{
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0)), url(../../IMG/MSC_background3.jpg);
-    font-family: "Times New Roman", Times, serif;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Roboto;
 }
-.container{
-    width: 100%;
-    height: 100vh;
-    background-position: center;
-    background-size: cover;
-    box-sizing: border-box;
+body{
+	min-height: 100vh; /* Ensure body takes at least full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Push footer to the bottom */
+	height: 100vh;
+	background-color: black;
+	background-image: url("../../IMG/MSC_background2.jpg");
+	background-size: cover;
+	background-position: center;
+} 
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: white;
+	font-size: 1.2rem;
+}
+a:hover{
+	color: orange;
+	
+}
+/* HEADER STYLING */
+header{
+	position: relative;
+	padding: 0 2rem;
 
 }
 .navi{
-    box-sizing: border-box;
-    background-color: maroon;
-    background-size: cover;
+	width: 100%;
+	height: 60px;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
-.navi{
-    height: 80px;
-    display: flex;
-    align-items: center;
-    padding-left: 8%;
-    padding-right: 8%;
-    
+.logo_nav{
+	width: 2.1rem;
+	height: auto;
+	margin-right: 10px;
+	vertical-align: middle;
 }
-.logo{
-    width: 40px;
-    cursor: pointer;
-    
+.navi .logo a{
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+.navi .links{
+	display: flex;
+	gap: 2rem;
+
+}
+.navi .toggle_btn{
+	color: white;
+	font-size: 1.5rem;
+	cursor: pointer;
+	display: none;
+}
+
+/* DROP-MENU STYLING */
+.drop-menu{
+	display: none;
+	position: absolute;
+	right: 2rem;
+	top: 60px;
+	height: 0;
+	width: 300px;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(15px);
+	border-radius: 10px;
+	overflow: hidden;
+	transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	cursor: pointer;
+}
+.drop-menu.open{
+	height: auto;
+	z-index: 2;
+}
+.drop-menu li{
+	padding: 0.7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* CONTENT1 - STYLING */
+section#content1{
+	height: calc(100vh - 60px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+	opacity: 0; /* Set initial opacity to 0 */
+    animation: fadeIn 1s ease forwards; /* Define animation */
+}
+
+/* CONTENT1 - ANIMATION */
+#content1 {
+    max-height: calc(100vh - 60px); /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start opacity from 0 */
+    }
+    to {
+        opacity: 1; /* End opacity to 1 */
+    }
+}
+
+#content1 h1{
+	font-size: 3.5rem;
+	margin-bottom: 1rem;
+	animation: slideInFromTop 1s ease forwards;
+}
+
+/* CONTENT1 H1 - ANIMATION */
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 .logo2{
-    width: 200px;
-    cursor: pointer;
-    padding-left: 20px;
-    background-size: cover;
-    
+	max-width: 10rem;
+    height: auto;
+    margin-bottom: 20px;
+    z-index: 1;
+    animation: fadeIn 1.5s ease forwards;
 }
-nav{
-    flex: 1;
-    text-align: right;
+p{
+	font-size: 1.2rem;
+	animation: fadeIn 1s ease forwards;
 }
-nav ul li{
-    list-style: none;
-    display: inline-block;
-    margin-left: 60px;
+.action_btn{
+	background-color: red;
+	color: white;
+	padding: 1rem 2rem;
+	border: none;
+	outline: none;
+	border-radius: 20px;
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: scale 0.2 ease;
 }
-nav ul li a{
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    font-size: 18px;
-    padding: 14px;
-    transition: ease 0.2s;
-    font-weight: bold;
-    font-family: Roboto;
+.action_btn:hover{
+	scale: 1.05;
+	color: red;
+	background-color: white;
 }
-nav ul li a:hover{
-    background-color: red;
+.action_btn:active{
+	scale: 0.95;
 }
-.banner{
-    box-sizing: border-box;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    
+#content1 .action_btn {
+    margin-top: 20px; /* Adjust as needed */
 }
-h1{
-    position: absolute;
-    width: 100%;
-    top: 16%;
-    text-align: center;
-    font-size: 60px;
-    font-weight: bold;
-    color: black;
-}
-.logoMain{
-    position: absolute;
-    width: 185px;
-    top: 40%;
-}
-.button1{
-    background: maroon;
-    color: white;
-    font-size: 24px;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    position: absolute;
-    border: 2px solid black;
-    border-radius: 10px;
-    margin: 18px;
-    padding: 18px 60px;
-    display: inline-block;
-    top: 83%;
-    font-weight: bold;
-    font-family: Roboto;
-}
+
+/* FOOTER STYLING */
 .footer{
-    position: relative;
+    position: fixed; /* Fixed position */
     bottom: 0;
     left: 0;
-    top: 100px;
     width: 100%;
-    height: 65px;
+    height: 50px;
     background-color: maroon;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 999;
 }
 .footer p1{
-    position: absolute;
     color: lightgrey;
-    top: 26px;
-    padding-left: 4%;
-    font-size: 14px;
-
+    font-size: 12px;
 }
 .footer p2{
-    position: relative;
-    color: white;
-    top: 26px;
-    padding-right: 4%;
-    font-size: 14px;
-    margin-left: 85%;
-    text-align: right;
+	color: lightgrey;
+    font-size: 12px;
 }
-footer{
-    flex-shrink: 0;
+main {
+    margin-bottom: 65px;
 }
 
-/* login form styling */
-.logo-login {
-    width: 280px;
-    cursor: pointer;
-    margin: auto;
-    display: block;
-    margin-top: 40px;
-    margin-bottom: -60px;
+/* LOGIN - SIGNUP STYLING */
+.form_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
+    pointer-events: auto;
+}
+.form_center.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
-.form-container .header {
-    margin-bottom: 35px;
-    font-size: 40px;
-    text-align: center;
-    margin-top: -150px;
-    font-weight: bold;
-    font-family: Roboto;
-}
-
-.form-container {
-    max-width: 500px;
-    margin: auto;
-    margin-top: -500px;
-    margin-bottom: 50px;
-    padding: 50px;
-    text-align: center;
+/* FORM_CONTAINER ANIMATION - LOGIN/SIGNUP */
+.form_container {
+    max-width: 420px;
+    width: 100%;
     background: white;
-    border: 3px solid maroon;
-    border-radius: 20px;
-}
-
-.form-container .form-content input[type='text'],
-.form-container .form-content input[type='password'] {
-    margin-bottom: 30px;
-    width: 70%;
-    height: 40px;
-    font-size: 15px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid;
-    outline: none;
-
-}
-
-.form-container .form-content input[type='submit'] {
-    margin-bottom: 15px;
-    width: 50%;
-    height: 50px;
-    font-size: 20px;
-    border: none;
-    background-color: maroon;
-    transition: ease 0.3s;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-family: Roboto;
-}
-
-.form-container .form-content input[type='submit']:hover {
-    background-color: red;
-}
-
-/* signup page styling */
-.form-container .form-content-signup input[type='text']{
-    margin-bottom: 15px;
-    width: 65%;
-    height: 40px;
-    font-size: 15px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid;
-
-    outline: none;;
-}
-.form-container .form-content-signup input[type='password']{
-    margin-bottom: 15px;
-    width: 65%;
-    height: 40px;
-    font-size: 15px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid;
-
-    outline: none;
-}
-.form-container .form-content-signup input[type='submit']{
-    margin-bottom: 15px;
-    width: 50%;
-    height: 50px;
-    font-size: 20px;
-    border: none;
-    background-color: maroon;
-    transition: ease 0.3s;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-family: Roboto;
-}
-.form-container .form-content-signup input[type='submit']:hover{
-    background-color: red;
-}
-
-
-
-/* search bar styling */
-.logo-searchbar {
-    width: 280px;
-    cursor: pointer;
+    padding: 65px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1);
     margin: auto;
-    display: block;
-    margin-top: 40px;
-    margin-bottom: -60px;
+    animation: fadeIn 0.5s ease forwards; 
+    opacity: 0; 
 }
-.instruction-text {
-    color: maroon;
-    font-weight: bold;
-}
-.searchform-container .header2 {
-    margin-bottom: 35px;
-    font-size: 19px;
-    text-align: center;
-    margin-top: -150px;
-    font-family: Roboto;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1; 
+    }
 }
 
-.searchform-container {
-    max-width: 800px;
-    margin: auto;
-    margin-top: -510px;
-    margin-bottom: 80px;
-    padding: 50px;
-    text-align: center;
-    background: white;
-    border: 3px solid maroon;
-    border-radius: 20px;
-    align-items: center;
+.form_close{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	color: black;
+	font-size: 22px;
+	opacity: 0.7;
+	cursor: pointer;
 }
-.searchform-container .searchform-content input[type='text']{
-    margin-bottom: 30px;
-    width: 58%;
-    height: 45px;
-    font-size: 18px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid;
-    outline: none;
+.form_container h3{
+	font-size: 24px;
+	color: black;
+	text-align: center;
 }
-.searchform-container .searchform-content input[type='submit'] {
-    margin-bottom: 15px;
-    width: 50%;
-    height: 50px;
-    font-size: 20px;
-    border: none;
-    background-color: maroon;
-    transition: ease 0.3s;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-family: Roboto;
+.input_box{
+	position: relative;
+	width: 100%;
+	height: 40px;
+	margin-top: 30px;
+}
+.input_box input{
+	height: 100%;
+	width: 100%;
+	border: none;
+	border-bottom: 1.5px solid black;
+	outline: none;
+	padding: 0 50px;
+	color: gray;
+	transition: 0.2s ease;
+}
+.input_box input:focus{
+	border-color: red;
+}
+.input_box input:focus ~ i.name,
+.input_box input:focus ~ i.email,
+.input_box input:focus ~ i.password{
+	color: red;
+}
+.input_box i{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+}
+.input_box i.name,
+.input_box i.email,
+.input_box i.password{
+	left: 0;
+	color: gray;
+}
+.input_box i.pwhide{
+	right: 0;
+	font-size: 18px;
+	cursor: pointer;
+}
+.option_field{
+	margin-top: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+} 
+.form_container a{
+	color: red;
+	font-size: 12px;
+}
+.form_container a:hover{
+	text-decoration: underline;
+}
+.checkbox{
+	display: flex;
+	column-gap: 8px;
+	white-space: nowrap;
+}
+.checkbox input{
+	accent-color: red;
+}
+.checkbox label{
+	font-size: 12px;
+	color: black;
+	user-select: none;
+	cursor: pointer;
+}
+.form_container .btn1{
+	background: red;
+	margin-top: 30px;
+	width: 100%;
+	padding: 10px 0;
+	border-radius: 10px;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+.login_signup{
+	font-size: 12px;
+	text-align: center;
+	margin-top: 14px;
 }
 
-.searchform-container .searchform-content input[type='submit']:hover {
-    background-color: red;
+/* RESPONSIVE STYLING */
+@media(max-width: 992px){
+	.navi .links,
+	.navi .action_btn{
+		display: none;
+	}
+	.navi .logo1{
+		display: none;
+	}
+	.navi .toggle_btn{
+		display: block;
+	}
+	.drop-menu{
+		display: block;
+	}
+    #content1 .action_btn {
+        margin-top: 10px;
+    }
 }
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 10px;
+    }
+    .footer p {
+        margin: 5px 0;
+        text-align: center;
+    }
 
-
+}
+@media(max-width: 576px){
+	.drop-menu{
+		left: 2rem;
+		width: unset;
+	}
+	#content1 .action_btn {
+        margin-top: 5%;
+    }
+}

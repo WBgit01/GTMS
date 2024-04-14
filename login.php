@@ -1,62 +1,56 @@
-<?php
-include_once "config/core.php";
-
-
+<?php 
 $page_title = "Login";
-$require_login = false;
-include_once "login_checker.php";
-$access_denied = false;
-include_once 'layout_head.php';
-
-if($_POST){
-    include_once "config/database.php";
-    include_once "object/user.php";
-
-    $database = new Database();
-    $db = $database->getConnection();
-
-    $user = new User($db);
-
-    $user->email_address=$_POST['email_address'];
-    $user->student_id = $_POST['email_address'];
-
-    $email_exists_or_studentid_exist = $user->emailExists();
-    
-    //validate the login creds
-    
-    if ($email_exists_or_studentid_exist && password_verify($_POST['password'], $user->password)) {
-        $_SESSION['firstname'] = $user->firstname;
-        $_SESSION['lastname'] = $user->lastname;
-        $_SESSION['access_level'] = $user->access_level;
-
-        if ($user->access_level == "Admin") {
-            header("location:{$home_url}admin/index.php?action=login_success");
-        }else{
-            header("location:{$home_url}index.php?action=login_success");
-        }
-    }else{
-        $access_denied = true;
-    }
-}
-
+include_once "config/database.php";
+include_once "config/core.php";
+include_once 'head_layout.php';
 ?>
 
-<!-- html form here -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $page_title; ?></title>
+    <link rel="stylesheet" href="libs/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="form_center">
+        <div class="form_container">
+            <i class="fa-solid fa-xmark form_close"></i>
+            <!-- LOGIN FORM -->
+            <div class="form login_form">
+                <form action="#">
+                    <h3>Login</h3>
+                    <div class="input_box">
+                        <input type="text" placeholder="Enter Email or Student ID" required/>
+                        <i class="fa-regular fa-envelope email"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Enter your password" required/>
+                        <i class="fa-solid fa-lock password"></i>
+                        <i class="fa-regular fa-eye-slash pwhide"></i>
+                    </div>
+                    
+                    <div class="option_field">
+                        <span class="checkbox">
+                            <input type="checkbox" id="check"/>
+                            <label for="check">Remember me</label>
+                        </span>
+                        <a href="#" class="forgot_pw">Forgot password?</a>
+                    </div>
 
-<form action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST">
-    <div class="form-container">
-        <?php include_once "alert-messages.php"; ?>
-        <div class="header">
-            <img src="IMG/GTMS_logo1.png" class="logo-login">
-            <span>Login</span>
-        </div>
-        <div class="form-content">
-            <input type="text" name='email_address' placeholder="School ID/Username" required><br>
-            <input type="password" name='password' placeholder="Password" required><br>
-            <input type="submit" value='LOGIN'><br>
-            Forgot password? <a href="forgot_password.php">HERE!</a>
+                    <button class="btn1" id="form-open">Login Now</button>
+
+                    <div class="login_signup">
+                        Don't have an account? <a href="#" class="signup">Signup</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</form>
 
-<?php include_once 'layout_foot.php' ?>
+    <script src="libs/javascript/script.js"></script>
+    <script src="libs/javascript/login-script.js"></script>
+</body>
+
+
+<?php include_once 'footer_layout.php' ?>
