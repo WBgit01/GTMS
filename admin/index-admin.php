@@ -1,5 +1,10 @@
-<?php include_once'sidebar.php'?>
-<body>
+<?php 
+
+include_once 'layout_head.php';
+include_once 'sidebar.php'; 
+
+
+?>
   <!-- MAIN CONTENT||BODY -->
     <div class="main_content">
         <div class="header_wrapper">
@@ -12,7 +17,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Search">
                 </div>
-                <a href="#"><img src="IMG/Admin.jpg" alt=""></a> <!-- admin-image -->
+                <a href="#"><img src="../IMG/Admin.jpg" alt=""></a> <!-- admin-image -->
             </div>
         </div>
 
@@ -116,4 +121,4 @@
             </div>
         </div>
     </div>
-</body>
+<?php include_once 'layout_foot.php'; ?>

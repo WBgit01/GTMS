@@ -75,8 +75,7 @@ if ($_POST) {
     </div> 
 </div>
 
-<script src="libs/javascript/script.js"></script>
-<script src="libs/javascript/login-script.js"></script>
+
 </body>
 </html>
 
