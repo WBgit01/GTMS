@@ -13,25 +13,25 @@
         <div class="logo"></div>
         <ul class="menu">
             <li class="dash">
-                <a href="#">
+                <a href="index-admin.php">
                     <i class="fa-brands fa-dashcube"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="sales.php">
                     <i class="fa-solid fa-chart-simple"></i>
                     <span>Sales</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="product_list.php">
                     <i class="fa-regular fa-rectangle-list"></i>
                     <span>Product List</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="users_admin.php">
                     <i class="fa-solid fa-users"></i>
                     <span>Users</span>
                 </a>
