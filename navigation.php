@@ -2,6 +2,7 @@
     <div class="navi">
         <div class="logo">
             <a href="index.php">
+                <img src="IMG/GTMS_Logo3.png" class="logo_nav">
                 GTMS PORTAL
             </a>
         </div>
