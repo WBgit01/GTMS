@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GTMS-Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="libs/css/style.css">
 </head>
@@ -13,16 +14,3 @@
 		<?php include_once 'navigation.php'; ?>
 	</div>
 
-    
-        <?php 
-            if ($page_title == "Index"){
-                echo "<div class='banner'>";
-                echo "<h1> Garments Transaction Management System</h1>";
-                echo "<img src='IMG/MSC_Logo.png' class='logoMain'>";
-                echo "<a class='button1' href='login.php'>START</a>";
-                
-            }elseif ($page_title=="Login") {
-                
-            }
-        ?>
-        

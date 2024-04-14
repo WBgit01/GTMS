@@ -1,6 +1,9 @@
 <?php
 $page_title = "Index";
-include_once 'head_layout.php';?>
+include_once 'layout_head.php';
+
+
+?>
 
 	<main>
 		<section id="content1">
@@ -12,7 +15,4 @@ include_once 'head_layout.php';?>
 		</section>
 	</main>
 
-	<script src="libs/javascript/script.js"></script>
-
-<?php
-	include_once 'footer_layout.php'?>
+<?php include_once 'layout_foot.php'?>

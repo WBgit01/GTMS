@@ -20,11 +20,12 @@ li{
 }
 a{
 	text-decoration: none;
-	color: white;
+	color: black;
 	font-size: 1.2rem;
 }
 a:hover{
 	color: orange;
+	transition: ease-in 0.3s;
 	
 }
 /* HEADER STYLING */
@@ -51,10 +52,17 @@ header{
 .navi .logo a{
 	font-size: 1.4rem;
 	font-weight: bold;
+	color: black;
+}
+.navi .logo a:hover{
+	color: orange;
+	transition: ease-in 0.3s;
 }
 .navi .links{
 	display: flex;
 	gap: 2rem;
+	color: black;
+	transition: ease-out 0.3s;
 
 }
 .navi .toggle_btn{

@@ -1,14 +1,14 @@
 <?php
-$page_title = "Register";
+
 include_once "config/database.php";
 include_once "config/core.php";
-include_once 'head_layout.php';
 include_once "object/user.php";
 
 $database = new Database;
 $db = $database->getConnection();
 $user = new User($db);
 $page_title = "Register";
+include_once 'layout_head.php';
 
 echo "<div class='alert-message'>here</div>";
 
@@ -31,14 +31,6 @@ if ($_POST) {
     }
 } 
 ?>
-
-
-<head>
-    <title><?php echo $page_title; ?></title>
-    <link rel="stylesheet" href="libs/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
 <div class="form_center">
     <div class="form_container">
         <i class="fa-solid fa-xmark form_close"></i>
@@ -75,9 +67,4 @@ if ($_POST) {
     </div> 
 </div>
 
-<script src="libs/javascript/script.js"></script>
-<script src="libs/javascript/login-script.js"></script>
-</body>
-</html>
-
-<?php include_once 'footer_layout.php' ?>
+<?php include_once 'layout_foot.php' ?>
