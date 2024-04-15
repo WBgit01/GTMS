@@ -18,23 +18,8 @@ class User{
 		$this->conn = $db;
 	}
 
-	function idGenerator() {
-	    while (true) {
-	        yield '22' . chr(rand(97, 122)) . substr(md5(uniqid(mt_rand(), true)), 0, 5);
-	    }
-	    $generator = idGenerator();
-
-		// Generate IDs
-		for ($i = 0; $i < 10; $i++) {
-		    echo $generator->current() . "\n";
-		    $generator->next();
-		}
-	}
-
-
-
-
 	function createUser(){
+
 		
 		$this->created = date('Y-m-d H:i:s');
 
@@ -54,7 +39,6 @@ class User{
 		//sanitize
 		$this->firstname=htmlspecialchars(strip_tags($this->firstname));
 		$this->lastname=htmlspecialchars(strip_tags($this->lastname));
-		$this->student_id=htmlspecialchars(strip_tags($this->student_id));
 		$this->access_level=htmlspecialchars(strip_tags($this->access_level));
 		$this->email_address=htmlspecialchars(strip_tags($this->email_address));
 		$this->password=htmlspecialchars(strip_tags($this->password));
@@ -62,9 +46,15 @@ class User{
 		//password hash
 		$password_hash = password_hash($this->password, PASSWORD_BCRYPT);
 
+		// generate Student ID
+		$digits = str_pad(mt_rand(0, 99), 2, '0', STR_PAD_LEFT);
+		$randomNumber = str_pad(mt_rand(0, 999), 3, '0', STR_PAD_LEFT);
+		$generated_student_id = $digits . 'b' . $randomNumber;
+
+
 		$stmt->bindParam(':firstname', $this->firstname);
 		$stmt->bindParam(':lastname', $this->lastname);
-		$stmt->bindParam(':student_id', $this->student_id);
+		$stmt->bindParam(':student_id', $generated_student_id);
 		$stmt->bindParam(':access_level', $this->access_level);
 		$stmt->bindParam(':email_address', $this->email_address);
 		$stmt->bindParam(':password', $password_hash);

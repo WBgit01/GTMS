@@ -1,3 +1,5 @@
+    </div> 
+</div>
 <!-- chipi chapa -->
 <div class="footer">
         <p1>GTMS ©2024</p1>
