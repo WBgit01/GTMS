@@ -11,7 +11,7 @@ body{
     justify-content: space-between; /* Push footer to the bottom */
 	height: 100vh;
 	background-color: black;
-	background-image: url("../../IMG/background6.jpeg");
+	background-image: url("../../IMG/background6.jpg");
 	background-size: cover;
 	background-position: center;
 } 
