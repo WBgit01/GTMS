@@ -43,9 +43,9 @@ header{
 	justify-content: space-between;
 }
 .logo_nav{
-	width: 2.1rem;
+	width: 4.2rem;
 	height: auto;
-	margin-right: 10px;
+	margin-right: 3px;
 	vertical-align: middle;
 }
 .navi .logo a{
@@ -133,7 +133,7 @@ section#content1{
     }
 }
 .logo2{
-	max-width: 10rem;
+	max-width: 13.5rem;
     height: auto;
     margin-bottom: 20px;
     z-index: 1;
