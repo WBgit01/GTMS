@@ -30,7 +30,7 @@ if($_POST){
         $_SESSION['access_level'] = $user->access_level;
 
         if ($user->access_level == "Admin") {
-            header("location:{$home_url}admin/index.php?action=login_success");
+            header("location:{$home_url}admin/index-admin.php?action=login_success");
         }else{
             header("location:{$home_url}index.php?action=login_success");
         }
@@ -54,7 +54,7 @@ include_once 'alert-messages.php';
             </div>
 
             <div class="input_box">
-                <input type="password" placeholder="Enter your password" required/>
+                <input type="password" name="password" placeholder="Enter your password"  required/>
                 <i class="fa-solid fa-lock password"></i>
                 <i class="fa-regular fa-eye-slash pwhide"></i>
             </div>
