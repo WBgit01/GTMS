@@ -1,4 +1,6 @@
 <?php 
+include_once "config/core.php";
+
 $page_title = "Login";
 include_once 'layout_head.php';
 
@@ -16,11 +18,14 @@ if($_POST){
     $user = new User($db);
 
     $user->email_address = $_POST['email_address'];
+    $user->student_id = $_POST['email_address'];
+
 
     // Check if the email exists
     if ($user->emailExists()) {
         // Verify password
         $userData = $user->getUserByEmail($user->email_address);
+        
         if (password_verify($_POST['password'], $userData['password'])) {
             $_SESSION['firstname'] = $userData['firstname'];
             $_SESSION['lastname'] = $userData['lastname'];
@@ -44,6 +49,8 @@ if($_POST){
 }
 
 include_once 'layout_head.php';
+include_once 'alert-messages.php';
+
 ?>
 
 <body>
