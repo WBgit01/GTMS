@@ -14,10 +14,17 @@
 <body>
 	<div class="container">
 		<?php include_once 'navigation.php'; ?>
-	</div>
+    </div>
+    
+    <?php
+        if ($page_title=='Login' || $page_title=='Register'){
+            echo "<div class='form_center'>";
+                    echo "<div class='form_container'>";
+        }else{
+            
+        }
+    ?>
 
-<div class="form_center">
-    <div class="form_container">
     
 
         
