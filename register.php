@@ -2,7 +2,7 @@
 $page_title = "Register";
 include_once "config/database.php";
 include_once "config/core.php";
-include_once 'head_layout.php';
+include_once 'layout_head.php';
 include_once "object/user.php";
 
 $database = new Database;
@@ -17,36 +17,42 @@ if ($_POST) {
     $user->lastname = $_POST['lastname'];
     $user->email_address = $_POST['email_address'];
     $user->password = $_POST['password'];
-    $user->student_id = "22b093";
-    $user->access_level = "Admin";
+    $user->student_id = $_POST['student_id'];
+    $user->access_level = "Student"; // Set access level to "Student" by default
 
     if ($user->createUser()) {
         echo "<div class='alert-message-success'>";
-        echo "Registration Success!.";
+        echo "Registration Success! Redirecting to login page...";
         echo "</div>";
+        // Redirect to login page after registration
+        header("Location: login.php");
+        exit(); // Ensure script execution stops after redirection
     } else {
         echo "<div class='alert-message-failed'>";
         echo "Registration Failed, Please Try Again.";
         echo "</div>";
     }
-} 
+}
 ?>
 
-
-<head>
-    <title><?php echo $page_title; ?></title>
-    <link rel="stylesheet" href="libs/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
 <div class="form_center">
     <div class="form_container">
         <i class="fa-solid fa-xmark form_close"></i>
-        <form action="#" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h3>Signup</h3>
             <div class="input_box">
-                <input type="name" name="firstname" placeholder="Enter your fullname" required/>
+                <input type="text" name="firstname" placeholder="Enter your first name" required/>
                 <i class="fa-regular fa-user name"></i>
+            </div>
+
+            <div class="input_box">
+                <input type="text" name="lastname" placeholder="Enter your last name" required/>
+                <i class="fa-regular fa-user name"></i>
+            </div>
+
+            <div class="input_box">
+                <input type="text" name="student_id" placeholder="Enter your student ID" required/>
+                <i class="fa-regular fa-id-badge id name"></i>
             </div>
 
             <div class="input_box">
@@ -61,12 +67,12 @@ if ($_POST) {
             </div>
 
             <div class="input_box">
-                <input type="password" placeholder="Confirm password" required/>
+                <input type="password" name="confirm_password" placeholder="Confirm password" required/>
                 <i class="fa-solid fa-lock password"></i>
                 <i class="fa-regular fa-eye-slash pwhide"></i>
             </div>
             
-            <button class="btn1">Signup Now</button>
+            <button type="submit" class="btn1">Signup Now</button>
 
             <div class="login_signup">
                 Already have an account? <a href="login.php" id="login-link">Login</a>
@@ -75,8 +81,5 @@ if ($_POST) {
     </div> 
 </div>
 
+<?php include_once 'layout_foot.php' ?>
 
-</body>
-</html>
-
-<?php include_once 'footer_layout.php' ?>
