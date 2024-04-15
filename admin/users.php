@@ -1,6 +1,6 @@
 <?php 
 
-$page_title = "Sales";
+$page_title = "Users";
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
 
@@ -12,3 +12,5 @@ include_once 'layout_head.php';
 
 
 <?php include_once 'layout_foot.php'; ?>
+
+

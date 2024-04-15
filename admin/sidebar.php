@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li>
-                <a href="users_admin.php">
+                <a href="users.php">
                     <i class="fa-solid fa-users"></i>
                     <span>Users</span>
                 </a>
