@@ -10,9 +10,27 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-	
-	<div class="container">
+      <!-- MAIN CONTENT||BODY -->
+      <div class="main_content">
+        <div class="header_wrapper">
+            <div class="header_title">
+                <?php 
+                    if ($page_title == "Dashboard"){
+                        echo "<span>Primary</span>";
+                        echo "<h2>{$page_title}</h2>";
+                    }else{
+                        echo "<h2>{$page_title}</h2>";
+                    }
+                ?>
 
-	</div>
+            </div>
+            <div class="user_info">
+                <div class="search_bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <a href="#"><img src="../IMG/Admin.jpg" alt=""></a> <!-- admin-image -->
+            </div>
+        </div>
 
     

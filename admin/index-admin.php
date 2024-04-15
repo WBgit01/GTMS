@@ -1,26 +1,16 @@
 <?php 
 
-include_once 'layout_head.php';
-include_once 'sidebar.php'; 
+// include_once "../config/core.php";
 
+
+// $require_login = true;
+// include_once "../login_checker.php";
+
+$page_title = "Dashboard";
+include_once 'sidebar.php'; 
+include_once 'layout_head.php';
 
 ?>
-  <!-- MAIN CONTENT||BODY -->
-    <div class="main_content">
-        <div class="header_wrapper">
-            <div class="header_title">
-                <span>Primary</span>
-                <h2>Admin Dashboard</h2>
-            </div>
-            <div class="user_info">
-                <div class="search_bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
-                </div>
-                <a href="#"><img src="../IMG/Admin.jpg" alt=""></a> <!-- admin-image -->
-            </div>
-        </div>
-
         <!-- PANEL-CONTAINER -->
         <div class="panel_container">
             <h3 class="main_title">Data Sample</h3>
@@ -121,4 +111,5 @@ include_once 'sidebar.php';
             </div>
         </div>
     </div>
+
 <?php include_once 'layout_foot.php'; ?>
