@@ -28,10 +28,10 @@ if($_POST){
             
             if ($userData['access_level'] == "Admin") {
                 header("Location: {$home_url}admin/index-admin.php?action=login_success");
-                exit(); // Ensure to stop script execution after redirection
+                exit();
             } else {
-                header("Location: {$home_url}index.php?action=login_success");
-                exit(); // Ensure to stop script execution after redirection
+                header("Location: {$home_url}index-user.php?action=login_success");
+                exit(); 
             }
         } else {
             // Password incorrect

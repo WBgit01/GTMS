@@ -80,9 +80,9 @@ class User {
 		if ($stmt->execute()) {
 			// Check if the access level is "Student"
 			if ($this->access_level === "Student") {
-				// Redirect to index.php
-				echo "Redirecting to index.php";
-				header("Location: index.php");
+				// Redirect to index-user.php
+				echo "Redirecting to index-user.php";
+				header("Location: index-user.php");
 				exit();
 			}
 			return true;

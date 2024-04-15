@@ -1,2 +1,3 @@
 <?php include_once 'layout_head.php'; ?>
-user test
+
+<?php include_once 'layout_foot.php'; ?>
