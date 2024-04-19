@@ -18,26 +18,40 @@ if ($_POST) {
     $user->email_address = $_POST['email_address'];
     $user->password = $_POST['password'];
     $user->access_level = "Student";
+    $confirm_password = $_POST['confirm_password'];
 
-    if ($user->createUser()) {
-        echo "<div class='alert-message-success'>";
-            echo "Registration Success!";
-        echo "</div>";
-        // Redirect to login page after registration
-        header("Location: login.php");
-        exit(); // Ensure script execution stops after redirection
-    } else {
-        echo "<div class='alert-message-failed'>";
-            echo "Registration Failed, Please Try Again.";
+
+
+    // check the post Data before saving to database
+    if ($user->emailExisted()) {
+        echo "<div class='message-box-failed'>";
+            echo "<span></span>";
+            echo "Email address is already taken.";
         echo "</div>";
     }
-} 
+    // elseif ($user->contactExisted()){
+    //     echo "<div class='message-box-failed'>";
+    //         echo "Contact number is already taken.";
+    //     echo "</div>";
+    // }
+    elseif($confirm_password != $_POST['password']){
+        echo "<div class='message-box-failed'>";
+            echo "Confirm Password is not matched!";
+        echo "</div>";
+    }
+    else{
+        $user->createUser();
+        echo "<div class='message-box-success'>";
+            echo "Info submitted";
+        echo "</div>";
+    }
 
+}
 ?>
 <i class="fa-solid fa-xmark form_close"></i>
 <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
         
-    <h3>Signup</h3>
+    <h3>Sign Up</h3>
     <div class="input_box">
         <input type="name" name="firstname" placeholder="First Name" required/>
         <i class="fa-regular fa-user name"></i>
@@ -60,7 +74,7 @@ if ($_POST) {
     </div>
 
     <div class="input_box">
-        <input type="password" placeholder="Confirm password" required/>
+        <input type="password" name="confirm_password" placeholder="Confirm password" required/>
         <i class="fa-solid fa-lock password"></i>
         <i class="fa-regular fa-eye-slash pwhide"></i>
     </div>

@@ -72,13 +72,6 @@ class User {
 		$stmt->bindParam(':created', $this->created);
 
 		if ($stmt->execute()) {
-			// Check if the access level is "Student"
-			if ($this->access_level === "Student") {
-				// Redirect to index-user.php
-				echo "Redirecting to index-user.php";
-				header("Location: index-user.php");
-				exit();
-			}
 			return true;
 		} else {
 			$this->showError($stmt);
@@ -125,6 +118,60 @@ class User {
 		}
 		// return false if email does not exist in the database
 		return false;
+	}
+
+	function emailExisted(){
+		// query to check if email exists
+		$query = "SELECT id
+				FROM " . $this->table_name . "
+				WHERE email_address = ?
+				LIMIT 0,1";
+
+		// prepare the query
+		$stmt = $this->conn->prepare( $query );
+		// sanitize
+		$this->email_address=htmlspecialchars(strip_tags($this->email_address));
+
+		// bind given email value
+		$stmt->bindParam(1, $this->email_address);
+		$stmt->execute();
+		// get number of rows
+		$num = $stmt->rowCount();
+
+		if($num>0){
+			// contact or email is existed
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+
+	function contactExisted(){
+		// query to check if email exists
+		$query = "SELECT id
+				FROM " . $this->table_name . "
+				WHERE contact_no = ?
+				LIMIT 0,1";
+
+		// prepare the query
+		$stmt = $this->conn->prepare( $query );
+		// sanitize
+		$this->contact_no=htmlspecialchars(strip_tags($this->contact_no));
+
+		// bind given email value
+		$stmt->bindParam(1, $this->contact_no);
+		$stmt->execute();
+		// get number of rows
+		$num = $stmt->rowCount();
+
+		if($num>0){
+			// contact or email is existed
+			return true;
+		}else{
+			return false;
+		}
+
 	}
 
 

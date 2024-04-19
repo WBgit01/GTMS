@@ -32,7 +32,7 @@ if($_POST){
         if ($user->access_level == "Admin") {
             header("location:{$home_url}admin/index-admin.php?action=login_success");
         }else{
-            header("location:{$home_url}index.php?action=login_success");
+            // header("location:{$home_url}index.php?action=login_success");
         }
     }else{
 
@@ -48,7 +48,7 @@ include_once 'alert-messages.php';
     <!-- LOGIN FORM -->
 <div class="form login_form">
     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST">
-        <h3>Login</h3>
+        <h3>Sign In</h3>
             <div class="input_box">
                 <input type="text" placeholder="Enter Email or Student ID" name="email_address" required/>
                 <i class="fa-regular fa-envelope email"></i>
@@ -73,7 +73,7 @@ include_once 'alert-messages.php';
             <button class="btn1" id="form-open">Login Now</button>
 
             <div class="login_signup">
-                Don't have an account? <a href="#" class="signup">Signup</a>
+                Don't have an account? <a href="#" class="signup">Sign Up now!</a>
             </div>
     </form>
 </div>

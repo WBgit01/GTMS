@@ -326,6 +326,33 @@ main {
 	margin-top: 14px;
 }
 
+.message-box-failed{
+	color: #842029;
+	border: #f5c2c7;
+	text-align: center;
+	padding: 20px;
+	background-color: #f8d7da;
+	border-radius: .25rem;
+}
+.message-box-info{
+	color: #055160;
+	border: #b6effb;
+	text-align: center;
+	padding: 20px;
+	background-color: #cff4fc;
+	border-radius: .25rem;
+}
+
+.message-box-success{
+	color: #0f5132;
+	border: #badbcc;
+	text-align: center;
+	padding: 20px;
+	background-color: #d1e7dd;
+	border-radius: .25rem;
+}
+
+
 /* RESPONSIVE STYLING */
 @media(max-width: 992px){
 	.navi .links,
