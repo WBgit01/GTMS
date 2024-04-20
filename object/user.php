@@ -11,6 +11,7 @@ class User {
 	public $student_id;
 	public $access_level;
 	public $email_address;
+	public $contact_no;
 	public $password;
 	public $created;
 
@@ -22,14 +23,6 @@ class User {
 
 		
 		$this->created = date('Y-m-d H:i:s');
-		
-		// Sanitize data
-		$this->firstname = htmlspecialchars(strip_tags($this->firstname));
-		$this->lastname = htmlspecialchars(strip_tags($this->lastname));
-		$this->student_id = htmlspecialchars(strip_tags($this->student_id));
-		$this->access_level = htmlspecialchars(strip_tags($this->access_level));
-		$this->email_address = htmlspecialchars(strip_tags($this->email_address));
-		$this->password = htmlspecialchars(strip_tags($this->password));
 
 		// Password hash
 		$password_hash = password_hash($this->password, PASSWORD_BCRYPT);
@@ -173,11 +166,6 @@ class User {
 		}
 
 	}
-
-
-
-
-
 
 }
 ?>

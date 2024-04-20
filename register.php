@@ -16,6 +16,7 @@ if ($_POST) {
     $user->firstname = $_POST['firstname'];
     $user->lastname = $_POST['lastname'];
     $user->email_address = $_POST['email_address'];
+    $user->contact_no = $_POST['contact_no'];
     $user->password = $_POST['password'];
     $user->access_level = "Student";
     $confirm_password = $_POST['confirm_password'];
@@ -29,11 +30,11 @@ if ($_POST) {
             echo "Email address is already taken.";
         echo "</div>";
     }
-    // elseif ($user->contactExisted()){
-    //     echo "<div class='message-box-failed'>";
-    //         echo "Contact number is already taken.";
-    //     echo "</div>";
-    // }
+    elseif ($user->contactExisted()){
+        echo "<div class='message-box-failed'>";
+            echo "Contact number is already taken.";
+        echo "</div>";
+    }
     elseif($confirm_password != $_POST['password']){
         echo "<div class='message-box-failed'>";
             echo "Confirm Password is not matched!";
@@ -65,6 +66,11 @@ if ($_POST) {
     <div class="input_box">
         <input type="email" name="email_address" placeholder="Email Address" required/>
             <i class="fa-regular fa-envelope email"></i>
+    </div>
+
+    <div class="input_box">
+        <input type="number" name="contact_no" placeholder="Contact No." required/>
+            <i class="fa-solid fa-phone email"></i>
     </div>
 
     <div class="input_box">
