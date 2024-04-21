@@ -67,7 +67,7 @@ include_once 'alert-messages.php';
                     <label for="check">Remember me</label>
                 </span>
 
-                <a href="#" class="forgot_pw">Forgot password?</a>
+                <a href="forgot_pw.php" class="forgot_pw">Forgot password?</a>
             </div>
 
             <button class="btn1" id="form-open">Login Now</button>

@@ -325,7 +325,12 @@ main {
 	text-align: center;
 	margin-top: 14px;
 }
+.descrip_fp{
+	margin-top: 10px;
+	font-size: 18px;
+}
 
+/* ALERT MESSAGE STYLING */
 .message-box-failed{
 	color: #842029;
 	border: #f5c2c7;

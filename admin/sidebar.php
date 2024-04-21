@@ -4,7 +4,7 @@
         <ul class="menu">
             <li class="dash">
                 <a href="index-admin.php">
-                    <i class="fa-brands fa-dashcube"></i>
+                    <i class="fa-solid fa-gauge"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
