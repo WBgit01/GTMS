@@ -25,7 +25,6 @@ a{
 }
 a:hover{
 	color: gold;
-	transition: ease-in-out 0.3s;
 }
 /* HEADER STYLING */
 header{
@@ -41,6 +40,7 @@ header{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	transition-duration: 0.3s;
 }
 .logo_nav{
 	width: 4.3rem;
@@ -99,21 +99,21 @@ section#content1{
 	align-items: center;
 	text-align: center;
 	color: white;
-	opacity: 0; /* Set initial opacity to 0 */
-    animation: fadeIn 1s ease forwards; /* Define animation */
+	opacity: 0;
+    animation: fadeIn 1s ease forwards;
 }
 
 /* CONTENT1 - ANIMATION */
 #content1 {
-    max-height: calc(100vh - 60px); /* Adjust as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
 }
 @keyframes fadeIn {
     from {
-        opacity: 0; /* Start opacity from 0 */
+        opacity: 0;
     }
     to {
-        opacity: 1; /* End opacity to 1 */
+        opacity: 1;
     }
 }
 
@@ -153,10 +153,9 @@ p{
 	font-size: 1rem;
 	font-weight: bold;
 	cursor: pointer;
-	transition: scale 0.2 ease;
+	transition-duration: 0.3s;
 }
 .action_btn:hover{
-	scale: 1.05;
 	color: red;
 	background-color: white;
 }
@@ -164,12 +163,12 @@ p{
 	scale: 0.95;
 }
 #content1 .action_btn {
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 20px;
 }
 
 /* FOOTER STYLING */
 .footer{
-    position: fixed; /* Fixed position */
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
