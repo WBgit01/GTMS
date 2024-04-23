@@ -1,8 +1,10 @@
-<?php
+<?php 
+$page_title = "order";
+include_once 'sidebar.php'; 
+include_once 'layout_head.php'; ?>
 
-$page_title = "GTMS-Portal";
-include_once 'layout_head.php';
-?>
+
+<?php include_once 'layout_foot.php'; ?>
 
 <form action="">
 	<div class="search-container">
@@ -18,6 +20,6 @@ include_once 'layout_head.php';
     </div>
 </form>
 
-<?php include_once 'layout_foot.php';?>
+<?php include_once 'layout_foot.php'; ?>
 
 

@@ -1,7 +1,22 @@
 <?php 
+include_once '../config/database.php';
+include_once '../object/course.php';
+include_once '../object/academic_year.php';
+
+$database = new Database();
+$db = $database->getConnection();
+
+$course = new Course($db);
+$academic_year = new Academic_year($db);
+
 $page_title = "profile";
 include_once 'sidebar.php'; 
-include_once 'layout_head.php'; ?>
+include_once 'layout_head.php'; 
+
+
+
+
+?>
 
       <!-- MAIN CONTENT||BODY -->
       <div class="main_content">
@@ -28,13 +43,13 @@ include_once 'layout_head.php'; ?>
         </div>
         <div class="account_edit">
             <div class="input_container">
-                <label>Firstname</label>
+                <label>First Name</label>
                 <input type="text" placeholder="Firstname" disabled>
             </div>
         </div>
         <div class="account_edit">
             <div class="input_container">
-                <label>Lastname</label>
+                <label>Last Name</label>
                 <input type="text" placeholder="Lastname" disabled>
             </div>
         </div>
@@ -52,19 +67,43 @@ include_once 'layout_head.php'; ?>
         <div class="account_edit">
             <div class="input_container">
                 <label>Email</label>
-                <input type="text" placeholder="Email" required>
+                <input type="text" placeholder="Email" required disabled>
             </div>
         </div>
         <div class="account_edit">
             <div class="input_container">
-                <label>Contact no</label>
-                <input type="text" placeholder="Contact no" required>
+                <label>Contact Number</label>
+                <input type="text" placeholder="+639" required>
             </div>
         </div>
         <div class="account_edit">
             <div class="input_container">
                 <label>Year Level</label>
-                <input type="text" placeholder="Year Level" required>
+                <?php
+                    $stmt = $academic_year->read();
+
+                    echo "<select name='academic_id'>";
+                        echo "<option disabled>Select Course</option>";
+                        while ($row_course = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            extract($row_course);
+                            echo "<option value='{$id}'>{$academic_year}</option>";
+                        }
+                    echo "</select>";
+                ?>
+            </div>
+            <div class="input_container">
+                <label>Course</label>
+                <?php
+                    $stmt = $course->read();
+
+                    echo "<select name='course_id'>";
+                        echo "<option disabled>Select Course</option>";
+                        while ($row_course = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            extract($row_course);
+                            echo "<option value='{$id}'>{$name}</option>";
+                        }
+                    echo "</select>";
+                ?>
             </div>
         </div>
         <div class="account_edit">

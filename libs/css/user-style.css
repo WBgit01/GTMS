@@ -25,9 +25,10 @@ body{
     background: #77acb7;
 }
 .sidebar:hover{
-    width: 240px;
+    width: 250px;
     transition: 0.5s;
 }
+
 .logo{
     height: 80px;
     padding: 16px;
@@ -46,10 +47,15 @@ body{
     border-radius: 8px;
     transition: all 0.5s ease-in-out;
 }
-.menu li:hover, 
-.dash{
+.menu li:hover{
     background: #b7dce4;
 }
+
+.menu li.active{
+    background: #b7dce4;
+}
+
+
 .menu a{
     color: white;
     font-size: 14px;
@@ -186,6 +192,7 @@ body{
 /*PROFILE STYLING*/
 .account{
     flex: 2;
+    width: 50%;
     margin-left: 10px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -221,7 +228,7 @@ body{
     transition-duration: 0.3s;
 }
 .btn_cancel:hover{
-    background-color: #3fc495;
+    background-color:#FF6961;
     color: white;
 }
 .btn_save{
@@ -277,7 +284,14 @@ body{
     height: 35px;
     border: 1.5px solid gray;
     border-radius: 5px;
-    color: gray;
+    color: black;
+    font-size: 17px;
+}
+.input_container select{
+    height: 35px;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    color: black;
     font-size: 17px;
 }
 
