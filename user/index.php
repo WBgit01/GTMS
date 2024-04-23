@@ -1,14 +1,26 @@
 <?php 
+include_once '../config/core.php';
+
+$require_login = true;
+include_once '../login_checker.php';
+
+
 $page_title = "index";
 include_once 'sidebar.php'; 
-include_once 'layout_head.php'; ?>
+include_once 'layout_head.php'; 
+
+?>
 
       <!-- MAIN CONTENT||BODY -->
       <div class="main_content">
         <div class="header_wrapper">
             <div class="header_title">
-                <span>Primary</span>
-                <h2>User</h2>
+                <span>Welcome Back!</span>
+                <h2><?php 
+                        echo $_SESSION['firstname']; 
+                        echo " ";
+                        echo $_SESSION['lastname']; 
+                    ?></h2>
             </div>
             <div class="user_info">
                 <span>Username</span>
