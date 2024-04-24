@@ -1,10 +1,8 @@
 <?php 
 
-// include_once "../config/core.php";
-
-
-// $require_login = true;
-// include_once "../login_checker.php";
+include_once '../config/core.php';
+$require_login = true;
+include_once '../login_checker.php';
 
 $page_title = "Dashboard";
 include_once 'sidebar.php'; 

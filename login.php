@@ -32,7 +32,7 @@ if($_POST){
         if ($user->access_level == "Admin") {
             header("location:{$home_url}admin/index-admin.php?action=login_success");
         }else{
-            // header("location:{$home_url}index.php?action=login_success");
+            header("location:{$home_url}user/index.php?action=login_success");
         }
     }else{
 
