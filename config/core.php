@@ -3,11 +3,6 @@
 error_reporting(E_ALL);
 // start php session
 session_start();
-<<<<<<< HEAD
-=======
-
-
->>>>>>> GTMS-68408
 // set your default time-zone
 date_default_timezone_set('Asia/Manila');
 

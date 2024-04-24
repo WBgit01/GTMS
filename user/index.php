@@ -1,16 +1,9 @@
 <?php 
 include_once '../config/core.php';
-<<<<<<< HEAD
-$require_login = true;
-include_once '../login_checker.php';
-
-=======
-
 $require_login = true;
 include_once '../login_checker.php';
 
 
->>>>>>> GTMS-68408
 $page_title = "index";
 include_once 'sidebar.php'; 
 include_once 'layout_head.php'; 

@@ -21,7 +21,7 @@ else if(isset($require_login) && $require_login==true){
 // if user is already Loggedin and the access level is student the login and sign up page must not be accessible
 else if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true && $_SESSION['access_level'] == "Student"){
     // if user not yet logged in, redirect to login page
-    if($page_title == "Login" || $page_title == "Register"){
+    if($page_title == "Login" || $page_title == "Register" || $page_title == "Dasboard"){
         header("Location: {$home_url}user/index.php?action=already_logged_in");
     }
 }
