@@ -1,9 +1,8 @@
 <?php
-
-
 include_once "config/database.php";
 include_once "config/core.php";
 include_once "object/user.php";
+
 
 $database = new Database;
 $db = $database->getConnection();
@@ -12,6 +11,9 @@ $user = new User($db);
 // page layout
 $page_title = "Register";
 include_once 'layout_head.php';
+
+$login_require = false;
+include_once 'login_checker.php';
 if ($_POST) {
     $user->firstname = $_POST['firstname'];
     $user->lastname = $_POST['lastname'];

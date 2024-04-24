@@ -28,6 +28,7 @@ if($_POST){
         $_SESSION['firstname'] = $user->firstname;
         $_SESSION['lastname'] = $user->lastname;
         $_SESSION['access_level'] = $user->access_level;
+        $_SESSION['logged_in'] = true;
 
         if ($user->access_level == "Admin") {
             header("location:{$home_url}admin/index-admin.php?action=login_success");
