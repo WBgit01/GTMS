@@ -1,12 +1,19 @@
 <?php 
 
 include_once '../config/core.php';
-$require_login = true;
-include_once '../login_checker.php';
+
 
 $page_title = "Dashboard";
+$require_login = true;
+$isAccessible = $_SESSION['isAccessible'];
+include_once '../login_checker.php';
+
+
+
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
+
+
 
 ?>
         <!-- PANEL-CONTAINER -->

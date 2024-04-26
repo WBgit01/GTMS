@@ -31,6 +31,7 @@ if($_POST){
         $_SESSION['logged_in'] = true;
 
         if ($user->access_level == "Admin") {
+            $_SESSION['isAccessible'] = true;
             header("location:{$home_url}admin/index-admin.php?action=login_success");
         }else{
             header("location:{$home_url}user/index.php?action=login_success");
