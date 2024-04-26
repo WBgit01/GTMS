@@ -21,8 +21,8 @@
         if ($page_title=='Login' || $page_title=='Register'){
             echo "<div class='form_center'>";
                     echo "<div class='form_container'>";
-        }else{
-            
+        }elseif ($page_title =="About"){
+            echo "<div class='form_center'>";
         }
     ?>
 
