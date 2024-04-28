@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2024 at 03:23 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Apr 28, 2024 at 04:41 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -89,7 +89,8 @@ CREATE TABLE `inquiries` (
 INSERT INTO `inquiries` (`id`, `name`, `email`, `phone`, `message`, `created`) VALUES
 (1, 'test', '123123@gmail.com', '12313212312', 'helo test ', '2024-04-25 21:46:23'),
 (2, 'test', '123123@gmail.com', '12313212312', 'helo test ', '2024-04-25 21:47:05'),
-(3, 'test', '123123@gmail.com', '12313212312', 'helo test ', '2024-04-25 21:48:28');
+(3, 'test', '123123@gmail.com', '12313212312', 'helo test ', '2024-04-25 21:48:28'),
+(0, 'qweqw', 'eqwewqe@dasd.com', '', 'wqewewq', '2024-04-28 15:55:37');
 
 -- --------------------------------------------------------
 
@@ -122,23 +123,30 @@ INSERT INTO `transactions` (`id`, `student_id`, `payment_status`, `order_created
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `student_id` varchar(25) NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(25) NOT NULL,
-  `student_id` varchar(25) NOT NULL,
-  `access_level` varchar(25) NOT NULL,
+  `gender` varchar(10) NOT NULL,
   `email_address` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `contact_no` varchar(12) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT current_timestamp()
+  `address` varchar(255) NOT NULL,
+  `course` varchar(255) NOT NULL,
+  `academic_year` varchar(255) NOT NULL,
+  `access_level` varchar(25) NOT NULL,
+  `image_profile` varchar(255) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `modified` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `student_id`, `access_level`, `email_address`, `password`, `contact_no`, `created`) VALUES
-(1, 'willdell ', 'bravo', '22b0959', 'Student', 'willdel@stud.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '2024-03-22 17:32:03'),
-(2, 'Alexis', 'Dumale', '22b093', 'Admin', 'Alexisdumale@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '', '2024-03-22 11:45:41');
+INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `created`, `modified`) VALUES
+(1, '22b0959', 'willdell ', 'bravo', '', 'willdel@stud.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
+(2, '22b093', 'Alexisss', 'Dumale', '', 'Alexisdumale@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
+(38, '58b196', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$WSLR3gSSd3aKqlaVza/wAerTbN47ZQxy.AYO/iLq24Q/wQtCwKKmu', '+63953330769', '30# alvarez street', '1', '3', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin.jpg', '2024-04-23 13:23:34', '2024-04-28 21:53:43');
 
 --
 -- Indexes for dumped tables
@@ -154,12 +162,6 @@ ALTER TABLE `academic_year`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `inquiries`
---
-ALTER TABLE `inquiries`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -188,13 +190,7 @@ ALTER TABLE `academic_year`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `inquiries`
---
-ALTER TABLE `inquiries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `transactions`
@@ -206,7 +202,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
