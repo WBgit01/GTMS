@@ -25,10 +25,13 @@ if($_POST){
     //validate the login creds
     
     if ($email_exists_or_studentid_exist && password_verify($_POST['password'], $user->password)) {
+        $_SESSION['user_id'] = $user->id;
         $_SESSION['firstname'] = $user->firstname;
         $_SESSION['lastname'] = $user->lastname;
         $_SESSION['access_level'] = $user->access_level;
         $_SESSION['logged_in'] = true;
+        $_SESSION['email_address'] = $user->email_address;
+        $_SESSION['profile_image'] = $user->image;
 
         if ($user->access_level == "Admin") {
             $_SESSION['isAccessible'] = true;

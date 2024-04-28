@@ -135,6 +135,15 @@ body{
     background: white;
     padding: 2rem;
     border-radius: 10px;
+    margin: auto;
+}
+
+#profile-container{
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 75%;
+    margin: auto;
 }
 .panel_wrapper{
     display: flex;
@@ -286,6 +295,7 @@ body{
     border-radius: 5px;
     color: black;
     font-size: 17px;
+    padding: 5px;
 }
 .input_container select{
     height: 35px;
@@ -293,6 +303,37 @@ body{
     border-radius: 5px;
     color: black;
     font-size: 17px;
+}
+
+/* ALERT MESSAGE STYLING */
+.message-box-failed{
+    margin-bottom: 10px;
+	color: #842029;
+	border: #f5c2c7;
+	text-align: center;
+	padding: 20px;
+	background-color: #f8d7da;
+	border-radius: .25rem;
+}
+.message-box-info{
+	color: #055160;
+	border: #b6effb;
+	text-align: center;
+	padding: 20px;
+	background-color: #cff4fc;
+	border-radius: .25rem;
+}
+
+.message-box-success{
+    width: 75%;
+    margin: auto;
+    margin-bottom: 10px;
+	color: #0f5132;
+	border: #badbcc;
+	text-align: center;
+	padding: 20px;
+	background-color: #d1e7dd;
+	border-radius: .25rem;
 }
 
 /* RESPONSIVE STYLING */

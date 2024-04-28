@@ -14,6 +14,13 @@ class User {
 	public $contact_no;
 	public $password;
 	public $created;
+	public $course;
+	public $academic_year;
+	public $address;
+	public $gender;
+	public $image;
+	public $modified;
+
 
 	public function __construct($db) {
 		$this->conn = $db;
@@ -82,7 +89,7 @@ class User {
 	// check if given email exist in the database
 	function emailExists(){
 		// query to check if email exists
-		$query = "SELECT id, firstname, lastname, access_level, password
+		$query = "SELECT id, firstname, lastname, access_level, password, image_profile
 				FROM " . $this->table_name . "
 				WHERE email_address = ? OR student_id = ?
 				LIMIT 0,1";
@@ -106,6 +113,7 @@ class User {
 			$this->lastname = $row['lastname'];
 			$this->access_level = $row['access_level'];
 			$this->password = $row['password'];
+			$this->image = $row['image_profile'];
 			// return true because email exists in the database
 			return true;
 		}
@@ -166,6 +174,133 @@ class User {
 		}
 
 	}
+
+	function updateProfile(){
+
+		$this->modified = date('Y-m-d H:i:s');
+
+
+		$query = "UPDATE
+					" . $this->table_name . "
+					SET
+					firstname = :firstname,
+					lastname = :lastname,
+					gender = :gender,
+					contact_no = :contact_no,
+					academic_year = :academic_year,
+					course = :course,
+					address = :address,
+					image = :image,
+					modified = :modified
+					WHERE
+						id = :id";
+		
+
+		$stmt = $this->conn->prepare($query);
+
+		$this->id=htmlspecialchars(strip_tags($this->id));
+		$this->firstname=htmlspecialchars(strip_tags($this->firstname));
+		$this->lastname=htmlspecialchars(strip_tags($this->lastname));
+		$this->image=htmlspecialchars(strip_tags($this->image));
+		$this->gender=htmlspecialchars(strip_tags($this->gender));
+		$this->contact_no=htmlspecialchars(strip_tags($this->contact_no));
+		$this->academic_year=htmlspecialchars(strip_tags($this->academic_year));
+		$this->course=htmlspecialchars(strip_tags($this->course));
+		$this->address=htmlspecialchars(strip_tags($this->address));
+
+		$stmt->bindParam(':id', $this->id);
+		$stmt->bindParam(':image', $this->image);
+		$stmt->bindParam(':firstname', $this->firstname);
+		$stmt->bindParam(':lastname', $this->lastname);
+		$stmt->bindParam(':gender', $this->gender);
+		$stmt->bindParam(':contact_no', $this->contact_no);
+		$stmt->bindParam(':academic_year', $this->academic_year);
+		$stmt->bindParam(':course', $this->course);
+		$stmt->bindParam(':address', $this->address);
+		$stmt->bindParam(':modified', $this->modified);
+
+		if ($stmt->execute()) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function readOne(){
+		
+		$query = "SELECT *
+					
+				FROM 
+					" . $this->table_name . "
+				WHERE 
+					id = ?
+				LIMIT 0,1";
+		
+		$stmt = $this->conn->prepare($query);
+
+		$stmt->bindParam(1, $this->id);
+		$stmt->execute();
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		$this->firstname = $row['firstname'];
+		$this->lastname =  $row['lastname'];
+		$this->student_id =  $row['student_id'];
+		$this->gender =  $row['gender'];
+		$this->email_address =  $row['email_address'];
+		$this->contact_no =  $row['contact_no'];
+		$this->address =  $row['address'];
+		$this->course =  $row['course'];
+		$this->academic_year =  $row['academic_year'];
+		$this->image =  $row['image_profile'];
+
+
+	}
+
+	// will upload image file to server
+	function uploadPhoto(){
+		$result_message = "";
+		
+		if ($this->image) {
+			// sha1_file() function is used to make a unique file name
+			$target_directory = "uploads/{$_SESSION['user_id']}/";
+			$target_file = $target_directory . basename($this->image);
+			$file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+	
+			// make sure certain file types are allowed
+			$allowed_file_types = array("jpg", "jpeg", "png", "gif");
+			if (!in_array($file_type, $allowed_file_types)) {
+				$result_message .= "<div>Only JPG, JPEG, PNG, GIF files are allowed.</div>";
+			}
+			
+			// make sure the 'uploads' folder exists, if not, create it
+			if (!is_dir($target_directory)) {
+				mkdir($target_directory, 0777, true);
+			}
+	
+			// check if the file already exists
+			if (file_exists($target_file)) {
+				$result_message .= "<div>Image already exists. Try to change file name.</div>";
+			}
+	
+			// make sure submitted file is not too large, can't be larger than 1 MB
+			if ($_FILES['image']['size'] > (1024000)) {
+				$result_message .= "<div>Image must be less than 1 MB in size.</div>";
+			}
+	
+			// if there are no errors, try to upload the file
+			if (empty($result_message)) {
+				if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+					$result_message = "<div class='alert alert-success'>Photo uploaded successfully.</div>";
+				} else {
+					$result_message = "<div class='alert alert-danger'>Unable to upload photo.</div>";
+				}
+			}
+		}
+	
+		return $result_message;
+	}
+	
 
 }
 ?>

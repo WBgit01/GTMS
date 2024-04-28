@@ -10,3 +10,26 @@
     <title>User Dashboard</title>
 </head>
 <body>
+
+
+<?php
+
+    
+if ($page_title =="Profile") {
+    echo "<div class='main_content'>";
+        echo "<div class='header_wrapper'>";
+            echo "<div class='header_title'>";
+                echo "<span>Setting</span>";
+                echo "<h2>{$page_title}</h2>";
+            echo "</div>";
+        echo "<div class='user_info'>";
+        echo isset($_SESSION['profile_image']) ? "<img src='uploads/{$_SESSION['user_id']}/{$_SESSION['profile_image']}' alt='User Image'>" : "No image found.";
+
+            echo "</div>";
+        echo "</div>";
+}
+
+
+
+?>
+

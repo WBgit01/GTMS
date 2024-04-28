@@ -1,14 +1,13 @@
 <?php 
 include_once '../config/core.php';
 $require_login = true;
-include_once '../login_checker.php';
 
 
 $page_title = "index";
 include_once 'sidebar.php'; 
 include_once 'layout_head.php'; 
-
 ?>
+
 
       <!-- MAIN CONTENT||BODY -->
       <div class="main_content">
@@ -23,7 +22,7 @@ include_once 'layout_head.php';
             </div>
             <div class="user_info">
                 <span>Username</span>
-                <a href="#"><img src="../IMG/User.jpg" alt=""></a> <!-- user-image -->
+                <?php echo isset($_SESSION['profile_image']) ? "<img src='uploads/{$_SESSION['user_id']}/{$_SESSION['profile_image']}' alt='User Image'>" : "No image found.";?>
             </div>
         </div>
 
@@ -36,4 +35,8 @@ include_once 'layout_head.php';
             </div>
         </div>
 
-<?php include_once 'layout_foot.php'; ?>
+
+<?php 
+
+    include_once 'layout_foot.php'; 
+?>
