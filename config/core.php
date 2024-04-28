@@ -3,6 +3,10 @@
 error_reporting(E_ALL);
 // start php session
 session_start();
+<<<<<<< HEAD
+=======
+// print_r($_SESSION);
+>>>>>>> 46f65b99253db20192225ce2ace7fe5784d6e26c
 // set your default time-zone
 date_default_timezone_set('Asia/Manila');
 
