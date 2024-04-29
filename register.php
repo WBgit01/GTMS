@@ -12,8 +12,9 @@ $user = new User($db);
 $page_title = "Register";
 include_once 'layout_head.php';
 
-$login_require = false;
+$require_login = false;
 include_once 'login_checker.php';
+
 if ($_POST) {
     $user->firstname = $_POST['firstname'];
     $user->lastname = $_POST['lastname'];
