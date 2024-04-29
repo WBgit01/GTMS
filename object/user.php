@@ -113,7 +113,7 @@ class User {
 			$this->lastname = $row['lastname'];
 			$this->access_level = $row['access_level'];
 			$this->password = $row['password'];
-			$this->image = $row['image_profile'];
+			$this->image_profile = $row['image_profile'];
 			// return true because email exists in the database
 			return true;
 		}
@@ -268,7 +268,7 @@ class User {
 
 	// will upload image file to server
 	function uploadPhoto(){
-		$result_message = "";
+		$result_message = "<div class='message-box-failed'>Image must be less than 1 MB in size.</div>";
 		
 		if ($this->image_profile) {
 			// sha1_file() function is used to make a unique file name
@@ -308,7 +308,6 @@ class User {
 		}
 		return $result_message;
 	
-
 	}
 	
 

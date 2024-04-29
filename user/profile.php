@@ -42,16 +42,20 @@ if ($_POST) {
     $user->course = $_POST['course'];
     $user->address = $_POST['address'];
 
-    if ($user->updateProfile()) {
-        echo $user->uploadPhoto();
-        
-        echo "<div class='message-box-success'>";
-            echo "Profile Updated";
-        echo "</div>";
+
+    if ($_FILES['image']['size'] > (1024000)) {
+        echo "<div class='message-box-failed'>Image must be less than 1 MB in size.</div>";
     }else{
-        echo "<div class='message-box-failed'>";
-            echo "Please try again later.";
-        echo "</div>";
+        if ($user->updateProfile()) {
+            echo $user->uploadPhoto();
+            echo "<div class='message-box-success'>";
+                echo "Profile Updated";
+            echo "</div>";
+        }else{
+            echo "<div class='message-box-failed'>";
+                echo "Please try again later.";
+            echo "</div>";
+        }
     }
 }
 
