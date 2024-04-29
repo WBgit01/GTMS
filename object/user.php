@@ -228,8 +228,17 @@ class User {
 
 	function readOne(){
 		
-		$query = "SELECT *
-					
+		$query = "SELECT 
+					firstname,
+					lastname,
+					student_id,
+					image_profile,
+					gender,
+					email_address,
+					contact_no,
+					address,
+					course,
+					academic_year					
 				FROM 
 					" . $this->table_name . "
 				WHERE 
@@ -251,8 +260,8 @@ class User {
 		$this->contact_no =  $row['contact_no'];
 		$this->address =  $row['address'];
 		$this->course =  $row['course'];
-		$this->academic_year =  $row['academic_year'];
-		$this->image_profile =  $row['image_profile'];
+		$this->academic_year = $row['academic_year'];
+		$this->image_profile=$row['image_profile'];
 
 
 	}
@@ -285,7 +294,7 @@ class User {
 	
 			// make sure submitted file is not too large, can't be larger than 1 MB
 			if ($_FILES['image']['size'] > (1024000)) {
-				$result_message .= "<div>Image must be less than 1 MB in size.</div>";
+				$result_message .= "<div class='message-box-failed'>Image must be less than 1 MB in size.</div>";
 			}
 	
 			// if there are no errors, try to upload the file
@@ -297,8 +306,9 @@ class User {
 				}
 			}
 		}
-	
 		return $result_message;
+	
+
 	}
 	
 

@@ -23,6 +23,7 @@ include_once 'layout_head.php';
             <div class="user_info">
                 <span>Username</span>
                 <?php echo isset($_SESSION['profile_image']) ? "<img src='uploads/{$_SESSION['user_id']}/{$_SESSION['profile_image']}' alt='User Image'>" : "No image found.";?>
+                
             </div>
         </div>
 

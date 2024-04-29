@@ -16,21 +16,23 @@ $course = new Course($db);
 $academic_year = new Academic_year($db);
 
 
-$page_title = "Profile";
-include_once 'sidebar.php'; 
-include_once 'layout_head.php'; 
-
 $user_id = $_SESSION['user_id'];
 $user->id = $user_id;
 
 $user->readOne();
 
+$page_title = "Profile";
+include_once 'sidebar.php'; 
+include_once 'layout_head.php'; 
+
+
+
 
 
 if ($_POST) {
-    $image=!empty($_FILES["image"]["name"])
+    $image_profile=!empty($_FILES["image"]["name"])
             ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"]) : "";
-    $user->image_profile = $image;
+    $user->image_profile = $image_profile;
 
     $user->firstname = $_POST['firstname'];
     $user->lastname = $_POST['lastname'];
@@ -42,6 +44,7 @@ if ($_POST) {
 
     if ($user->updateProfile()) {
         echo $user->uploadPhoto();
+        
         echo "<div class='message-box-success'>";
             echo "Profile Updated";
         echo "</div>";
@@ -80,15 +83,15 @@ if ($_POST) {
             </div>
             <div class="account_edit">
                 <div class="input_container">
-                    <label disabled name="gender">Gender</label>
-                    <select name="gender">
-                        <optgroup label="Gender">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="others">Others</option>
-                        </optgroup>
-                    </select>
-                </div>
+                        <label disabled name="gender">Gender</label>
+                        <select name="gender">
+                            <optgroup label="Gender">
+                                <option value="male" <?php if($user->gender === 'male') echo 'selected'; ?>>Male</option>
+                                <option value="female" <?php if($user->gender === 'female') echo 'selected'; ?>>Female</option>
+                                <option value="others" <?php if($user->gender === 'others') echo 'selected'; ?>>Others</option>
+                            </optgroup>
+                        </select>
+                    </div>
 
                 <div class="input_container">
                     <label>Email</label>
@@ -153,7 +156,7 @@ if ($_POST) {
             <div class="account_edit">
             <div class="input_container">
                     <label>Profile Image</label>
-                    <input type="file" name="image">
+                    <input type="file" name="image" value="<?php echo $user->image_profile;?>">
                 </div>
             </div>
         </form>

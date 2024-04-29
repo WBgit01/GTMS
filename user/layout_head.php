@@ -23,10 +23,10 @@ if ($page_title =="Profile") {
                 echo "<h2>{$page_title}</h2>";
             echo "</div>";
         echo "<div class='user_info'>";
-        echo isset($_SESSION['profile_image']) ? "<img src='uploads/{$_SESSION['user_id']}/{$_SESSION['profile_image']}' alt='User Image'>" : "No image found.";
-
+        echo isset($user->image_profile) ? "<img src='uploads/{$_SESSION['user_id']}/{$user->image_profile}' alt='User Image'>" : "No image found.";
             echo "</div>";
         echo "</div>";
+        
 }
 
 
