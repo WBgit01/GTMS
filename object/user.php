@@ -190,7 +190,7 @@ class User {
 					academic_year = :academic_year,
 					course = :course,
 					address = :address,
-					image = :image,
+					image = :image_profile,
 					modified = :modified
 					WHERE
 						id = :id";
@@ -209,7 +209,7 @@ class User {
 		$this->address=htmlspecialchars(strip_tags($this->address));
 
 		$stmt->bindParam(':id', $this->id);
-		$stmt->bindParam(':image', $this->image);
+		$stmt->bindParam(':image_profile', $this->image);
 		$stmt->bindParam(':firstname', $this->firstname);
 		$stmt->bindParam(':lastname', $this->lastname);
 		$stmt->bindParam(':gender', $this->gender);
