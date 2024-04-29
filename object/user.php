@@ -18,7 +18,7 @@ class User {
 	public $academic_year;
 	public $address;
 	public $gender;
-	public $image;
+	public $image_profile;
 	public $modified;
 
 
@@ -190,7 +190,7 @@ class User {
 					academic_year = :academic_year,
 					course = :course,
 					address = :address,
-					image = :image_profile,
+					image_profile = :image_profile,
 					modified = :modified
 					WHERE
 						id = :id";
@@ -201,7 +201,7 @@ class User {
 		$this->id=htmlspecialchars(strip_tags($this->id));
 		$this->firstname=htmlspecialchars(strip_tags($this->firstname));
 		$this->lastname=htmlspecialchars(strip_tags($this->lastname));
-		$this->image=htmlspecialchars(strip_tags($this->image));
+		$this->image_profile=htmlspecialchars(strip_tags($this->image_profile));
 		$this->gender=htmlspecialchars(strip_tags($this->gender));
 		$this->contact_no=htmlspecialchars(strip_tags($this->contact_no));
 		$this->academic_year=htmlspecialchars(strip_tags($this->academic_year));
@@ -209,7 +209,7 @@ class User {
 		$this->address=htmlspecialchars(strip_tags($this->address));
 
 		$stmt->bindParam(':id', $this->id);
-		$stmt->bindParam(':image_profile', $this->image);
+		$stmt->bindParam(':image_profile', $this->image_profile);
 		$stmt->bindParam(':firstname', $this->firstname);
 		$stmt->bindParam(':lastname', $this->lastname);
 		$stmt->bindParam(':gender', $this->gender);
@@ -252,7 +252,7 @@ class User {
 		$this->address =  $row['address'];
 		$this->course =  $row['course'];
 		$this->academic_year =  $row['academic_year'];
-		$this->image =  $row['image_profile'];
+		$this->image_profile =  $row['image_profile'];
 
 
 	}
@@ -261,10 +261,10 @@ class User {
 	function uploadPhoto(){
 		$result_message = "";
 		
-		if ($this->image) {
+		if ($this->image_profile) {
 			// sha1_file() function is used to make a unique file name
 			$target_directory = "uploads/{$_SESSION['user_id']}/";
-			$target_file = $target_directory . basename($this->image);
+			$target_file = $target_directory . basename($this->image_profile);
 			$file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 	
 			// make sure certain file types are allowed

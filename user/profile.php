@@ -25,11 +25,13 @@ $user->id = $user_id;
 
 $user->readOne();
 
-$image=!empty($_FILES["image"]["name"])
-        ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"]) : "";
-$user->image = $image;
+
 
 if ($_POST) {
+    $image=!empty($_FILES["image"]["name"])
+            ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"]) : "";
+    $user->image_profile = $image;
+
     $user->firstname = $_POST['firstname'];
     $user->lastname = $_POST['lastname'];
     $user->gender = $_POST['gender'];
