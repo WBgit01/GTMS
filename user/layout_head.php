@@ -21,9 +21,12 @@ if ($page_title =="Profile") {
             echo "<div class='header_title'>";
                 echo "<span>Setting</span>";
                 echo "<h2>{$page_title}</h2>";
+                echo "<h2>Stuent ID: {$user->student_id}</h2>";
+                echo "";
             echo "</div>";
         echo "<div class='user_info'>";
-        echo isset($user->image_profile) ? "<img src='uploads/{$_SESSION['user_id']}/{$user->image_profile}' alt='User Image'>" : "No image found.";
+                echo isset($user->image_profile) ? "<img src='uploads/{$_SESSION['user_id']}/{$user->image_profile}' alt='User Image'>" : "No image found. </br>";
+                
             echo "</div>";
         echo "</div>";
         

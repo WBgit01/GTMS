@@ -113,7 +113,7 @@ class User {
 			$this->lastname = $row['lastname'];
 			$this->access_level = $row['access_level'];
 			$this->password = $row['password'];
-			$this->image = $row['image_profile'];
+			$this->image_profile = $row['image_profile'];
 			// return true because email exists in the database
 			return true;
 		}

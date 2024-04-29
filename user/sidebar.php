@@ -9,12 +9,6 @@
                 </a>
             </li>
             <li class='items'>
-                <a href="profile.php">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profile</span>
-                </a>
-            </li>
-            <li class='items'>
                 <a href="order.php">
                     <i class="fa-solid fa-cart-plus"></i>
                     <span>Order</span>
@@ -30,6 +24,13 @@
                 <a href="order_history.php">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span>Order History</span>
+                </a>
+            </li>
+
+            <li class='items'>
+                <a href="profile.php">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
                 </a>
             </li>
 

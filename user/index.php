@@ -14,11 +14,14 @@ include_once 'layout_head.php';
         <div class="header_wrapper">
             <div class="header_title">
                 <span>Welcome Back!</span>
-                <h2><?php 
+                <h2>
+                    <?php 
                         echo $_SESSION['firstname']; 
                         echo " ";
                         echo $_SESSION['lastname']; 
-                    ?></h2>
+                    ?>
+                </h2>
+
             </div>
             <div class="user_info">
                 <span>Username</span>
