@@ -153,7 +153,7 @@ if ($_POST) {
             <div class="account_edit">
             <div class="input_container">
                     <label>Profile Image</label>
-                    <input type="file" name="image" placeholder="+639" required>
+                    <input type="file" name="image">
                 </div>
             </div>
         </form>
