@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 04:41 PM
+-- Generation Time: Apr 29, 2024 at 02:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -101,19 +101,21 @@ INSERT INTO `inquiries` (`id`, `name`, `email`, `phone`, `message`, `created`) V
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL,
   `student_id` varchar(11) NOT NULL,
-  `payment_status` int(11) NOT NULL COMMENT '0=partial , 1=paid',
-  `order_created` datetime NOT NULL DEFAULT current_timestamp(),
-  `quantity` int(11) NOT NULL,
-  `order_status` int(11) NOT NULL,
-  `paid_via` int(11) NOT NULL COMMENT '0=banktransfer, 1 = cash, 2 = loan\r\n'
+  `order_id` varchar(50) NOT NULL,
+  `payment_status` varchar(25) NOT NULL,
+  `status` varchar(25) NOT NULL,
+  `reference_no` varchar(50) NOT NULL,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`id`, `student_id`, `payment_status`, `order_created`, `quantity`, `order_status`, `paid_via`) VALUES
-(1, '22b0959', 0, '2024-03-30 17:37:07', 4, 1, 1);
+INSERT INTO `transactions` (`id`, `student_id`, `order_id`, `payment_status`, `status`, `reference_no`, `created`, `modified`) VALUES
+(1, '22b0959', '0120921', 'FULLY PAID', 'READY TO PICK-UP', 'GMTS09533307696', '2024-04-29 19:31:49', '2024-04-29 11:31:49'),
+(2, '22b0959', '0120921', 'PARTIAL PAID', 'READY TO PICK-UP', 'GMTS09533307696', '2024-04-29 19:31:49', '2024-04-29 11:31:49');
 
 -- --------------------------------------------------------
 
@@ -144,9 +146,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `created`, `modified`) VALUES
-(1, '22b0959', 'willdell ', 'bravo', '', 'willdel@stud.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
-(2, '22b093', 'Alexisss', 'Dumale', '', 'Alexisdumale@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
-(38, '58b196', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$WSLR3gSSd3aKqlaVza/wAerTbN47ZQxy.AYO/iLq24Q/wQtCwKKmu', '+63953330769', '30# alvarez street', '1', '3', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin.jpg', '2024-04-23 13:23:34', '2024-04-28 21:53:43');
+(1, '22b0959', 'willdell ', 'bravo', '', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
+(2, '22b093', 'Alexisss', 'Dumale', '', 'admin_gtms@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
+(39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
 
 --
 -- Indexes for dumped tables
@@ -196,13 +198,13 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -307,7 +307,22 @@ class User {
 			}
 		}
 		return $result_message;
-	
+	}
+
+	function countUser(){
+
+		$query = "SELECT COUNT(*) as user_count
+					FROM 
+					" . $this->table_name . "
+					WHERE
+					access_level = 'student'";
+		
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		$user_count = $row['user_count'];
+		return $user_count;
 
 	}
 	

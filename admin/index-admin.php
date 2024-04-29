@@ -1,6 +1,15 @@
 <?php 
 
 include_once '../config/core.php';
+include_once '../config/database.php';
+include_once '../object/transaction.php';
+include_once '../object/user.php';
+
+$database = new Database();
+$db = $database->getConnection();
+
+$user = new User($db);
+$transaction = new Transaction($db);
 
 
 $page_title = "Dashboard";
@@ -13,108 +22,108 @@ include_once '../login_checker.php';
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
 
+$stmt = $transaction->readAll($from_record_num, $records_per_page);
+$num = $stmt->rowCount();
+
+$user_count = $user->countUser();
+
+
 
 
 ?>
-        <!-- PANEL-CONTAINER -->
-        <div class="panel_container">
-            <h3 class="main_title">Data Sample</h3>
-            <div class="panel_wrapper">
-                <!-- PANEL-1 -->
-                <div class="panel_content lightcolor-1">
-                    <div class="panel_header">
-                        <div class="amount">
-                            <span class="title">Example 1</span>
-                            <span class="amount_value">500</span>
-                        </div>
-                        <i class="fa-solid fa-peso-sign icon darkcolor-1"></i>
-                    </div>
+<!-- PANEL-CONTAINER -->
+<div class="panel_container">
+    <h3 class="main_title">Data Sample</h3>
+    <div class="panel_wrapper">
+        <!-- PANEL-1 -->
+        <div class="panel_content lightcolor-1">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Example 1</span>
+                    <span class="amount_value">500</span>
                 </div>
-                <!-- PANEL-2 -->
-                <div class="panel_content lightcolor-2">
-                    <div class="panel_header">
-                        <div class="amount">
-                            <span class="title">Example 2</span>
-                            <span class="amount_value">500</span>
-                        </div>
-                        <i class="fa-solid fa-users icon darkcolor-2"></i>
-                    </div>
-                </div>
-                <!-- PANEL-3 -->
-                <div class="panel_content lightcolor-3">
-                    <div class="panel_header">
-                        <div class="amount">
-                            <span class="title">Example 3</span>
-                            <span class="amount_value">500</span>
-                        </div>
-                        <i class="fa-solid fa-rectangle-list icon darkcolor-3"></i>
-                    </div>
-                </div>
-                <!-- PANEL-4 -->
-                <div class="panel_content lightcolor-4">
-                    <div class="panel_header">
-                        <div class="amount">
-                            <span class="title">Example 4</span>
-                            <span class="amount_value">500</span>
-                        </div>
-                        <i class="fa-solid fa-check icon darkcolor-4"></i>
-                    </div>
-                </div>
+                <i class="fa-solid fa-peso-sign icon darkcolor-1"></i>
             </div>
         </div>
-                <!-- TABLE-DATA -->
-                <div class="table_wrapper">
-                    <h3 class="main_title">Data List</h3>
-                    <div class="table_container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Order ID</th>
-                                    <th>Student ID</th>
-                                    <th>Payment Status</th>
-                                    <th>Order Created</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                        </thead>
-                             <tbody>
-                                <!-- DATA HERE -->
-                                <!-- SAMPLE DATA 1 -->
-                                 <tr>
-                                    <td>0120921</td>
-                                    <td>22B0921</td>
-                                    <td>FULLY PAID</td>
-                                    <td>02-22-24 14:20:07</td>
-                                    <td>READY TO PICK-UP</td>
-                                    <td><a href="#"><button class="data_btn">Edit</button></a></td>
-                                </tr>
-                                <!-- SAMPLE DATA 2 -->
-                                <tr>
-                                    <td>0140915</td>
-                                    <td>23B0823</td>
-                                    <td>PARTIAL</td>
-                                    <td>03-21-24 12:02:06</td>
-                                    <td>PENDING</td>
-                                    <td><a href="#"><button class="data_btn">Edit</button></a></td>
-                                </tr>
-                                <!-- SAMPLE DATA 3 -->
-                                <tr>
-                                    <td>425391</td>
-                                    <td>22C1921</td>
-                                    <td>FULLY PAID</td>
-                                    <td>04-07-24 09:57:33</td>
-                                    <td>PENDING</td>
-                                    <td><a href="#"><button class="data_btn">Edit</button></a></td>
-                                </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="7" class="table_foot">EXAMPLE TABLE FOOTER</td>
-                            </tr>
-                        </tfoot>
-                </table>
+        <!-- PANEL-2 -->
+        <div class="panel_content lightcolor-2">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Users</span>
+                    <span class="amount_value"><?php echo $user_count;?></span>
+                </div>
+                <i class="fa-solid fa-users icon darkcolor-2"></i>
+            </div>
+        </div>
+        <!-- PANEL-3 -->
+        <div class="panel_content lightcolor-3">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Example 3</span>
+                    <span class="amount_value">500</span>
+                </div>
+                <i class="fa-solid fa-rectangle-list icon darkcolor-3"></i>
+            </div>
+        </div>
+        <!-- PANEL-4 -->
+        <div class="panel_content lightcolor-4">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Example 4</span>
+                    <span class="amount_value">500</span>
+                </div>
+                <i class="fa-solid fa-check icon darkcolor-4"></i>
             </div>
         </div>
     </div>
+</div>
+<!-- TABLE-DATA -->
+<div class="table_wrapper">
+    <h3 class="main_title">Data List</h3>
+    <?php
+        if ($num>0) {
 
+            echo "<div class='table_container'>";
+            echo "<table>";
+                echo "<thead>";
+                    echo "<tr>";
+                        echo "<th>Order ID</th>";
+                        echo "<th>Student ID</th>";
+                        echo "<th>Payment Status</th>";
+                        echo "<th>Reference No</th>";
+                        echo "<th>Order Created</th>";
+                        echo "<th>Status</th>";
+                        echo "<th>Action</th>";
+                    echo "</tr>";
+                echo "</thead>";
+
+                echo "<tbody>";
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        extract($row);
+
+                        echo "<tr>";
+                            echo "<td>{$order_id}</td>";
+                            echo "<td>{$student_id}</td>";
+                            echo "<td>{$payment_status}</td>";
+                            echo "<td>{$reference_no}</td>";
+                            echo "<td>{$status}</td>";
+                            echo "<td>{$created}</td>";
+                            echo "<td>";
+                                echo "<a href='#' class=''>View</a>";
+                                echo "<a href='#'>Update</a>";
+                                echo "<a href='#'>Delete</a>";
+                                    
+                        echo "</tr>";
+                    }
+                echo "</tbody>";
+                echo "<tfoot>";
+                    echo "<tr>";
+                        echo "<td colspan='7' class='table_foot'>EXAMPLE TABLE FOOTER</td>";
+                    echo "</tr>";
+                echo "</tfoot>";
+            echo "</table>";
+        }
+    ?>
+    </div>
+</div>
 <?php include_once 'layout_foot.php'; ?>
