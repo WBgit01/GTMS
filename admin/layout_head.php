@@ -29,7 +29,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Search">
                 </div>
-                <a href="#"><img src="../IMG/Admin.jpg" alt=""></a> <!-- admin-image -->
+                <a href="#"><img src="../IMG/Admin2.jpg" alt=""></a> <!-- admin-image -->
             </div>
         </div>
 

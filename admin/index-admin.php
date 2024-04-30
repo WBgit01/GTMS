@@ -33,13 +33,13 @@ $user_count = $user->countUser();
 ?>
 <!-- PANEL-CONTAINER -->
 <div class="panel_container">
-    <h3 class="main_title">Data Sample</h3>
+    <h3 class="main_title">Statistics</h3>
     <div class="panel_wrapper">
         <!-- PANEL-1 -->
         <div class="panel_content lightcolor-1">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Example 1</span>
+                    <span class="title">Sales</span>
                     <span class="amount_value">500</span>
                 </div>
                 <i class="fa-solid fa-peso-sign icon darkcolor-1"></i>
@@ -59,20 +59,21 @@ $user_count = $user->countUser();
         <div class="panel_content lightcolor-3">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Example 3</span>
+                    <span class="title">Orders</span>
                     <span class="amount_value">500</span>
                 </div>
-                <i class="fa-solid fa-rectangle-list icon darkcolor-3"></i>
+                <i class="fa-solid fa-cart-plus icon darkcolor-3"></i>
             </div>
         </div>
         <!-- PANEL-4 -->
         <div class="panel_content lightcolor-4">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Example 4</span>
+                    <span class="title">Products</span>
                     <span class="amount_value">500</span>
                 </div>
-                <i class="fa-solid fa-check icon darkcolor-4"></i>
+                <i class="fa-regular"></i>
+                <i class="fa-solid  fa-rectangle-list icon darkcolor-4"></i>
             </div>
         </div>
     </div>

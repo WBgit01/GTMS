@@ -27,6 +27,13 @@
                 </a>
             </li>
 
+            <li>
+                <a href="orders.php">
+                <i class="fa-solid fa-cart-plus"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
+
             <li class="logout">
                 <a href="../logout.php">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
