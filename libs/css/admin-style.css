@@ -261,6 +261,54 @@ tfoot td{
     color: white;
 }
 
+/* ACTION BUTTON STYLING */
+.action_btn1, 
+.action_btn2, 
+.action_btn3{
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: white;
+    transition-duration: 0.3s;
+
+}
+
+.action_btn1{
+    padding: 4px 8px;
+    border: 2px solid blue;
+    color: blue;
+}
+
+.action_btn2{
+    padding: 4px 4px;
+    border: 2px solid green;
+    color: green;
+
+}
+.action_btn3{
+    padding: 4px 6px;
+    border: 2px solid red;
+    color: red;
+}
+
+.action_btn1:hover{
+    background-color: blue;
+    color: white;
+    border: 2px solid transparent;
+
+}
+.action_btn2:hover{
+    background-color: green;
+    color: white;
+    border: 2px solid transparent;
+}
+
+.action_btn3:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid transparent;
+}
+
 /* RESPONSIVE STYLING */
 @media only screen and (max-width: 768px) {
     .sidebar {

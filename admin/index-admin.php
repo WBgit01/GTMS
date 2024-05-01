@@ -110,9 +110,9 @@ $user_count = $user->countUser();
                             echo "<td>{$status}</td>";
                             echo "<td>{$created}</td>";
                             echo "<td>";
-                                echo "<a href='#' class=''>View</a>";
-                                echo "<a href='#'>Update</a>";
-                                echo "<a href='#'>Delete</a>";
+                                echo "<a href='#' class='action_btn1'>View</a>";
+                                echo "<a href='#'class='action_btn2'>Update</a>";
+                                echo "<a href='#'class='action_btn3'>Delete</a>";
                                     
                         echo "</tr>";
                     }
