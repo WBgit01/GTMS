@@ -270,22 +270,21 @@ tfoot td{
     font-weight: bold;
     background-color: white;
     transition-duration: 0.3s;
+    margin-right: 4px;
+    padding: 4px 6px;
 }
 
 .action_btn1{
-    padding: 4px 8px;
     border: 2px solid blue;
     color: blue;
 }
 
 .action_btn2{
-    padding: 4px 4px;
     border: 2px solid green;
     color: green;
 
 }
 .action_btn3{
-    padding: 4px 6px;
     border: 2px solid red;
     color: red;
 }
