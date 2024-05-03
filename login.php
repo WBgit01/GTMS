@@ -83,4 +83,4 @@ include_once 'alert-messages.php';
     </form>
 </div>
 
-<?php include_once 'layout_foot.php' ?>
+<?php include_once 'layout_foot.php'; ?>

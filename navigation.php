@@ -1,23 +1,15 @@
-<header>
-    <div class="navi">
+<nav>
         <div class="logo">
-            <a href="index.php">
-            <img src="IMG/GTMS_Logo4.png" class="logo_nav">
-                GTMS PORTAL
-            </a>
+            <img src="IMG/GTMS_logo4.png">
+            <a href="index.php">GTMS PORTAL</a>
         </div>
-        <ul class="links">
-            <li><a href="about.php">About</a></li>
-            <li><a href="services.php">Services</a></li>
-            <li><a href="contact.php">Contact</a></li>
+        <ul>
+            <li><a href="index.php#main">Home</a></li>
+            <li><a href="index.php#services">Services</a></li>
+            <li><a href="index.php#contact">Contact Us</a></li>
+            <li><a href="index.php#about">About Us</a></li>
         </ul>
-        <div class="toggle_btn">
+        <!-- <div class="toggle_btn">
             <i class="fa-solid fa-bars-staggered"></i>
-        </div>
-    </div>
-    <div class="drop-menu">
-        <li><a href="about.php">About</a></li>
-        <li><a href="services.php">Services</a></li>
-        <li><a href="contact.php">Contact</a></li>
-    </div>
-</header>
+        </div> -->
+    </nav>

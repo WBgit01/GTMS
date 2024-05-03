@@ -24,9 +24,9 @@ body{
     transition: all 0.5s linear;
     background: #77acb7;
 }
+
 .sidebar:hover{
     width: 250px;
-    transition: 0.5s;
 }
 
 .logo{
@@ -336,6 +336,106 @@ body{
 	border-radius: .25rem;
 }
 
+/* ORDER PAGE - STYLING */
+.panel_wrapper2{
+    background: white;
+    border-radius: 10px;
+}
+
+.panel_wrapper2 .table_detail{
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 40px 20px;
+    margin: 0 auto;
+}
+
+.panel_wrapper2 .table_detail h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.panel_wrapper2 .table_detail p{
+    font-size: 15px;
+}
+
+.panel_wrapper2 .grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 0px;
+    padding: 20px;
+}
+
+.panel_wrapper2 .grid .box{
+    width: 250px;
+    margin: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.05);
+}
+
+.panel_wrapper2 .grid .box .title_box{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.panel_wrapper2 .grid .box .price_grid{
+    margin-bottom: 20px;
+}
+
+.panel_wrapper2 .grid .box .price_grid b{
+    display: block;
+    font-size: 40px;
+    margin-bottom: -5px;
+}
+
+.panel_wrapper2 .grid .box .features > *{
+    color: black;
+    padding: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.panel_wrapper2 .grid .box .btn2 button{
+    width: 100%;
+    margin: 25px 0px 0px;
+    padding: 10px;
+    background: linear-gradient(to bottom, #3a7bd5, #3a6073);
+    color: white;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.panel_wrapper2 .grid .box:hover{
+    transform: scale(1.1);
+    background: linear-gradient(to bottom, lightblue, aqua);
+    transition-duration: 0.5s;
+}
+
+.panel_wrapper2 .grid .box .title_box .price_table:hover{
+    color: white;
+}
+
+.panel_wrapper2 .grid .box .features > *:hover{
+    color: white;
+}
+
+.panel_wrapper2 .grid .box .button button:hover{
+    background-color: white;
+    color: #3a6073;
+}
+
+
+
+
 /* RESPONSIVE STYLING */
 @media only screen and (max-width: 768px) {
     .sidebar {
@@ -370,6 +470,12 @@ body{
     }
     .input_container input{
         margin: 10px;
+    }
+    .pannel_wrapper2 .grid{
+        gap: 20px;
+    }
+    .panel_wrapper2 .grid .box.bx1{
+        transform: scale(1);
     }
 }
 

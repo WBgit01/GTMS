@@ -72,7 +72,7 @@ if ($_POST) {
     </div>
 
     <div class="input_box">
-        <input type="number" name="contact_no" placeholder="Contact No." required/>
+        <input type="tel" name="contact_no" placeholder="XXX-XXX-XXXX" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
             <i class="fa-solid fa-phone email"></i>
     </div>
 
