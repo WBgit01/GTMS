@@ -62,7 +62,8 @@ footer .top ul {
     gap: 40px;
 }
 
-/* ------------MAIN----------- */
+
+/* -----MAIN----- */
 .main{
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../IMG/background6.svg);
     background-position: center;
@@ -175,7 +176,8 @@ footer .top ul {
     color: #1c1e53;
 }
 
-/* CONTACT US STYLING */
+
+/* -----CONTACT US STYLING----- */
 .contact{
     background-color: lightblue;
     padding: 100px 85px;
@@ -244,7 +246,8 @@ footer .top ul {
     background: red;
 }
 
-/* ABOUT STYLING */
+
+/* -----ABOUT STYLING----- */
 .about {
     padding: 110px 85px;
 }
@@ -293,7 +296,8 @@ footer .top ul {
     width: 70%;
 }
 
-/* LOGIN - SIGNUP STYLING */
+
+/* -----LOGIN - SIGNUP STYLING----- */
 .form_center {
     position: absolute;
     top: 56%;
@@ -309,7 +313,7 @@ footer .top ul {
     pointer-events: auto;
 }
 
-/* FORM_CONTAINER ANIMATION - LOGIN/SIGNUP */
+/* =====FORM_CONTAINER ANIMATION - LOGIN/SIGNUP===== */
 .form_container {
     max-width: 420px;
     width: 100%;
@@ -339,17 +343,20 @@ footer .top ul {
 	opacity: 0.7;
 	cursor: pointer;
 }
+
 .form_container h3{
 	font-size: 24px;
 	color: black;
 	text-align: center;
 }
+
 .input_box{
 	position: relative;
 	width: 100%;
 	height: 40px;
 	margin-top: 20px;
 }
+
 .input_box input{
 	height: 100%;
 	width: 100%;
@@ -360,58 +367,70 @@ footer .top ul {
 	color: gray;
 	transition: 0.2s ease;
 }
+
 .input_box input:focus{
 	border-color: red;
 }
+
 .input_box input:focus ~ i.name,
 .input_box input:focus ~ i.email,
 .input_box input:focus ~ i.password{
 	color: red;
 }
+
 .input_box i{
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	font-size: 20px;
 }
+
 .input_box i.name,
 .input_box i.email,
 .input_box i.password{
 	left: 0;
 	color: gray;
 }
+
 .input_box i.pwhide{
 	right: 0;
 	font-size: 18px;
 	cursor: pointer;
 }
+
 .option_field{
 	margin-top: 14px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 } 
+
 .form_container a{
 	color: red;
 	font-size: 12px;
 }
+
 .form_container a:hover{
 	text-decoration: underline;
 }
+
 .checkbox{
 	display: flex;
 	column-gap: 8px;
 	white-space: nowrap;
 }
+
 .checkbox input{
 	accent-color: red;
 }
+
 .checkbox label{
 	font-size: 12px;
 	color: black;
 	user-select: none;
 	cursor: pointer;
 }
+
 .form_container .btn1{
 	background: red;
 	margin-top: 30px;
@@ -422,17 +441,20 @@ footer .top ul {
 	border: none;
 	cursor: pointer;
 }
+
 .login_signup{
 	font-size: 12px;
 	text-align: center;
 	margin-top: 14px;
 }
+
 .descrip_fp{
 	margin-top: 10px;
 	font-size: 18px;
 }
 
-/* ALERT MESSAGE STYLING */
+
+/* -----ALERT MESSAGE STYLING----- */
 .message-box-failed{
 	color: #842029;
 	border: #f5c2c7;
@@ -459,7 +481,8 @@ footer .top ul {
 	border-radius: .25rem;
 }
 
-/* FOOTER STYLING */
+
+/* -----FOOTER STYLING----- */
 footer{
     background-color: lightblue;
     padding: 85px;
@@ -498,7 +521,7 @@ footer .bottom .links a{
 }
 
 
-/* RESPONSIVE STYLING */
+/* -----RESPONSIVE STYLING----- */
 @media screen and (max-width: 1200px) {
     
     .main .main_con h3{

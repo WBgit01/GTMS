@@ -22,8 +22,8 @@ include_once 'layout_head.php';
 	<!-- CONTACT FORM  -->
 	<?php include_once 'contact.php'; ?>
 
-	    <!-- ABOUT -->
-		<div class="about" id="about">
+	<!-- ABOUT -->
+	<div class="about" id="about">
         <div class="content">
             <div class="text">
                 <h3>About Us</h3>

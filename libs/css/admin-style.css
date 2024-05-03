@@ -6,11 +6,13 @@
     box-sizing: border-box;
     font-family: Roboto;
 }
+
 body{
     display: flex;
 }
 
-/* SIDEBAR-STYLING */
+
+/* -----SIDEBAR-STYLING----- */
 .sidebar{
     position: sticky;
     top: 0;
@@ -24,15 +26,18 @@ body{
     transition: all 0.5s linear;
     background: maroon;
 }
+
 .sidebar:hover{
     width: 240px;
     transition: 0.5s;
 }
+
 .logo{
     height: 80px;
     padding: 16px;
 
 }
+
 .menu{
     height: 88%;
     position: relative;
@@ -40,16 +45,19 @@ body{
     padding: 0;
 
 }
+
 .menu li{
     padding: 1rem;
     margin: 8px 0;
     border-radius: 8px;
     transition: all 0.5s ease-in-out;
 }
+
 .menu li:hover, 
 .dash{
     background: lightcoral;
 }
+
 .menu a{
     color: white;
     font-size: 14px;
@@ -58,12 +66,15 @@ body{
     align-items: center;
     gap: 1.5rem;
 }
+
 .menu a span{
     overflow: hidden;
 }
+
 .menu a i{
     font-size: 1.2rem;
 }
+
 .logout{
     position: absolute;
     bottom: 0;
@@ -71,19 +82,22 @@ body{
     width: 100%;
 }
 
-/* MAIN CONTENT||BODY */
+
+/* -----MAIN CONTENT||BODY----- */
 .main_content{
     position: relative;
     background: lightgray;
     width: 100%;
     padding: 1rem;
 }
+
 .header_wrapper img{
     width: 50px;
     height: 50px;
     cursor: pointer;
     border-radius: 100%;
 }
+
 .header_wrapper{
     display: flex;
     justify-content: space-between;
@@ -94,14 +108,17 @@ body{
     padding: 10px 2rem;
     margin-bottom: 1rem;
 }
+
 .header_title{
     color: maroon;
 }
+
 .user_info{
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .search_bar{
     background: lightgray;
     border-radius: 15px;
@@ -111,35 +128,42 @@ body{
     gap: 5px;
     padding: 4px 12px;
 }
+
 .search_bar input{
     background: transparent;
     padding: 10px;
 }
+
 .search_bar i{
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.5s ease-out;
 }
+
 .search_bar i:hover{
     transform: scale(1.2);
 }
 
-/* PANEL CONTAINER-STYLING */
+
+/* -----PANEL CONTAINER-STYLING----- */
 .panel_container{
     background: white;
     padding: 2rem;
     border-radius: 10px;
 }
+
 .panel_wrapper{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
+
 .main_title{
     color: maroon;
     padding-bottom: 10px;
     font-size: 15px;
 }
+
 .panel_content{
     background: lightblue;
     border-radius: 10px;
@@ -151,27 +175,33 @@ body{
     justify-content: space-between;
     transition: all 0.5s ease-in-out;
 }
+
 .panel_content:hover{
     transform: translateY(-5px);
 }
+
 .panel_header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
+
 .amount{
     display: flex;
     flex-direction: column;
 }
+
 .title{
     font-size: 12px;
     font-weight: bold;
 }
+
 .amount_value{
     font-size: 24px;
     font-weight: 600;
 }
+
 .icon{
     color: white;
     padding: 1rem;
@@ -183,33 +213,42 @@ body{
     background: red;
 }
 
-/* PANEL COLOR-STYLING*/
+
+/* -----PANEL COLOR-STYLING----- */
 .lightcolor-1{
     background: lightcoral;
 }
+
 .lightcolor-2{
     background: lightblue;
 }
+
 .lightcolor-3{
     background: lightgreen;
 }
+
 .lightcolor-4{
     background: lightsalmon;
 }
+
 .darkcolor-1{
     background: red;
 }
+
 .darkcolor-2{
     background: blue;
 }
+
 .darkcolor-3{
     background: green;
 }
+
 .darkcolor-4{
     background: salmon;
 }
 
-/* TABLE-DATA STYLING */
+
+/* -----TABLE-DATA STYLING----- */
 .table_wrapper{
     background: white;
     margin-top: 1rem;
@@ -217,51 +256,62 @@ body{
     padding: 2rem 2rem;
     overflow-x: auto;
 }
+
 .table_container{
     width: 100%;
     margin: 0 auto;
 }
+
 table{
     width: 100%;
     border-collapse: collapse;
 }
+
 thead{
     background: maroon;
     color: white;
 }
+
 th{
     padding: 15px;
     text-align: center;
 }
+
 tbody{
     background: lightgray;
 }
+
 td{
     text-align: center;
     padding: 15px;
     font-size: 14px;
     color: black;
 }
+
 tr:nth-child(even){
     background: white;
 }
+
 .table_container .data_btn{
     color: maroon;
     background: none;
     cursor: pointer;
 }
+
 tfoot .table_foot{
     background: maroon;
     font-weight: bold;
     color: white;
     text-align: left;
 }
+
 tfoot td{
     padding: 15px;
     color: white;
 }
 
-/* ACTION BUTTON STYLING */
+
+/* -----ACTION BUTTON STYLING----- */
 .action_btn1, 
 .action_btn2, 
 .action_btn3{
@@ -307,7 +357,8 @@ tfoot td{
     border: 2px solid transparent;
 }
 
-/* RESPONSIVE STYLING */
+
+/* -----RESPONSIVE STYLING----- */
 @media only screen and (max-width: 768px) {
     .sidebar {
         width: 80px;
@@ -350,6 +401,7 @@ tfoot td{
     .sidebar:hover {
         width: 240px;
     }
+    
     .menu a {
         gap: 0.3rem;
         font-size: 10px;
