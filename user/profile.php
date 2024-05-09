@@ -26,9 +26,6 @@ include_once 'sidebar.php';
 include_once 'layout_head.php'; 
 
 
-
-
-
 if ($_POST) {
     $image_profile=!empty($_FILES["image"]["name"])
             ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"]) : "";

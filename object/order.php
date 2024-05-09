@@ -111,6 +111,10 @@ class Order{
         return $stmt;
     }
 
+    function readOne(){
+        
+    }
+
 
 }
 
