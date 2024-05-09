@@ -32,6 +32,9 @@ if($_POST){
         $_SESSION['logged_in'] = true;
         $_SESSION['email_address'] = $user->email_address;
         $_SESSION['profile_image'] = $user->image;
+        $_SESSION['student_id'] = $user->student_id;
+        $_SESSION['academic_year'] = $user->academic_year;
+        $_SESSION['gender'] = $user->gender;
 
         if ($user->access_level == "Admin") {
             $_SESSION['isAccessible'] = true;

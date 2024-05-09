@@ -89,7 +89,7 @@ class User {
 	// check if given email exist in the database
 	function emailExists(){
 		// query to check if email exists
-		$query = "SELECT id, firstname, lastname, access_level, password, image_profile
+		$query = "SELECT id, firstname, lastname, student_id, access_level, gender, academic_year, password, image_profile
 				FROM " . $this->table_name . "
 				WHERE email_address = ? OR student_id = ?
 				LIMIT 0,1";
@@ -114,6 +114,9 @@ class User {
 			$this->access_level = $row['access_level'];
 			$this->password = $row['password'];
 			$this->image_profile = $row['image_profile'];
+			$this->student_id = $row['student_id'];
+			$this->gender = $row['gender'];
+			$this->academic_year = $row['academic_year'];
 			// return true because email exists in the database
 			return true;
 		}

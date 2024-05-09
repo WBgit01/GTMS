@@ -28,12 +28,12 @@ if ($_POST) {
  
     if ($inquiry->createInquiry()) {
         echo "<div class='message-box-success'>";
-        echo "Inquiry submitted";
+            echo "Inquiry submitted";
         echo "</div>";
     }
     else {
         echo "<div class='message-box-failed'>";
-        echo "Something went wrong";
+            echo "Something went wrong";
         echo "</div>";
     }
 }

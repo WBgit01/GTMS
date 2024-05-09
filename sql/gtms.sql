@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2024 at 02:41 PM
+-- Generation Time: May 09, 2024 at 08:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,8 @@ INSERT INTO `academic_year` (`id`, `academic_year`, `created`, `modified`) VALUE
 (1, 'First-year (Freshman)', '2024-04-23 20:24:26', '2024-04-23 12:24:26'),
 (2, 'Second-year (Sophomore)', '2024-04-23 20:24:52', '2024-04-23 12:24:52'),
 (3, 'Third-year (Junior)', '2024-04-23 20:25:18', '2024-04-23 12:25:18'),
-(4, 'Fourth-year (Senior)', '2024-04-23 20:25:39', '2024-04-23 12:25:39');
+(4, 'Fourth-year (Senior)', '2024-04-23 20:25:39', '2024-04-23 12:25:39'),
+(5, 'Senior High School ', '2024-05-09 13:08:50', '2024-05-09 05:08:50');
 
 -- --------------------------------------------------------
 
@@ -87,10 +88,28 @@ CREATE TABLE `inquiries` (
 --
 
 INSERT INTO `inquiries` (`id`, `name`, `email`, `phone`, `message`, `created`) VALUES
-(1, 'test', '123123@gmail.com', '12313212312', 'helo test ', '2024-04-25 21:46:23'),
-(2, 'test', '123123@gmail.com', '12313212312', 'helo test ', '2024-04-25 21:47:05'),
-(3, 'test', '123123@gmail.com', '12313212312', 'helo test ', '2024-04-25 21:48:28'),
-(0, 'qweqw', 'eqwewqe@dasd.com', '', 'wqewewq', '2024-04-28 15:55:37');
+(9, 'ALEXIS JAYE DELEON D', 'ajcodalify@gmail.com', '953-330-769', 'TEst', '2024-05-09 10:50:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `reference_no` varchar(15) NOT NULL,
+  `student_id` varchar(20) NOT NULL,
+  `amount` varchar(50) NOT NULL,
+  `garment_type` varchar(50) NOT NULL,
+  `size_width` varchar(10) NOT NULL,
+  `size_height` varchar(10) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `notes` varchar(555) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -148,7 +167,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `created`, `modified`) VALUES
 (1, '22b0959', 'willdell ', 'bravo', '', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
 (2, '22b093', 'Alexisss', 'Dumale', '', 'admin_gtms@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
-(39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
+(39, '11b146', 'ALEXIS', 'DUMALE', 'female', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
 
 --
 -- Indexes for dumped tables
@@ -164,6 +183,18 @@ ALTER TABLE `academic_year`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inquiries`
+--
+ALTER TABLE `inquiries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -186,13 +217,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `academic_year`
 --
 ALTER TABLE `academic_year`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `inquiries`
+--
+ALTER TABLE `inquiries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `transactions`
