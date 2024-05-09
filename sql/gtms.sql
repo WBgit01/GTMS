@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 08:00 AM
+-- Generation Time: May 10, 2024 at 01:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -110,6 +110,15 @@ CREATE TABLE `orders` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `size_width`, `size_height`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
+(31, 'GTMS003100097', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:13', '2024-05-09 23:08:13'),
+(32, 'GTMS001600575', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:14', '2024-05-09 23:08:14'),
+(33, 'GTMS003800635', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:50', '2024-05-09 23:08:50');
 
 -- --------------------------------------------------------
 
@@ -235,7 +244,7 @@ ALTER TABLE `inquiries`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `transactions`
