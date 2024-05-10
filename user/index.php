@@ -2,18 +2,24 @@
 include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/order.php';
+include_once '../object/user.php';
+
 
 $database = new Database();
 $db = $database->getConnection();
 
 $order = new Order($db);
+$user = new User($db);
+
+$user_id = $_SESSION['user_id'];
+$user->getProfileimage($user_id);
 
 $stmt = $order->readAll();
 $num = $stmt->rowCount();
 
 $require_login = true;
 
-$page_title = "index";
+$page_title = "Dashboard";
 include_once 'sidebar.php'; 
 include_once 'layout_head.php'; 
 ?>
@@ -32,7 +38,6 @@ include_once 'layout_head.php';
             </h2>
         </div>
         <div class="user_info">
-            <?php echo isset($_SESSION['profile_image']) ? "<img src='uploads/{$_SESSION['user_id']}/{$_SESSION['profile_image']}' alt='User Image'>" : "No image found."; ?>
         </div>
     </div>
 
@@ -49,6 +54,8 @@ include_once 'layout_head.php';
                 echo "<th>Reference No</th>";
                 echo "<th>Order Created</th>";
                 echo "<th>Status</th>";
+                echo "<th>Size</th>";
+                echo "<th>Note</th>";
                 echo "<th>Action</th>";
                 echo "</tr>";
                 echo "</thead>";
@@ -75,21 +82,30 @@ include_once 'layout_head.php';
                             echo "{$status}";
                         echo "</div>";
                     }
-
-
                         
                     echo "</td>";
+
                     echo "<td>";
-                    if ($status == "Pending") {
-                        echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                        echo "<a href='#' class='action_btn2'>Update</a>";
-                        echo "<a href='#' class='action_btn3'>Delete</a>";
-                    }elseif($status == "Approved"){
-                        echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                    }else{
-                        echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                        echo "<a href='#' class='action_btn2'>Update</a>";
-                    }
+                        if ($status == "Pending") {
+                            echo "<strong>Please set your Size. Update this Order</strong>";
+                        }else{
+                            echo "Width (inch) <strong>{$size_width}</strong>, Height(inch)<strong> {$size_height}</strong>";
+                        }
+                    echo "</td>";
+
+                    echo "<td>";
+                        echo "{$notes}";
+                    echo "</td>";
+                    echo "<td>";
+                        if ($status == "Pending") {
+                            echo "<a href='#' class='action_btn2'>Update</a>";
+                            echo "<a href='#' class='action_btn3'>Delete</a>";
+                        }elseif($status == "Approved"){
+                            echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                        }else{
+                            echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                            echo "<a href='#' class='action_btn2'>Update</a>";
+                        }
                     echo "</td>";
                     echo "</tr>";
                 }

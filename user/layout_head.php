@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <link rel="stylesheet" href="../libs/css/user-style.css">
-    <title>User Dashboard</title>
+    <title><?php echo $page_title; ?></title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 <?php
 
     
-if ($page_title =="Profile") {
+if ($page_title =="Profile" || $page_title=="Order Form") {
     echo "<div class='main_content'>";
         echo "<div class='header_wrapper'>";
             echo "<div class='header_title'>";
@@ -26,7 +26,6 @@ if ($page_title =="Profile") {
             echo "</div>";
         echo "<div class='user_info'>";
                 echo isset($user->image_profile) ? "<img src='uploads/{$_SESSION['user_id']}/{$user->image_profile}' alt='User Image'>" : "No image found. </br>";
-                
             echo "</div>";
         echo "</div>";
 }else{
@@ -36,7 +35,7 @@ if ($page_title =="Profile") {
             echo "<h2>$page_title</h2>";
         echo "</div>";
         echo "<div class='user_info'>";
-            echo isset($_SESSION['profile_image']) ? "<img src='uploads/{$_SESSION['user_id']}/{$_SESSION['profile_image']}' alt='User Image'>" : "No image found.";
+            echo isset($user->image_profile) ? "<img src='uploads/{$_SESSION['user_id']}/{$user->image_profile}' alt='User Image'>" : "No image found. </br>";
 
         echo "</div>";
     echo "</div>";

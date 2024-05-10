@@ -2,12 +2,18 @@
 include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/order.php';
+include_once '../object/user.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
 $order = new Order($db);
+$user = new User($db);
 
+
+// to show profile for each webpage
+$user_id = $_SESSION['user_id'];
+$user->getProfileimage($user_id);
 
 $require_login = true;
 include_once '../login_checker.php';
@@ -30,9 +36,9 @@ if ($_POST) {
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
             
-            if ($order->countOrder() >= 2) {
+            if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";
-                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request.";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
                 echo "</div>";
             }else{
                 $order->createOrder();
@@ -51,9 +57,9 @@ if ($_POST) {
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
                 
-            if ($order->countOrder() >= 2) {
+            if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";
-                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request.";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
                 echo "</div>";
             }else{
                 $order->createOrder();
@@ -72,9 +78,9 @@ if ($_POST) {
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
                         
-            if ($order->countOrder() >= 2) {
+            if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";
-                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request.";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
                 echo "</div>";
             }else{
                 $order->createOrder();
@@ -93,9 +99,9 @@ if ($_POST) {
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
                         
-            if ($order->countOrder() >= 2) {
+            if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";
-                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request.";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
                 echo "</div>";
             }else{
                 $order->createOrder();
