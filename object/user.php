@@ -326,7 +326,24 @@ class User {
 		
 		$user_count = $row['user_count'];
 		return $user_count;
+	}
 
+	function getProfileimage($user_id){
+			$query = "SELECT image_profile
+					
+		FROM 
+			" . $this->table_name . "
+		WHERE 
+			id = {$user_id}
+		LIMIT 0,1";
+
+		$stmt = $this->conn->prepare($query);
+
+
+		$stmt->execute();
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$this->image_profile=$row['image_profile'];
 	}
 	
 

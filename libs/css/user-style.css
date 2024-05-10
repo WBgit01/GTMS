@@ -475,6 +475,138 @@ body{
     color: #3a6073;
 }
 
+/* -----TABLE-DATA STYLING----- */
+.table_wrapper{
+    background: white;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 2rem 2rem;
+    overflow-x: auto;
+}
+
+.table_container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: #3fc495;
+    color: white;
+}
+
+th{
+    padding: 15px;
+    text-align: center;
+}
+
+tbody{
+    background: lightgray;
+}
+
+td{
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: black;
+}
+
+tr:nth-child(even){
+    background: white;
+}
+
+.table_container .data_btn{
+    color: maroon;
+    background: none;
+    cursor: pointer;
+}
+
+tfoot .table_foot{
+    background-color: #3fc495;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+}
+
+tfoot td{
+    padding: 15px;
+    color: white;
+}
+
+/* -----ACTION BUTTON STYLING----- */
+.action_btn1, 
+.action_btn2, 
+.action_btn3{
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: white;
+    transition-duration: 0.3s;
+    margin-right: 4px;
+    padding: 4px 6px;
+}
+
+.action_btn1{
+    border: 2px solid blue;
+    color: blue;
+}
+
+.action_btn2{
+    border: 2px solid green;
+    color: green;
+
+}
+.action_btn3{
+    border: 2px solid red;
+    color: red;
+}
+
+.action_btn1:hover{
+    background-color: blue;
+    color: white;
+    border: 2px solid transparent;
+
+}
+.action_btn2:hover{
+    background-color: green;
+    color: white;
+    border: 2px solid transparent;
+}
+
+.action_btn3:hover{
+    background-color: red;
+    color: white;
+    border: 2px solid transparent;
+}
+
+/* STATUS MESSAGE STYLING */
+.status-message-pending{
+    color: #664d03;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+    border-radius: .25rem;
+    padding: 15px;
+}
+.status-message-approved{
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    border-radius: .25rem;
+    padding: 15px;
+}
+.status-message-declined{
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    border-radius: .25rem;
+    padding: 15px;
+}
+
+
 
 /* -----RESPONSIVE STYLING----- */
 @media only screen and (max-width: 768px) {

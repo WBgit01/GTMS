@@ -79,12 +79,12 @@ class Order{
 					FROM 
 					" . $this->table_name . "
 					WHERE
-					student_id = :student_id  && status = :status";
+					student_id = :student_id";
 		
 		$stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':student_id', $this->student_id);
-        $stmt->bindParam(':status', $this->status);
+        // $stmt->bindParam(':status', $this->status);
 		$stmt->execute();
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		
@@ -95,8 +95,25 @@ class Order{
         }else{
 
         }
-
 	}
+
+    function readAll(){
+        $query = "SELECT * 
+                    FROM   
+                    " . $this->table_name ." 
+                    ORDER BY 
+                    id ASC";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function readOne(){
+        
+    }
 
 
 }
