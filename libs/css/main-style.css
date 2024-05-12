@@ -78,7 +78,6 @@ footer .top ul {
 	max-width: 300px;
     height: auto;
     margin-bottom: 20px;
-    
 }
 
 .main .main_con{
@@ -98,6 +97,7 @@ footer .top ul {
     color: white;
     font-size: 22px;
     margin-top: 20px;
+    text-align: center;
 }
 
 .main .main_con button{
