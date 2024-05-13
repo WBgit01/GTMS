@@ -75,33 +75,28 @@ if ($_POST) {
             </div>
 
             <div class="input_container">
-                <label>Size Height</label>
+                <label>Men Pants</label>
                 <select name="size_height">
-                    <option value="" disabled selected>Select Size</option>
-                    <option value="small">
-                        (Small)
-                        Shoulder - 16-17"
-                        Chest - 40-42"
-                        Length - 27-28"
-                        Sleeve - 9-9.5"
-                    </option>
+                    <option value="" disabled>Select Size</option>
+                    <option value="Small (Men Pants)">(Small)Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches</option>
+                    <option value="Medium (Men Pants)">(Small)Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches</option>
+                    <option value="Medium(Men Pants)">(Small)Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches</option> 
                 </select>
             </div>
-            
+
             <div class="input_container">
-                <label>Size Height</label>
-                <select name="size_height">
-                    <option value="" disabled selected>Select Size</option>
-                    <option value="small">
-                        (Small)
-                        Shoulder - 16-17"
-                        Chest - 40-42"
-                        Length - 27-28"
-                        Sleeve - 9-9.5"
-                    </option>
+                <label>Men Blouse</label>
+                <select name="size_width">
+                    <option value="" disabled>Select Size</option>
+                    <option value="Small (Men Blouse)">(Small) Length 27 to 28 inches Width 40 to 42 inches Shoulder 16 to 17 inches</option>
+                    <option value="Medium (Men Blouse)" >(Medium) Length: 28 to 29 inches Width: 43 to 44 inches Shoulder: 18 to 19 inches</option>
+                    <option value="Large (Men Blouse)">(Large) Length: 29 to 30 inches Width: 45 to 48 inches Shoulder: 20 to 22 inches</option>
                 </select>
             </div>
-            
+            <div class="btn_container">
+                <button class="btn_cancel">Cancel</button>
+                <button class="btn_save">Save</button>
+            </div>
         </div>
     </div>
 </form>

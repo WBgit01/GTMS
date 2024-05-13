@@ -136,6 +136,32 @@ class Order{
         $this->status = $row['status'];
     }
 
+    function updateRequest(){
+
+        $query = "UPDATE 
+                    " . $this->table_name . "
+                    SET
+                        size_width = :size_width,
+                        size_height = :size_height
+                    WHERE
+                        id = :id";
+        
+        $stmt = $this->conn->prepare($query);
+
+        $this->size_height=htmlspecialchars(strip_tags($this->size_height));
+        $this->size_width=htmlspecialchars(strip_tags($this->size_width));
+        $this->id=htmlspecialchars(strip_tags($this->id));
+
+        $stmt->bindParam(":size_height", $this->size_height);
+        $stmt->bindParam(":size_width", $this->size_width);
+        $stmt->bindParam(":id", $this->id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+
 
 }
 
