@@ -113,6 +113,27 @@ class Order{
 
     function readOne(){
         
+        $query = "SELECT reference_no, amount, garment_type, size_width, size_height, notes, status
+                    FROM
+                    " . $this->table_name . "
+                    WHERE
+                    id = ?
+                    LIMIT 0,1";
+        
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->reference_no = $row['reference_no'];
+        $this->amount = $row['amount'];
+        $this->garment_type = $row['garment_type'];
+        $this->size_width = $row['size_width'];
+        $this->size_height = $row['size_height'];
+        $this->notes = $row['notes'];
+        $this->status = $row['status'];
     }
 
 
