@@ -142,7 +142,8 @@ class Order{
                     " . $this->table_name . "
                     SET
                         size_width = :size_width,
-                        size_height = :size_height
+                        size_height = :size_height,
+                        size = :size_width
                     WHERE
                         id = :id";
         
@@ -150,10 +151,12 @@ class Order{
 
         $this->size_height=htmlspecialchars(strip_tags($this->size_height));
         $this->size_width=htmlspecialchars(strip_tags($this->size_width));
+        $this->size=htmlspecialchars(strip_tags($this->size_width));
         $this->id=htmlspecialchars(strip_tags($this->id));
 
         $stmt->bindParam(":size_height", $this->size_height);
         $stmt->bindParam(":size_width", $this->size_width);
+        $stmt->bindParam(":size", $this->size_width);
         $stmt->bindParam(":id", $this->id);
 
         if ($stmt->execute()) {

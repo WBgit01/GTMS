@@ -89,7 +89,7 @@ include_once 'layout_head.php';
                         if ($status == "Pending") {
                             echo "<strong>Please set your Size. Update this Order</strong>";
                         }else{
-                            echo "{$size_width} {$size_height}</strong>";
+                            echo "{$size}";
                         }
                     echo "</td>";
 

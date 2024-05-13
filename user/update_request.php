@@ -25,6 +25,8 @@ if ($_POST) {
     
     $order->size_height = $_POST['size_height'];
     $order->size_width = $_POST['size_width'];
+    $order->size = $_POST['size_height'];
+    $order->size = $_POST['size_width'];
 
     if ($order->updateRequest()) {
         echo "<div class='message-box-success'>";
