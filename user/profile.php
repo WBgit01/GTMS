@@ -51,9 +51,6 @@ if ($_POST) {
         echo "</div>";
     }
 }
-
-
-
 ?>
 
 
@@ -159,7 +156,5 @@ if ($_POST) {
         </form>
     </div>
 </div>
-
-
 
 <?php include_once 'layout_foot.php'; ?>

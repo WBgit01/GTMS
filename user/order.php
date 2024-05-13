@@ -3,13 +3,14 @@ include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/order.php';
 include_once '../object/user.php';
+include_once '../object/academic_year.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
 $order = new Order($db);
 $user = new User($db);
-
+$academic_year = new Academic_year($db);
 
 // to show profile for each webpage
 $user_id = $_SESSION['user_id'];
@@ -117,102 +118,135 @@ if ($_POST) {
     }
 }
 
-
 ?>
 
+<!-- <div class="panel_container"> -->
+    <div class="panel_wrapper2">
+        <div class="table_detail">
+            <h2>School Attire</h2>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptas 
+                sapiente molestiae aut laboriosam aliquam sint earum distinctio eaque perspiciatis? 
+                Enim qui itaque iure, quibusdam cum vel dolorum nostrum nam!
+            </p>
+        </div>
 
-    <div class="panel_container">
-        <div class="panel_wrapper2">
-            <div class="table_detail">
-                <h2>School Attire</h2>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptas 
-                    sapiente molestiae aut laboriosam aliquam sint earum distinctio eaque perspiciatis? 
-                    Enim qui itaque iure, quibusdam cum vel dolorum nostrum nam!
-                </p>
-            </div>
+        <!-----------PANEL 1----------->
+        <div class="grid">
+            <?php
+            $acad_year = explode(', ', '1, 2, 3, 4');
+            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='male') {
+                echo "<form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='POST'>";
+                echo "<div class='box bx1'>";
+                echo "<div class='title_box'>Uniform Men</div>";
+                echo "<div class='price_table'>";
+                echo "<b>₱300.00</b>";
+                echo "</div>";
+                echo "<div class='features'>";
+                echo "<div>Size: 19, 20, 21</div>";
+                echo "<div>Color: Beige</div>";
+                echo "<div>Quantity: 1</div>";
+                echo "<div>Sample</div>";
+                echo "</div>";
+                echo "<div class='btn2'>";
+                echo "<input type='hidden' name='uniform' value='uniform_men'>";
+                echo "<button type='submit'>Get This Now</button>";
+                echo "</div>";
+                echo"</div>";
+                echo "</form>";
+            }
 
-            <!-- PANEL 1 -->
-            <div class="grid">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                    <div class="box bx1">
-                        <div class="title_box">Uniform Men</div>
-                        <div class="price_table">
-                            <b>₱300.00</b>
-                        </div>
-                        <div class="features">
-                            <div>Size: 19, 20, 21</div>
-                            <div>Color: Beige</div>
-                            <div>Quantity: 1</div>
-                            <div>Sample</div>
-                        </div>
-                        <div class="btn2">
-                            <input type="hidden" name="uniform" value="uniform_men">
-                            <button type="submit">Get This Now</button>
-                        </div>
-                    </div>
-                </form>
 
-                <!-- PANEL 2 -->
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                    <div class="box bx1">
-                        <div class="title_box">Uniform Women</div>
-                        <div class="price_table">
-                            <b>₱300.00</b>
-                        </div>
-                        <div class="features">
-                            <div>Size: 19, 20, 21</div>
-                            <div>Color: Beige</div>
-                            <div>Quantity: 1</div>
-                            <div>Sample</div>
-                        </div>
-                        <input type="hidden" name="uniform" value="uniform_woman">
-                        <div class="btn2">
-                            <button type="submit">Get This Now</button>
-                        </div>
-                    </div>
-                </form>
+            //-----------PANEL 2-----------
+            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='female') {
+                echo "<form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='POST'>";
+                echo "<div class='box bx1'>";
+                echo "<div class='title_box'>Uniform Women</div>";
+                echo "<div class='price_table'>";
+                echo "<b>₱300.00</b>";
+                echo "</div>";
+                echo "<div class='features'>";
+                echo "<div>Size: 19, 20, 21</div>";
+                echo "<div>Color: Beige</div>";
+                echo "<div>Quantity: 1</div>";
+                echo "<div>Sample</div>";
+                echo "</div>";
+                echo "<div class='btn2'>";
+                echo "<input type='hidden' name='uniform' value='uniform_men'>";
+                echo "<button type='submit'>Get This Now</button>";
+                echo "</div>";
+                echo"</div>";
+                echo "</form>";
+            }              
 
-                <!-- PANEL 3 -->
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                    <div class="box bx1">
-                        <div class="title_box">PE Attire</div>
-                        <div class="price_table">
-                            <b>₱300.00</b>
-                        </div>
-                        <div class="features">
-                            <div>Size: 19, 20, 21</div>
-                            <div>Color: Green</div>
-                            <div>Quantity: 1</div>
-                            <div>Sample</div>
-                        </div>
-                        <input type="hidden" name="uniform" value="pe_attire">
-                        <div class="btn2">
-                            <button type="submit">Get This Now</button>
-                        </div>
-                    </div>
-                </form>
+            //-----------PANEL 3-----------
+            $Acad_Year = explode(', ', '1, 2, 3, 4, 5');
+            if (in_array($_SESSION['academic_year'], $Acad_Year) && $_SESSION['gender']=='male' || $_SESSION['gender']=='female') {
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<div class='box bx1'>";
+                echo "<div class='title_box'>PE Attire</div>";
+                echo "<div class='price_table'>";
+                echo "<b>₱300.00</b>";
+                echo "</div>";
+                echo "<div class='features'>";
+                echo "<div>Size: 19, 20, 21</div>";
+                echo "<div>Color: Green</div>";
+                echo "<div>Quantity: 1</div>";
+                echo "<div>Sample</div>";
+                echo "</div>";
+                echo "<input type='hidden' name='uniform' value='pe_attire'>";
+                echo "<div class='btn2'>";
+                echo "<button type='submit'>Get This Now</button>";
+                echo "</div>";
+                echo "</div>";
+                echo "</form>";
+            }
 
-                <!-- PANEL 4 -->
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                    <div class="box bx1">
-                        <div class="title_box">SHS Uniform</div>
-                        <div class="price_table">
-                            <b>₱300.00</b>
-                        </div>
-                        <div class="features">
-                            <div>Size: 19, 20, 21</div>
-                            <div>Color: Gray</div>
-                            <div>Quantity: 1</div>
-                            <div>Sample</div>
-                        </div>
-                        <input type="hidden" name="uniform" value="shs_uniform">
-                        <div class="btn2">
-                            <button type="submit">Get This Now</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            //-----------PANEL 4-----------
+            $acad_Year = explode(', ', '5');
+            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='male') {
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<div class='box bx1'>";
+                echo "<div class='title_box'>SHS Uniform Men</div>";
+                echo "<div class='price_table'>";
+                echo "<b>₱300.00</b>";
+                echo "</div>";
+                echo "<div class='features'>";
+                echo "<div>Size: 19, 20, 21</div>";
+                echo "<div>Color: Gray</div>";
+                echo "<div>Quantity: 1</div>";
+                echo "<div>Sample</div>";
+                echo "</div>";
+                echo "<input type='hidden' name='uniform' value='shs_uniform'>";
+                echo "<div class='btn2'>";
+                echo "<button type='submit'>Get This Now</button>";
+                echo "</div>";
+                echo "</div>";
+                echo "</form>";
+            }
+
+            //-----------PANEL 5-----------
+            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='female') {
+                echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
+                echo "<div class='box bx1'>";
+                echo "<div class='title_box'>SHS Uniform Women</div>";
+                echo "<div class='price_table'>";
+                echo "<b>₱300.00</b>";
+                echo "</div>";
+                echo "<div class='features'>";
+                echo "<div>Size: 19, 20, 21</div>";
+                echo "<div>Color: Gray</div>";
+                echo "<div>Quantity: 1</div>";
+                echo "<div>Sample</div>";
+                echo "</div>";
+                echo "<input type='hidden' name='uniform' value='shs_uniform'>";
+                echo "<div class='btn2'>";
+                echo "<button type='submit'>Get This Now</button>";
+                echo "</div>";
+                echo "</div>";
+                echo "</form>";
+            }
+            ?>
         </div>
     </div>
 </div>
