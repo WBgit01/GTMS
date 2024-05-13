@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 01:28 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: May 13, 2024 at 03:18 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `academic_year` (
   `academic_year` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `academic_year`
@@ -56,7 +56,7 @@ CREATE TABLE `courses` (
   `name` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `courses`
@@ -81,7 +81,7 @@ CREATE TABLE `inquiries` (
   `phone` varchar(11) NOT NULL,
   `message` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inquiries`
@@ -102,23 +102,24 @@ CREATE TABLE `orders` (
   `student_id` varchar(20) NOT NULL,
   `amount` varchar(50) NOT NULL,
   `garment_type` varchar(50) NOT NULL,
-  `size_width` varchar(10) NOT NULL,
-  `size_height` varchar(10) NOT NULL,
+  `size` varchar(50) NOT NULL,
+  `size_width` varchar(255) NOT NULL,
+  `size_height` varchar(255) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `notes` varchar(555) NOT NULL,
   `status` varchar(20) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `size_width`, `size_height`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
-(31, 'GTMS003100097', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:13', '2024-05-09 23:08:13'),
-(32, 'GTMS001600575', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:14', '2024-05-09 23:08:14'),
-(33, 'GTMS003800635', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:50', '2024-05-09 23:08:50');
+INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `size`, `size_width`, `size_height`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
+(34, 'GTMS009700939', '11b146', '300.00', 'Uniform Men', '', '(Small) Length 27 to 28 inches Width 40 to 42 inches Shoulder 16 to 17 inches', '(Small)Shoulder - 16-17&quot; Chest - 40-42&quot; Length - 27-28&quot; Sleeve - 9-9.5&quot;', 'male', '', 'Approved', '2024-05-13 17:49:35', '2024-05-13 09:49:35'),
+(35, 'GTMS003300314', '11b146', '300.00', 'Uniform Men', '', '', '', 'male', '', 'Approved', '2024-05-13 17:49:37', '2024-05-13 09:49:37'),
+(36, 'GTMS005300833', '11b146', '300.00', 'Uniform Men', '', '', '', 'male', '', 'Pending', '2024-05-13 17:49:37', '2024-05-13 09:49:37');
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,7 @@ CREATE TABLE `transactions` (
   `reference_no` varchar(50) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transactions`
@@ -167,7 +168,7 @@ CREATE TABLE `users` (
   `image_profile` varchar(255) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -176,7 +177,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `created`, `modified`) VALUES
 (1, '22b0959', 'willdell ', 'bravo', '', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
 (2, '22b093', 'Alexisss', 'Dumale', '', 'admin_gtms@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
-(39, '11b146', 'ALEXIS', 'DUMALE', 'female', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
+(39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
 
 --
 -- Indexes for dumped tables
@@ -244,7 +245,7 @@ ALTER TABLE `inquiries`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `transactions`
