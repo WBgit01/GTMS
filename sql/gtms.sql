@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2024 at 03:49 AM
+-- Generation Time: May 14, 2024 at 12:37 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -160,10 +160,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `garment_id`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
-(40, 'GTMS007800284', '11b146', '300.00', 'Pants', '6', 'male', '', 'Pending', '2024-05-14 07:35:45', '2024-05-13 23:35:45'),
 (41, 'GTMS002800424', '11b146', '630.00', 'Polo', '1', 'male', '', 'Approved', '2024-05-14 07:57:49', '2024-05-13 23:57:49'),
 (42, 'GTMS001600885', '11b146', '300.00', 'Polo', '1', 'male', '', 'Approved', '2024-05-14 08:53:23', '2024-05-14 00:53:23'),
-(43, 'GTMS004200918', '11b146', '330.00', 'Pants', '4', 'male', '', 'Pending', '2024-05-14 08:53:36', '2024-05-14 00:53:36');
+(44, 'GTMS008100772', '11b146', '300.00', 'Polo', '', 'male', '', 'Pending', '2024-05-14 18:22:34', '2024-05-14 10:22:34'),
+(45, 'GTMS002400171', '22b0959', '300.00', 'Polo', '1', 'male', '', 'Pending', '2024-05-14 18:33:47', '2024-05-14 10:33:47'),
+(46, 'GTMS007300607', '22b0959', '300.00', 'Polo', '', 'male', '', 'Pending', '2024-05-14 18:33:48', '2024-05-14 10:33:48');
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `created`, `modified`) VALUES
-(1, '22b0959', 'willdell ', 'bravo', '', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
+(1, '22b0959', 'willdell ', 'bravo', 'male', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '1', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
 (2, '22b093', 'Alexisss', 'Dumale', '', 'admin_gtms@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
 (39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
 
@@ -301,7 +302,7 @@ ALTER TABLE `inquiries`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `transactions`
