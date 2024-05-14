@@ -77,15 +77,15 @@ if ($_POST) {
             </div>
             <div class="account_edit">
                 <div class="input_container">
-                        <label disabled name="gender">Gender</label>
-                        <select name="gender">
-                            <optgroup label="Gender">
-                                <option value="male" <?php if($user->gender === 'male') echo 'selected'; ?>>Male</option>
-                                <option value="female" <?php if($user->gender === 'female') echo 'selected'; ?>>Female</option>
-                                <option value="others" <?php if($user->gender === 'others') echo 'selected'; ?>>Others</option>
-                            </optgroup>
-                        </select>
-                    </div>
+                    <label disabled name="gender">Gender</label>
+                    <select name="gender">
+                        <optgroup label="Gender">
+                            <option value="male" <?php if($user->gender === 'male') echo 'selected'; ?>>Male</option>
+                            <option value="female" <?php if($user->gender === 'female') echo 'selected'; ?>>Female</option>
+                            <option value="others" <?php if($user->gender === 'others') echo 'selected'; ?>>Others</option>
+                        </optgroup>
+                    </select>
+                </div>
 
                 <div class="input_container">
                     <label>Email</label>
@@ -141,6 +141,7 @@ if ($_POST) {
                         }else{
                             echo "<option value='$course_id'>";
                         }
+                        
                         echo "$course_name</option>";
                     }
                     echo "</select>";

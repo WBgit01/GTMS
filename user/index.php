@@ -50,11 +50,10 @@ include_once 'layout_head.php';
                 echo "<table>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<th>Garment Type</th>";
                 echo "<th>Reference No</th>";
                 echo "<th>Order Created</th>";
                 echo "<th>Status</th>";
-                echo "<th>Size</th>";
+                echo "<th>Garment Type</th>";
                 echo "<th>Note</th>";
                 echo "<th>Action</th>";
                 echo "</tr>";
@@ -65,7 +64,6 @@ include_once 'layout_head.php';
                     extract($row);
 
                     echo "<tr>";
-                    echo "<td>{$garment_type}</td>";
                     echo "<td>{$reference_no}</td>";
                     echo "<td>{$created}</td>";
                     echo "<td>";
@@ -82,29 +80,29 @@ include_once 'layout_head.php';
                             echo "{$status}";
                         echo "</div>";
                     }
-                        
+                    echo "</td>";
+
+                    echo "<td>";
+                        echo "{$garment_type}";
                     echo "</td>";
 
                     echo "<td>";
                         if ($status == "Pending") {
                             echo "<strong>Please set your Size. Update this Order</strong>";
                         }else{
-                            echo "Width (inch) <strong>{$size_width}</strong>, Height(inch)<strong> {$size_height}</strong>";
+                        
                         }
-                    echo "</td>";
-
-                    echo "<td>";
                         echo "{$notes}";
                     echo "</td>";
                     echo "<td>";
                         if ($status == "Pending") {
-                            echo "<a href='#' class='action_btn2'>Update</a>";
-                            echo "<a href='#' class='action_btn3'>Delete</a>";
+                            echo "<a href='update_request.php?oid={$id}' class='action_btn2'>Update</a>";
+                            echo "<a href='delete.php=?oid={$id}' class='action_btn3'>Delete</a>";
                         }elseif($status == "Approved"){
                             echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
                         }else{
                             echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                            echo "<a href='#' class='action_btn2'>Update</a>";
+                            echo "<a href='update_request.php?oid={$id}' class='action_btn2'>Update</a>";
                         }
                     echo "</td>";
                     echo "</tr>";
