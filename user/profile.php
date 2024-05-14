@@ -102,7 +102,7 @@ if ($_POST) {
                 </div>
                 <div class="input_container">
                     <label>Contact Number</label>
-                    <input type="text" name="contact_no" placeholder="+639" value="<?php echo $user->contact_no;?>" required>
+                    <input type="text" name="contact_no" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<?php echo $user->contact_no;?>" required>
                 </div>
             </div>
             <div class="account_edit">
