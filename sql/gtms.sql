@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2024 at 03:18 PM
+-- Generation Time: May 14, 2024 at 03:49 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -71,6 +71,51 @@ INSERT INTO `courses` (`id`, `name`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `garment_sizes`
+--
+
+CREATE TABLE `garment_sizes` (
+  `id` int(11) NOT NULL,
+  `size` varchar(10) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `garment_type` varchar(50) NOT NULL,
+  `garment_measure` varchar(255) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `garment_sizes`
+--
+
+INSERT INTO `garment_sizes` (`id`, `size`, `gender`, `garment_type`, `garment_measure`, `created`) VALUES
+(1, 'small', 'male', 'Polo', 'Length: 27-28 inches Width: 40-42 inches Shoulder: 16-17 inches', '2024-05-13 21:50:50'),
+(2, 'medium', 'male', 'Polo', 'Length: 28-29 inches Width: 43-44 inches Shoulder: 18-19 inches', '2024-05-13 21:51:32'),
+(3, 'large', 'male', 'Polo', 'Length: 29-30 inches Width: 45-48 inches Shoulder: 20-22 inches', '2024-05-13 21:52:53'),
+(4, 'small', 'male', 'Pants', 'Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches', '2024-05-13 21:53:45'),
+(5, 'medium', 'male', 'Pants', 'Length: 40-42 inches Hips: 42-43 inches Waist - 32-34 inches', '2024-05-13 21:54:30'),
+(6, 'large', 'male', 'Pants', 'Length: 43-45 inches Hips: 43-45 inches Waist - 34-36 inches', '2024-05-13 21:55:02'),
+(7, 'small', 'female', 'Blouse', 'Length: 21-22 inches Chest: 35-36 inches Waist: 29-30 inches', '2024-05-13 21:56:11'),
+(8, 'medium', 'female', 'Blouse', 'Length: 22-23 inches Chest: 37-38 inches Waist: 31-32 inches', '2024-05-13 21:56:53'),
+(9, 'large', 'female', 'Blouse', 'Length: 23-24 inches Chest: 39-40 inches Waist: 33-34 inches', '2024-05-13 21:57:42'),
+(10, 'small', 'female', 'Skirt', 'Length: 17-18 inches Waist: 27-28 inches', '2024-05-13 21:58:07'),
+(11, 'medium', 'female', 'Skirt', 'Length: 19-21 inches Waist: 29-31 inches', '2024-05-13 21:58:24'),
+(12, 'large', 'female', 'Skirt', 'Length: 22-24 inches Waist: 31-34 inches', '2024-05-13 21:58:52'),
+(13, 'small', 'male', 'PE Polo Shirt', 'Width: 18-19 inches Length: 24-26 inches', '2024-05-13 21:59:50'),
+(14, 'medium', 'male', 'PE Polo Shirt', 'Width: 20-21 inches Length: 27-28 inches', '2024-05-13 22:00:10'),
+(15, 'large', 'male', 'PE Polo Shirt', 'Width: 22-24 inches Length: 30-31 inches', '2024-05-13 22:00:37'),
+(16, 'small', 'female', 'PE Polo Shirt', 'Width: 15-16 inches Length: 20-21 inches', '2024-05-13 22:01:23'),
+(17, 'medium', 'female', 'PE Polo Shirt', 'Width: 17-18 inches Length: 22-23 inches', '2024-05-13 22:02:15'),
+(18, 'large', 'female', 'PE Polo Shirt', 'Width: 19-20 inches Length: 23-24 inches', '2024-05-13 22:02:41'),
+(19, 'small', 'both', 'PE Pants', 'Length: 34 inches Waist: 19-34 inches', '2024-05-13 22:05:45'),
+(20, 'medium', 'both', 'PE Pants', 'Length: 35 inches Waist: 20-36 inches', '2024-05-13 22:06:12'),
+(21, 'large', 'both', 'PE Pants', 'Length: 35 inches Waist: 20-36 inches', '2024-05-13 22:06:23'),
+(22, 'large', 'both', 'PE Pants', 'Length: 36 inches Waist: 21-38 inches', '2024-05-13 22:07:08'),
+(23, 'XL', 'both', 'PE Pants', 'Length: 38 inches Waist: 23-40 inches', '2024-05-13 22:07:35'),
+(24, '2XL', 'both', 'PE Pants', 'Length: 40 inches Waist: 25-42 inches', '2024-05-13 22:08:06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `inquiries`
 --
 
@@ -102,9 +147,7 @@ CREATE TABLE `orders` (
   `student_id` varchar(20) NOT NULL,
   `amount` varchar(50) NOT NULL,
   `garment_type` varchar(50) NOT NULL,
-  `size` varchar(50) NOT NULL,
-  `size_width` varchar(255) NOT NULL,
-  `size_height` varchar(255) NOT NULL,
+  `garment_id` varchar(11) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `notes` varchar(555) NOT NULL,
   `status` varchar(20) NOT NULL,
@@ -116,10 +159,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `size`, `size_width`, `size_height`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
-(34, 'GTMS009700939', '11b146', '300.00', 'Uniform Men', '', '(Small) Length 27 to 28 inches Width 40 to 42 inches Shoulder 16 to 17 inches', '(Small)Shoulder - 16-17&quot; Chest - 40-42&quot; Length - 27-28&quot; Sleeve - 9-9.5&quot;', 'male', '', 'Approved', '2024-05-13 17:49:35', '2024-05-13 09:49:35'),
-(35, 'GTMS003300314', '11b146', '300.00', 'Uniform Men', '', '', '', 'male', '', 'Approved', '2024-05-13 17:49:37', '2024-05-13 09:49:37'),
-(36, 'GTMS005300833', '11b146', '300.00', 'Uniform Men', '', '', '', 'male', '', 'Pending', '2024-05-13 17:49:37', '2024-05-13 09:49:37');
+INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `garment_id`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
+(40, 'GTMS007800284', '11b146', '300.00', 'Pants', '6', 'male', '', 'Pending', '2024-05-14 07:35:45', '2024-05-13 23:35:45'),
+(41, 'GTMS002800424', '11b146', '630.00', 'Polo', '1', 'male', '', 'Approved', '2024-05-14 07:57:49', '2024-05-13 23:57:49'),
+(42, 'GTMS001600885', '11b146', '300.00', 'Polo', '1', 'male', '', 'Approved', '2024-05-14 08:53:23', '2024-05-14 00:53:23'),
+(43, 'GTMS004200918', '11b146', '330.00', 'Pants', '4', 'male', '', 'Pending', '2024-05-14 08:53:36', '2024-05-14 00:53:36');
 
 -- --------------------------------------------------------
 
@@ -196,6 +240,12 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `garment_sizes`
+--
+ALTER TABLE `garment_sizes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `inquiries`
 --
 ALTER TABLE `inquiries`
@@ -236,6 +286,12 @@ ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `garment_sizes`
+--
+ALTER TABLE `garment_sizes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `inquiries`
 --
 ALTER TABLE `inquiries`
@@ -245,7 +301,7 @@ ALTER TABLE `inquiries`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `transactions`
