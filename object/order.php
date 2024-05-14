@@ -93,14 +93,13 @@ class Order{
 	}
 
     function readAll(){
-        $query = "SELECT * 
+        $query = "SELECT *
                     FROM   
                     " . $this->table_name ." 
-                    ORDER BY 
-                    id ASC";
+                    WHERE student_id = :student_id";
 
         $stmt = $this->conn->prepare($query);
-
+        $stmt->bindParam(":student_id", $this->student_id);
         $stmt->execute();
 
         return $stmt;

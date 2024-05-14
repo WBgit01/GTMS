@@ -139,7 +139,7 @@ if ($_POST) {
 
         </div>
         <div class="btn_container">
-                <button class="btn_cancel">Cancel</button>
+
                 <button class="btn_save">Save</button>
         </div>
     </div>

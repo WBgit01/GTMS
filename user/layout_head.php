@@ -15,7 +15,7 @@
 <?php
 
     
-if ($page_title =="Profile" || $page_title=="Order Form") {
+if ($page_title =="Profile") {
     echo "<div class='main_content'>";
         echo "<div class='header_wrapper'>";
             echo "<div class='header_title'>";

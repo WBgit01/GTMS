@@ -14,6 +14,8 @@ $user = new User($db);
 $user_id = $_SESSION['user_id'];
 $user->getProfileimage($user_id);
 
+
+$order->student_id = $_SESSION['student_id'];
 $stmt = $order->readAll();
 $num = $stmt->rowCount();
 
@@ -45,7 +47,7 @@ include_once 'layout_head.php';
         <h3 class="main_title">Uniform Requests</h3>
         <div class="panel_wrapper">
             <?php
-            if ($num > 0) {
+            if ($num > 0 ) {
                 echo "<div class='table_container'>";
                 echo "<table>";
                 echo "<thead>";
