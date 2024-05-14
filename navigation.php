@@ -8,6 +8,7 @@
             <li><a href="index.php#services">Services</a></li>
             <li><a href="index.php#contact">Contact Us</a></li>
             <li><a href="index.php#about">About Us</a></li>
+            <li><a href="login.php" class="land_btn">Login</a></li>
         </ul>
         <!-- <div class="toggle_btn">
             <i class="fa-solid fa-bars-staggered"></i>

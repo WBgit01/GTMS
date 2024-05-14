@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 01:28 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: May 14, 2024 at 12:37 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `academic_year` (
   `academic_year` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `academic_year`
@@ -56,7 +56,7 @@ CREATE TABLE `courses` (
   `name` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `courses`
@@ -71,6 +71,51 @@ INSERT INTO `courses` (`id`, `name`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `garment_sizes`
+--
+
+CREATE TABLE `garment_sizes` (
+  `id` int(11) NOT NULL,
+  `size` varchar(10) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `garment_type` varchar(50) NOT NULL,
+  `garment_measure` varchar(255) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `garment_sizes`
+--
+
+INSERT INTO `garment_sizes` (`id`, `size`, `gender`, `garment_type`, `garment_measure`, `created`) VALUES
+(1, 'small', 'male', 'Polo', 'Length: 27-28 inches Width: 40-42 inches Shoulder: 16-17 inches', '2024-05-13 21:50:50'),
+(2, 'medium', 'male', 'Polo', 'Length: 28-29 inches Width: 43-44 inches Shoulder: 18-19 inches', '2024-05-13 21:51:32'),
+(3, 'large', 'male', 'Polo', 'Length: 29-30 inches Width: 45-48 inches Shoulder: 20-22 inches', '2024-05-13 21:52:53'),
+(4, 'small', 'male', 'Pants', 'Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches', '2024-05-13 21:53:45'),
+(5, 'medium', 'male', 'Pants', 'Length: 40-42 inches Hips: 42-43 inches Waist - 32-34 inches', '2024-05-13 21:54:30'),
+(6, 'large', 'male', 'Pants', 'Length: 43-45 inches Hips: 43-45 inches Waist - 34-36 inches', '2024-05-13 21:55:02'),
+(7, 'small', 'female', 'Blouse', 'Length: 21-22 inches Chest: 35-36 inches Waist: 29-30 inches', '2024-05-13 21:56:11'),
+(8, 'medium', 'female', 'Blouse', 'Length: 22-23 inches Chest: 37-38 inches Waist: 31-32 inches', '2024-05-13 21:56:53'),
+(9, 'large', 'female', 'Blouse', 'Length: 23-24 inches Chest: 39-40 inches Waist: 33-34 inches', '2024-05-13 21:57:42'),
+(10, 'small', 'female', 'Skirt', 'Length: 17-18 inches Waist: 27-28 inches', '2024-05-13 21:58:07'),
+(11, 'medium', 'female', 'Skirt', 'Length: 19-21 inches Waist: 29-31 inches', '2024-05-13 21:58:24'),
+(12, 'large', 'female', 'Skirt', 'Length: 22-24 inches Waist: 31-34 inches', '2024-05-13 21:58:52'),
+(13, 'small', 'male', 'PE Polo Shirt', 'Width: 18-19 inches Length: 24-26 inches', '2024-05-13 21:59:50'),
+(14, 'medium', 'male', 'PE Polo Shirt', 'Width: 20-21 inches Length: 27-28 inches', '2024-05-13 22:00:10'),
+(15, 'large', 'male', 'PE Polo Shirt', 'Width: 22-24 inches Length: 30-31 inches', '2024-05-13 22:00:37'),
+(16, 'small', 'female', 'PE Polo Shirt', 'Width: 15-16 inches Length: 20-21 inches', '2024-05-13 22:01:23'),
+(17, 'medium', 'female', 'PE Polo Shirt', 'Width: 17-18 inches Length: 22-23 inches', '2024-05-13 22:02:15'),
+(18, 'large', 'female', 'PE Polo Shirt', 'Width: 19-20 inches Length: 23-24 inches', '2024-05-13 22:02:41'),
+(19, 'small', 'both', 'PE Pants', 'Length: 34 inches Waist: 19-34 inches', '2024-05-13 22:05:45'),
+(20, 'medium', 'both', 'PE Pants', 'Length: 35 inches Waist: 20-36 inches', '2024-05-13 22:06:12'),
+(21, 'large', 'both', 'PE Pants', 'Length: 35 inches Waist: 20-36 inches', '2024-05-13 22:06:23'),
+(22, 'large', 'both', 'PE Pants', 'Length: 36 inches Waist: 21-38 inches', '2024-05-13 22:07:08'),
+(23, 'XL', 'both', 'PE Pants', 'Length: 38 inches Waist: 23-40 inches', '2024-05-13 22:07:35'),
+(24, '2XL', 'both', 'PE Pants', 'Length: 40 inches Waist: 25-42 inches', '2024-05-13 22:08:06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `inquiries`
 --
 
@@ -81,7 +126,7 @@ CREATE TABLE `inquiries` (
   `phone` varchar(11) NOT NULL,
   `message` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `inquiries`
@@ -102,23 +147,24 @@ CREATE TABLE `orders` (
   `student_id` varchar(20) NOT NULL,
   `amount` varchar(50) NOT NULL,
   `garment_type` varchar(50) NOT NULL,
-  `size_width` varchar(10) NOT NULL,
-  `size_height` varchar(10) NOT NULL,
+  `garment_id` varchar(11) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `notes` varchar(555) NOT NULL,
   `status` varchar(20) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `size_width`, `size_height`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
-(31, 'GTMS003100097', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:13', '2024-05-09 23:08:13'),
-(32, 'GTMS001600575', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:14', '2024-05-09 23:08:14'),
-(33, 'GTMS003800635', '11b146', '300.00', 'Uniform Men', '', '', 'female', '', 'Pending', '2024-05-10 07:08:50', '2024-05-09 23:08:50');
+INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_type`, `garment_id`, `gender`, `notes`, `status`, `created`, `modified`) VALUES
+(41, 'GTMS002800424', '11b146', '630.00', 'Polo', '1', 'male', '', 'Approved', '2024-05-14 07:57:49', '2024-05-13 23:57:49'),
+(42, 'GTMS001600885', '11b146', '300.00', 'Polo', '1', 'male', '', 'Approved', '2024-05-14 08:53:23', '2024-05-14 00:53:23'),
+(44, 'GTMS008100772', '11b146', '300.00', 'Polo', '', 'male', '', 'Pending', '2024-05-14 18:22:34', '2024-05-14 10:22:34'),
+(45, 'GTMS002400171', '22b0959', '300.00', 'Polo', '1', 'male', '', 'Pending', '2024-05-14 18:33:47', '2024-05-14 10:33:47'),
+(46, 'GTMS007300607', '22b0959', '300.00', 'Polo', '', 'male', '', 'Pending', '2024-05-14 18:33:48', '2024-05-14 10:33:48');
 
 -- --------------------------------------------------------
 
@@ -135,7 +181,7 @@ CREATE TABLE `transactions` (
   `reference_no` varchar(50) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transactions`
@@ -167,16 +213,16 @@ CREATE TABLE `users` (
   `image_profile` varchar(255) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `created`, `modified`) VALUES
-(1, '22b0959', 'willdell ', 'bravo', '', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
+(1, '22b0959', 'willdell ', 'bravo', 'male', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '1', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
 (2, '22b093', 'Alexisss', 'Dumale', '', 'admin_gtms@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
-(39, '11b146', 'ALEXIS', 'DUMALE', 'female', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
+(39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18');
 
 --
 -- Indexes for dumped tables
@@ -192,6 +238,12 @@ ALTER TABLE `academic_year`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `garment_sizes`
+--
+ALTER TABLE `garment_sizes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -235,6 +287,12 @@ ALTER TABLE `courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `garment_sizes`
+--
+ALTER TABLE `garment_sizes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT for table `inquiries`
 --
 ALTER TABLE `inquiries`
@@ -244,7 +302,7 @@ ALTER TABLE `inquiries`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `transactions`

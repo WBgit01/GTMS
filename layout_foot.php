@@ -1,6 +1,6 @@
 <?php
-    if ($page_title == 'Login' || $page_title == 'Register') {
-        // Do nothing, because you don't want to include the footer
+    if ($page_title == 'Login' || $page_title == 'Register' || $page_title == 'forgot_pw') {
+
     } else {
 ?>
     <!-- FOOTER -->

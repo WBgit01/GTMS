@@ -51,9 +51,6 @@ if ($_POST) {
         echo "</div>";
     }
 }
-
-
-
 ?>
 
 
@@ -80,15 +77,15 @@ if ($_POST) {
             </div>
             <div class="account_edit">
                 <div class="input_container">
-                        <label disabled name="gender">Gender</label>
-                        <select name="gender">
-                            <optgroup label="Gender">
-                                <option value="male" <?php if($user->gender === 'male') echo 'selected'; ?>>Male</option>
-                                <option value="female" <?php if($user->gender === 'female') echo 'selected'; ?>>Female</option>
-                                <option value="others" <?php if($user->gender === 'others') echo 'selected'; ?>>Others</option>
-                            </optgroup>
-                        </select>
-                    </div>
+                    <label disabled name="gender">Gender</label>
+                    <select name="gender">
+                        <optgroup label="Gender">
+                            <option value="male" <?php if($user->gender === 'male') echo 'selected'; ?>>Male</option>
+                            <option value="female" <?php if($user->gender === 'female') echo 'selected'; ?>>Female</option>
+                            <option value="others" <?php if($user->gender === 'others') echo 'selected'; ?>>Others</option>
+                        </optgroup>
+                    </select>
+                </div>
 
                 <div class="input_container">
                     <label>Email</label>
@@ -105,7 +102,7 @@ if ($_POST) {
                 </div>
                 <div class="input_container">
                     <label>Contact Number</label>
-                    <input type="text" name="contact_no" placeholder="+639" value="<?php echo $user->contact_no;?>" required>
+                    <input type="text" name="contact_no" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<?php echo $user->contact_no;?>" required>
                 </div>
             </div>
             <div class="account_edit">
@@ -144,6 +141,7 @@ if ($_POST) {
                         }else{
                             echo "<option value='$course_id'>";
                         }
+                        
                         echo "$course_name</option>";
                     }
                     echo "</select>";
@@ -159,7 +157,5 @@ if ($_POST) {
         </form>
     </div>
 </div>
-
-
 
 <?php include_once 'layout_foot.php'; ?>
