@@ -97,7 +97,7 @@ include_once 'layout_head.php';
                     echo "<td>";
                         if ($status == "Pending") {
                             echo "<a href='update_request.php?oid={$id}' class='action_btn2'>Update</a>";
-                            echo "<a href='delete.php=?oid={$id}' class='action_btn3'>Delete</a>";
+                            echo "<a delete-id='{$id}' class='action_btn3 delete-object'>Delete</a>";
                         }elseif($status == "Approved"){
                             echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
                         }else{
