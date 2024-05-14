@@ -76,7 +76,9 @@ nav .land_btn:hover{
 }
 
 
-/* -----MAIN----- */
+/* -------------------------------------
+    MAIN STYLES
+------------------------------------- */
 .main{
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../../IMG/background7.svg);
     background-position: center;
@@ -129,7 +131,10 @@ nav .land_btn:hover{
     background-color: red;
 }
 
-/* SERVICE STYLING */
+
+/* -------------------------------------
+    SERVICES STYLES
+------------------------------------- */
 .services{
     padding: 110px 85px 180px;
 }
@@ -191,7 +196,9 @@ nav .land_btn:hover{
 }
 
 
-/* -----CONTACT US STYLING----- */
+/* -------------------------------------
+    CONTACT-US STYLES
+------------------------------------- */
 .contact{
     background-color: #89B0AE;
     padding: 100px 85px;
@@ -261,7 +268,9 @@ nav .land_btn:hover{
 }
 
 
-/* -----ABOUT STYLING----- */
+/* -------------------------------------
+    ABOUT STYLES
+------------------------------------- */
 .about {
     padding: 110px 85px;
 }
@@ -311,7 +320,9 @@ nav .land_btn:hover{
 }
 
 
-/* -----LOGIN - SIGNUP STYLING----- */
+/* -------------------------------------
+    LOGIN && SIGNUP STYLES
+------------------------------------- */
 .form_center {
     position: absolute;
     top: 56%;
@@ -327,7 +338,10 @@ nav .land_btn:hover{
     pointer-events: auto;
 }
 
-/* =====FORM_CONTAINER ANIMATION - LOGIN/SIGNUP===== */
+
+/* -------------------------------------
+    FORM-CONTAINER OF LOGIN/SIGNUP STYLES
+------------------------------------- */
 .form_container {
     max-width: 420px;
     width: 100%;
@@ -468,7 +482,9 @@ nav .land_btn:hover{
 }
 
 
-/* -----ALERT MESSAGE STYLING----- */
+/* -------------------------------------
+    ALERT MESSAGE STYLES
+------------------------------------- */
 .message-box-failed{
 	color: #842029;
 	border: #f5c2c7;
@@ -496,7 +512,9 @@ nav .land_btn:hover{
 }
 
 
-/* -----FOOTER STYLING----- */
+/* -------------------------------------
+    FOOTER STYLES
+------------------------------------- */
 footer{
     background-color: #89B0AE;
     padding: 85px;
@@ -535,7 +553,9 @@ footer .bottom .links a{
 }
 
 
-/* -----RESPONSIVE STYLING----- */
+/* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
 @media screen and (max-width: 1200px) {
     
     .main .main_con h3{
