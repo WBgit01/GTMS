@@ -3,11 +3,14 @@ $id = isset($_GET['oid']) ? $_GET['oid'] : die('Error: ID not Found');
 include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/order.php';
+include_once '../object/garment_size.php';
+
 
 $database = new Database();
 $db = $database->getConnection();
 
 $order = new Order($db);
+$garment_size = new Garmentsize($db);
 
 // order id property that will be edited
 $order->id = $id;
@@ -54,10 +57,19 @@ include_once 'layout_head.php'; ?>
         </div>
 
         <div class="input_container">
-            <label>Size Height</label>
-            <input type="text" value="<?php echo $order->size_height; ?>" disabled>
-            <label>Size Width</label>
-            <input type="text" value="<?php echo $order->size_width; ?>" disabled>
+            <label>Garment Measure</label>
+            <?php
+                $garment_size->id = $order->garment_id;
+                $garment_size->readGarmentmeasure();
+                echo "<input type='text' value='{$garment_size->garment_measure}' disabled>";
+            ?>
+                <label>Size</label>
+            <?php
+                $garment_size->id = $order->garment_id;
+                $garment_size->readGarmentmeasure();
+                echo "<input type='text' value='{$garment_size->size}' disabled>";
+            ?>
+        </div>
         </div>
     </div>
 </div>

@@ -50,11 +50,10 @@ include_once 'layout_head.php';
                 echo "<table>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<th>Garment Type</th>";
                 echo "<th>Reference No</th>";
                 echo "<th>Order Created</th>";
                 echo "<th>Status</th>";
-                echo "<th>Size</th>";
+                echo "<th>Garment Type</th>";
                 echo "<th>Note</th>";
                 echo "<th>Action</th>";
                 echo "</tr>";
@@ -65,7 +64,6 @@ include_once 'layout_head.php';
                     extract($row);
 
                     echo "<tr>";
-                    echo "<td>{$garment_type}</td>";
                     echo "<td>{$reference_no}</td>";
                     echo "<td>{$created}</td>";
                     echo "<td>";
@@ -82,18 +80,18 @@ include_once 'layout_head.php';
                             echo "{$status}";
                         echo "</div>";
                     }
-                        
+                    echo "</td>";
+
+                    echo "<td>";
+                        echo "{$garment_type}";
                     echo "</td>";
 
                     echo "<td>";
                         if ($status == "Pending") {
                             echo "<strong>Please set your Size. Update this Order</strong>";
                         }else{
-                            echo "{$size}";
+                        
                         }
-                    echo "</td>";
-
-                    echo "<td>";
                         echo "{$notes}";
                     echo "</td>";
                     echo "<td>";

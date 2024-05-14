@@ -3,11 +3,13 @@ $id = isset($_GET['oid']) ? $_GET['oid'] : die('Error: ID not Found');
 include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/order.php';
+include_once '../object/garment_size.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
 $order = new Order($db);
+$garment_size = new Garmentsize($db);
 
 // order id property that will be edited
 $order->id = $id;
@@ -22,23 +24,29 @@ include_once 'sidebar.php';
 include_once 'layout_head.php'; 
 
 if ($_POST) {
-    
-    $order->size_height = $_POST['size_height'];
-    $order->size_width = $_POST['size_width'];
-    $order->size = $_POST['size_height'];
-    $order->size = $_POST['size_width'];
 
+    if ($order->garment_type == "SET") {
+        // Combine selected Polo and Pants sizes into a single string
+        $polo_id = $_POST['polo_id'];
+        $pants_id = $_POST['pants_id'];
+        $combined_id = $polo_id . ',' . $pants_id;
+        $order->garment_id = $combined_id;
+    } else {
+        // For other garment types, set the garment_id directly from form input
+        $order->garment_id = $_POST['garment_id'];
+    }
+
+    // Update the order details
     if ($order->updateRequest()) {
         echo "<div class='message-box-success'>";
-            echo "Request details updated.";
+        echo "Request details updated.";
         echo "</div>";
-    }else{
+    } else {
         echo "<div class='message-box-failed'>";
         echo "ERROR: Update details failed";
-    echo "</div>";
+        echo "</div>";
     }
 }
-
 ?>
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?oid={$id}"; ?>" method="POST">
@@ -71,34 +79,68 @@ if ($_POST) {
                 <input type="text" value="<?php echo $order->amount; ?>" disabled>
             </div>
 
-            <div class="input_container">
-                <label>Garment Type</label>
-                <input type="text" value="<?php echo $order->garment_type; ?>" disabled>
-            </div>
+            <?php
+                if ($order->gender == "male") {
+                    if ($order->garment_type == "Polo" || $order->garment_type == "Pants") {
+                        echo "<div class='input_container'>";
+                        echo "<label>$order->garment_type</label>";
+                        $garment_size->gender = $order->gender;
+                        $garment_size->garment_type = $order->garment_type;
+                        $stmt = $garment_size->read();
+                            echo "<select name='garment_id' required>";
+                                echo "<option disabled>Select Polo Size</option>";
+                                while ($row_polo_size = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    extract($row_polo_size);          
+                                    $garment_id = $row_polo_size['id'];
 
-            <div class="input_container">
-                <label>Men Pants</label>
-                <select name="size_height">
-                    <option value="" disabled>Select Size</option>
-                    <option value="Small (Men Pants)">(Small)Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches</option>
-                    <option value="Medium (Men Pants)">(Small)Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches</option>
-                    <option value="Medium(Men Pants)">(Small)Length: 39-40 inches Hips: 38-41 inches Waist - 29-32 inches</option> 
-                </select>
-            </div>
+                                    if ($order->garment_id == $garment_id) {
+                                        echo "<option value='{$garment_id}' selected>{$size} - {$garment_measure}</option>";
+                                    } else {
+                                        echo "<option value='{$id}'>{$size} - {$garment_measure}</option>";
+                                    }
 
-            <div class="input_container">
-                <label>Men Blouse</label>
-                <select name="size_width">
-                    <option value="" disabled>Select Size</option>
-                    <option value="Small (Men Blouse)">(Small) Length 27 to 28 inches Width 40 to 42 inches Shoulder 16 to 17 inches</option>
-                    <option value="Medium (Men Blouse)" >(Medium) Length: 28 to 29 inches Width: 43 to 44 inches Shoulder: 18 to 19 inches</option>
-                    <option value="Large (Men Blouse)">(Large) Length: 29 to 30 inches Width: 45 to 48 inches Shoulder: 20 to 22 inches</option>
-                </select>
-            </div>
-            <div class="btn_container">
+                                    
+
+                                }
+                        echo "</select>";
+                    }elseif ($order->garment_type == "SET") {
+                        echo "<label>$order->garment_type</label>";
+                        echo "<div class='input_container'>";
+                        echo "<label>Polo</label>";
+                        $garment_size->gender = $order->gender;
+                        $garment_size->garment_type = "Polo";
+                        $stmt = $garment_size->read();
+                            echo "<select name='polo_id' required>";
+                                echo "<option disabled>Select Polo Size</option>";
+                                while ($row_polo_size = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    extract($row_polo_size);
+                                    echo "<option value='{$id}'>{$size} - {$garment_measure}</option>";
+
+                                }
+                        echo "</select>";
+
+                        echo "<label>Pants</label>";
+                        $garment_size->gender = $order->gender;
+                        $garment_size->garment_type = "Pants";
+                        $stmt = $garment_size->read();
+                            echo "<select name='pants_id' required>";
+                                echo "<option disabled>Select Pants Size</option>";
+                                while ($row_polo_size = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    extract($row_polo_size);
+                                    echo "<option value='{$id}'>{$size} - {$garment_measure}</option>";
+
+                                }
+                        echo "</select>";
+                        
+
+                    }
+                }
+            ?>
+
+        </div>
+        <div class="btn_container">
                 <button class="btn_cancel">Cancel</button>
                 <button class="btn_save">Save</button>
-            </div>
         </div>
     </div>
 </form>

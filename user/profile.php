@@ -141,6 +141,7 @@ if ($_POST) {
                         }else{
                             echo "<option value='$course_id'>";
                         }
+                        
                         echo "$course_name</option>";
                     }
                     echo "</select>";
