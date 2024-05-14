@@ -124,11 +124,10 @@ if ($_POST) {
     <div class="panel_wrapper2">
         <div class="table_detail">
             <h2>School Attire</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptas 
-                sapiente molestiae aut laboriosam aliquam sint earum distinctio eaque perspiciatis? 
-                Enim qui itaque iure, quibusdam cum vel dolorum nostrum nam!
-            </p>
+            <p>Choose from polo shirts, pants, blouses, skirts, and P.E. uniforms to match
+                 your school's dress code. Discover attire that mirrors your school's values
+                  and enhances its appearance. Make a statement with our school attire and set the standard for style!
+                </p>
         </div>
 
         <!-----------PANEL 1----------->
@@ -144,7 +143,7 @@ if ($_POST) {
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Size: 19, 20, 21</div>";
-                echo "<div>Color: Beige</div>";
+                echo "<div>Color: Cream</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "<div>Sample</div>";
                 echo "</div>";
@@ -167,7 +166,7 @@ if ($_POST) {
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Size: 19, 20, 21</div>";
-                echo "<div>Color: Beige</div>";
+                echo "<div>Color: Cream</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "<div>Sample</div>";
                 echo "</div>";

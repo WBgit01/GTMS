@@ -1,6 +1,6 @@
 html {
     scroll-behavior: smooth;
-    background-color: white;
+    background-color: #fff;
 }
 
 * {
@@ -12,7 +12,7 @@ html {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #000;
     transition: color 0.3s ease;
 }
 
@@ -62,10 +62,23 @@ footer .top ul {
     gap: 40px;
 }
 
+nav .land_btn{
+    background-color: maroon;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: 1px solid maroon;
+    transition-duration: 0.3s;
+}
+
+nav .land_btn:hover{
+    background-color: white;
+}
+
 
 /* -----MAIN----- */
 .main{
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../../IMG/background6.svg);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../../IMG/background7.svg);
     background-position: center;
     background-size: cover;
     padding: 90px 85px;
@@ -98,6 +111,7 @@ footer .top ul {
     color: white;
     font-size: 22px;
     margin-top: 20px;
+    text-align: center;
 }
 
 .main .main_con button{
@@ -134,7 +148,7 @@ footer .top ul {
 }
 
 .services .service-items .item{
-    background-color: lightblue;
+    background-color: #89B0AE;
     width: 25%;
     border-radius: 10px;
     padding: 32px;
@@ -144,7 +158,7 @@ footer .top ul {
 }
 
 .services .service-items .item:hover{
-    border-color: maroon;
+    border-color: #93c7c5;
 }
 
 .services .service-items .item .icon{
@@ -179,7 +193,7 @@ footer .top ul {
 
 /* -----CONTACT US STYLING----- */
 .contact{
-    background-color: lightblue;
+    background-color: #89B0AE;
     padding: 100px 85px;
 }
 
@@ -484,7 +498,7 @@ footer .top ul {
 
 /* -----FOOTER STYLING----- */
 footer{
-    background-color: lightblue;
+    background-color: #89B0AE;
     padding: 85px;
     display: flex;
     flex-direction: column;
