@@ -419,14 +419,15 @@ ul li{
     .invoice, .invoice * {
         visibility: visible;
     }
+    
     .invoice {
-        position: absolute;
-        left: 0;
-        top: 0;
+        position: static;
         width: auto;
-    }
-    .overflow-view {
-        overflow-x: visible;
-        overflow-y: visible;
+        height: auto;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        overflow: visible;
     }
 }
+
