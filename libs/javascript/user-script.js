@@ -7,27 +7,6 @@
 //         }
 //     }
 
-
-// PRINTS THE INVOICE/RECEIPT
-function printInvoice() {
-    var printButton = document.querySelector('.invoice-btn');
-    if (printButton) printButton.style.display = 'none';
-
-    // Hide sidebar and header wrapper before printing
-    var sidebar = document.querySelector('.sidebar');
-    var headerWrapper = document.querySelector('.header_wrapper');
-    if (sidebar) sidebar.style.display = 'none';
-    if (headerWrapper) headerWrapper.style.display = 'none';
-
-    // Print the invoice
-    window.print();
-
-    // Show the hidden elements after printing
-    if (sidebar) sidebar.style.display = '';
-    if (headerWrapper) headerWrapper.style.display = '';
-}
-
-
 document.addEventListener("DOMContentLoaded", function() {
     var links = document.querySelectorAll('.menu li a');
 
