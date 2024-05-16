@@ -4,7 +4,7 @@ include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/order.php';
 include_once '../object/garment_size.php';
-include_once '../object/user.php';
+
 
 $database = new Database();
 $db = $database->getConnection();
@@ -24,6 +24,9 @@ $page_title = "Request details";
 include_once 'sidebar.php'; 
 include_once 'layout_head.php'; ?>
 
+
+<div class="panel_container" id="profile-container">
+    <div class="panel_wrapper">
         <?php 
             if ($order->status == "Declined") {
                 echo "<div class='status-message-declined'>";
@@ -39,8 +42,6 @@ include_once 'layout_head.php'; ?>
                 echo "</div>";
             }
         ?>
-
-
         <div class="input_container">
             <label>Reference No.</label>
             <input type="text" value="<?php echo $order->reference_no; ?>" disabled>
