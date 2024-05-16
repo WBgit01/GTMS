@@ -12,7 +12,9 @@ body{
 }
 
 
-/* -----SIDEBAR-STYLING----- */
+/* -------------------------------------
+    SIDEBAR STYLES
+------------------------------------- */
 .sidebar{
     position: sticky;
     top: 0;
@@ -83,7 +85,9 @@ body{
 }
 
 
-/* -----MAIN CONTENT||BODY----- */
+/* -------------------------------------
+    MAIN CONTENT && BODY STYLES
+------------------------------------- */
 .main_content{
     position: relative;
     background: lightgray;
@@ -145,7 +149,9 @@ body{
 }
 
 
-/* -----PANEL CONTAINER-STYLING----- */
+/* -------------------------------------
+    PANEL CONTAINER STYLES
+------------------------------------- */
 .panel_container{
     background: white;
     padding: 2rem;
@@ -214,7 +220,9 @@ body{
 }
 
 
-/* -----PANEL COLOR-STYLING----- */
+/* -------------------------------------
+    PANEL COLOR STYLES
+------------------------------------- */
 .lightcolor-1{
     background: lightcoral;
 }
@@ -248,7 +256,9 @@ body{
 }
 
 
-/* -----TABLE-DATA STYLING----- */
+/* -------------------------------------
+    TABLE-DATA STYLES
+------------------------------------- */
 .table_wrapper{
     background: white;
     margin-top: 1rem;
@@ -311,7 +321,9 @@ tfoot td{
 }
 
 
-/* -----ACTION BUTTON STYLING----- */
+/* -------------------------------------
+    ACTION BUTTON STYLES
+------------------------------------- */
 .action_btn1, 
 .action_btn2, 
 .action_btn3{
@@ -358,7 +370,9 @@ tfoot td{
 }
 
 
-/* -----RESPONSIVE STYLING----- */
+/* -------------------------------------
+    RESPONSIVE AND MOBILE FRIENDLY STYLES
+------------------------------------- */
 @media only screen and (max-width: 768px) {
     .sidebar {
         width: 80px;

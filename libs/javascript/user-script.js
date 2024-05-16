@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     
+
     // Check if there is an active link stored in local storage
     var activeLink = localStorage.getItem('activeLink');
     if (activeLink) {
@@ -60,5 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
+
 
 

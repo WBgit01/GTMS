@@ -67,12 +67,12 @@ if ($_POST) {
             </div>
             <div class="account_edit">
                 <div class="input_container">
-                    <label>First Name</label>
-                    <input type="text" placeholder="Firstname" name="firstname" value="<?php echo $user->firstname;?>">
+                    <label>Firstname</label>
+                    <input type="text" name="firstname" placeholder="Firstname" value="<?php echo $user->firstname;?>" disabled>
                 </div>
                 <div class="input_container">
-                    <label>Last Name</label>
-                    <input type="text" name="lastname" placeholder="Lastname" value="<?php echo $user->lastname;?>">
+                    <label>Lastname</label>
+                    <input type="text" name="lastname" placeholder="Lastname" value="<?php echo $user->lastname;?>"disabled>
                 </div>
             </div>
             <div class="account_edit">
