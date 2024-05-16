@@ -308,24 +308,6 @@ ul li{
 /* -------------------------------------
     RESPONSIVE AND MOBILE FRIENDLY STYLES
 ------------------------------------- */
-@media print {
-    body * {
-        visibility: hidden;
-    }
-    .invoice, .invoice * {
-        visibility: visible;
-    }
-    .invoice {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: auto;
-    }
-    .overflow-view {
-        overflow-x: visible;
-    }
-}
-
 @media screen and (max-width: 992px){
     .invoice{
         padding: 40px;
@@ -428,3 +410,23 @@ ul li{
 
 }
 
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    .invoice, .invoice * {
+        visibility: visible;
+    }
+    .invoice {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: auto;
+    }
+    .overflow-view {
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+}
