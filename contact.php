@@ -44,7 +44,10 @@ if ($_POST) {
         <div class="header">
             <div class="info">
                 <h3>Contact Us</h3>
-                <p>If you have any work from me or any types of quries related to my tutorial, you can send me message from here. It's my pleasure to help you.</p>
+                <p>"Have questions or need assistance? Don't hesitate to get in touch with us!
+                     Whether you're curious about our products, services, or just want to say hello,
+                      our team is here to help. Reach out to us today for prompt and friendly assistance.
+                       Your inquiries matter to us!"</p>
             </div> 
         </div>
         <div class="content2">
