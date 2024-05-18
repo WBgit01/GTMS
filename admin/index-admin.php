@@ -119,7 +119,7 @@ $order_count = $order->countOrderRequest();
                                     echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Delete</a>";
                                 }else{
                                     echo "<a href='../user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                                    echo "<a href='../user/update_request.php?oid={$id}' class='action_btn2'>Approved</a>";
+                                    echo "<a href='../admin/update_request.php?oid={$id}' class='action_btn2'>Approved</a>";
                                     echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Declined</a>";
                                 }
                             echo "</td>";

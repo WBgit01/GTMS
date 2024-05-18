@@ -59,6 +59,7 @@ $user_count = $user->countUser();
                             echo "<td>{$academic_year}</td>";
                             echo "<td>{$address}</td>";
                             echo "<td>";
+                                echo "<a href='../admin/view_user.php?uid={$id}' class='action_btn1'>View</a>";
                                 echo "<a href='#'class='action_btn2'>Update</a>";
                                 echo "<a href='#'class='action_btn3'>Delete</a>";
                                     
