@@ -209,6 +209,7 @@ nav .land_btn:hover{
     align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
+    color: white;
 }
 
 .content2 .input-box {
@@ -678,6 +679,7 @@ footer .bottom .links a{
 
     .main{
         padding: 42px;
+        text-align: center;
     }
 
     .services{
@@ -690,6 +692,11 @@ footer .bottom .links a{
 
     .about{
         padding: 85px 42px;
+    }
+
+    .about .button input[type="button"] {
+        display: block;
+        margin: 1rem auto;
     }
 
     .services{

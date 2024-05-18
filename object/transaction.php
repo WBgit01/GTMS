@@ -33,6 +33,22 @@ class Transaction{
         return $stmt;
     }
 
+
+    function countTransaction(){
+
+		$query = "SELECT COUNT(*) as transaction_count
+					FROM 
+					" . $this->table_name . "
+					WHERE
+					order_id IS NOT NULL";
+		
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		$transaction_count = $row['transaction_count'];
+		return $transaction_count;
+	}
 }
 
 ?>

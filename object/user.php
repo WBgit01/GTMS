@@ -42,7 +42,9 @@ class User {
 					student_id = :student_id,
 					access_level = :access_level,
 					email_address = :email_address,
-					password = :password,
+					password = :password, 
+					contact_no = :contact_no, 
+					address = :address,
 					created = :created"; 
 
 		$stmt = $this->conn->prepare($query);
@@ -53,6 +55,8 @@ class User {
 		$this->access_level=htmlspecialchars(strip_tags($this->access_level));
 		$this->email_address=htmlspecialchars(strip_tags($this->email_address));
 		$this->password=htmlspecialchars(strip_tags($this->password));
+		$this->contact_no=htmlspecialchars(strip_tags($this->contact_no));
+		$this->address=htmlspecialchars(strip_tags($this->address));
 
 		//password hash
 		$password_hash = password_hash($this->password, PASSWORD_BCRYPT);
@@ -68,6 +72,8 @@ class User {
 		$stmt->bindParam(':student_id', $generated_student_id);
 		$stmt->bindParam(':access_level', $this->access_level);
 		$stmt->bindParam(':email_address', $this->email_address);
+		$stmt->bindParam(':contact_no', $this->contact_no);
+		$stmt->bindParam(':address', $this->address);
 		$stmt->bindParam(':password', $password_hash);
 		$stmt->bindParam(':created', $this->created);
 
@@ -116,6 +122,8 @@ class User {
 			$this->image_profile = $row['image_profile'];
 			$this->student_id = $row['student_id'];
 			$this->gender = $row['gender'];
+			$this->contact_no = $row['contact_no'];
+			$this->address = $row['address'];
 			$this->academic_year = $row['academic_year'];
 			// return true because email exists in the database
 			return true;

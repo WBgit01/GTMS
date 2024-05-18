@@ -26,11 +26,10 @@ $stmt = $transaction->readAll($from_record_num, $records_per_page);
 $num = $stmt->rowCount();
 
 $user_count = $user->countUser();
-
-
-
+$transaction_count = $transaction->countTransaction();
 
 ?>
+
 <!-- PANEL-CONTAINER -->
 <div class="panel_container">
     <h3 class="main_title">Statistics</h3>
@@ -45,6 +44,7 @@ $user_count = $user->countUser();
                 <i class="fa-solid fa-peso-sign icon darkcolor-1"></i>
             </div>
         </div>
+
         <!-- PANEL-2 -->
         <div class="panel_content lightcolor-2">
             <div class="panel_header">
@@ -55,16 +55,18 @@ $user_count = $user->countUser();
                 <i class="fa-solid fa-users icon darkcolor-2"></i>
             </div>
         </div>
+
         <!-- PANEL-3 -->
         <div class="panel_content lightcolor-3">
             <div class="panel_header">
                 <div class="amount">
                     <span class="title">Orders</span>
-                    <span class="amount_value">500</span>
+                    <span class="amount_value"><?php echo $transaction_count;?></span>
                 </div>
                 <i class="fa-solid fa-cart-plus icon darkcolor-3"></i>
             </div>
         </div>
+
         <!-- PANEL-4 -->
         <div class="panel_content lightcolor-4">
             <div class="panel_header">
@@ -78,53 +80,8 @@ $user_count = $user->countUser();
         </div>
     </div>
 </div>
+
 <!-- TABLE-DATA -->
-<div class="table_wrapper">
-    <h3 class="main_title">Data List</h3>
-    <?php
-        if ($num>0) {
-
-            echo "<div class='table_container'>";
-            echo "<table>";
-                echo "<thead>";
-                    echo "<tr>";
-                        echo "<th>Order ID</th>";
-                        echo "<th>Student ID</th>";
-                        echo "<th>Payment Status</th>";
-                        echo "<th>Reference No</th>";
-                        echo "<th>Order Created</th>";
-                        echo "<th>Status</th>";
-                        echo "<th>Action</th>";
-                    echo "</tr>";
-                echo "</thead>";
-
-                echo "<tbody>";
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        extract($row);
-
-                        echo "<tr>";
-                            echo "<td>{$order_id}</td>";
-                            echo "<td>{$student_id}</td>";
-                            echo "<td>{$payment_status}</td>";
-                            echo "<td>{$reference_no}</td>";
-                            echo "<td>{$status}</td>";
-                            echo "<td>{$created}</td>";
-                            echo "<td>";
-                                echo "<a href='#' class='action_btn1'>View</a>";
-                                echo "<a href='#'class='action_btn2'>Update</a>";
-                                echo "<a href='#'class='action_btn3'>Delete</a>";
-                                    
-                        echo "</tr>";
-                    }
-                echo "</tbody>";
-                echo "<tfoot>";
-                    echo "<tr>";
-                        echo "<td colspan='7' class='table_foot'>EXAMPLE TABLE FOOTER</td>";
-                    echo "</tr>";
-                echo "</tfoot>";
-            echo "</table>";
-        }
-    ?>
-    </div>
-</div>
-<?php include_once 'layout_foot.php'; ?>
+<?php 
+    include_once 'orders.php';
+    include_once 'layout_foot.php'; ?>

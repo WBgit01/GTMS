@@ -1,5 +1,5 @@
 <?php 
-$page_title = "Tracking";
+$page_title = "Track Order";
 include_once 'sidebar.php'; 
 include_once 'layout_head.php'; ?>
 

@@ -1,21 +1,33 @@
 <?php 
 include_once '../config/core.php';
+include_once '../config/database.php';
+include_once '../object/user.php';
+
+$database = new Database();
+$db = $database->getConnection();
+
+$user = new User($db);
 
 $page_title = "Users";
 $require_login = true;
 include_once '../login_checker.php';
 
-$page_title = "Users";
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
 
+// Fetch users
+$stmt = $db->prepare("SELECT * FROM users WHERE access_level = 'student'");
+$stmt->execute();
+
+$num = $stmt->rowCount();
+$user_count = $user->countUser();
 ?>
 
 
 <!-- contents will be here -->
 
 <div class="table_wrapper">
-    <h3 class="main_title">Data List</h3>
+    <h3 class="main_title">User Data</h3>
     <?php
         if ($num>0) {
 
@@ -23,12 +35,13 @@ include_once 'layout_head.php';
             echo "<table>";
                 echo "<thead>";
                     echo "<tr>";
-                        echo "<th>Order ID</th>";
                         echo "<th>Student ID</th>";
-                        echo "<th>Payment Status</th>";
-                        echo "<th>Reference No</th>";
-                        echo "<th>Order Created</th>";
-                        echo "<th>Status</th>";
+                        echo "<th>Firstname</th>";
+                        echo "<th>Lastname</th>";
+                        echo "<th>Gender</th>";
+                        echo "<th>Contact</th>";
+                        echo "<th>Academic Year</th>";
+                        echo "<th>Address</th>";
                         echo "<th>Action</th>";
                     echo "</tr>";
                 echo "</thead>";
@@ -38,23 +51,23 @@ include_once 'layout_head.php';
                         extract($row);
 
                         echo "<tr>";
-                            echo "<td>{$order_id}</td>";
                             echo "<td>{$student_id}</td>";
-                            echo "<td>{$payment_status}</td>";
-                            echo "<td>{$reference_no}</td>";
-                            echo "<td>{$status}</td>";
-                            echo "<td>{$created}</td>";
+                            echo "<td>{$firstname}</td>";
+                            echo "<td>{$lastname}</td>";
+                            echo "<td>{$gender}</td>";
+                            echo "<td>{$contact_no}</td>";
+                            echo "<td>{$academic_year}</td>";
+                            echo "<td>{$address}</td>";
                             echo "<td>";
-                                echo "<a href='#' class=''>View</a>";
-                                echo "<a href='#'>Update</a>";
-                                echo "<a href='#'>Delete</a>";
+                                echo "<a href='#'class='action_btn2'>Update</a>";
+                                echo "<a href='#'class='action_btn3'>Delete</a>";
                                     
                         echo "</tr>";
                     }
                 echo "</tbody>";
                 echo "<tfoot>";
                     echo "<tr>";
-                        echo "<td colspan='7' class='table_foot'>EXAMPLE TABLE FOOTER</td>";
+                        echo "<td colspan='8' class='table_foot'>USERS ACCOUNT LIST</td>";
                     echo "</tr>";
                 echo "</tfoot>";
             echo "</table>";

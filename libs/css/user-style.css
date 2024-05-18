@@ -31,6 +31,7 @@ body{
 
 .sidebar:hover{
     width: 250px;
+    transition: 0.5s;
 }
 
 .logo{
@@ -133,21 +134,6 @@ body{
     align-items: center;
     gap: 5px;
     padding: 4px 12px;
-}
-
-.search_bar input{
-    background: transparent;
-    padding: 10px;
-}
-
-.search_bar i{
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
-
-.search_bar i:hover{
-    transform: scale(1.2);
 }
 
 

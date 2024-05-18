@@ -30,7 +30,7 @@
             <li>
                 <a href="orders.php">
                 <i class="fa-solid fa-cart-plus"></i>
-                    <span>Orders</span>
+                    <span>Order Requests</span>
                 </a>
             </li>
 
