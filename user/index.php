@@ -20,6 +20,7 @@ $stmt = $order->readAll();
 $num = $stmt->rowCount();
 
 $require_login = true;
+include_once '../login_checker.php';
 
 $page_title = "Dashboard";
 include_once 'sidebar.php'; 
