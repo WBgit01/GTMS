@@ -114,7 +114,7 @@ $order_count = $order->countOrderRequest();
                             echo "<td>{$created}</td>";
                             echo "<td>";
                                 if ($status == "Approved") {
-                                    echo "<a href='../user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                                    echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
                                     // echo "<a href='../user/update_request.php?oid={$id}' class='action_btn2'>Update</a>";
                                     echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Delete</a>";
                                 }else{
