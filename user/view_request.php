@@ -86,8 +86,8 @@ include_once 'layout_head.php'; ?>
                                 <ul>
                                     <li class = 'text-bold'>Invoiced To: <?php echo $user->firstname; echo " "; echo $user->lastname; ?></li>
                                     <!-- <li>Name of user </li> -->
-                                    <li>Student ID: <?php echo $order->student_id; ?></li> <!-- student id function -->
-                                    <li>Address</li> <!-- Address function -->
+                                    <li>Student ID: <?php echo "<strong>{$order->student_id}</strong>"; ?></li> <!-- student id function -->
+                                    <li>Address: <?php echo $user->address; ?></li> <!-- Address function -->
                                     <!-- <li></li> -->
                                 </ul>
                             </div>
@@ -137,7 +137,7 @@ include_once 'layout_head.php'; ?>
                                         <?php 
                                             $amount = $order->amount;
                                             $tax = $amount * 0.3;
-                                            echo  "$" . $tax;
+                                            echo  "$" . $tax . ".00";
                                         ?>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@ include_once 'layout_head.php'; ?>
                                     <div class = "info-item-td text-end">
                                         <?php
                                             $total = $amount + $tax;
-                                            echo  "$" . $total;
+                                            echo  "$" . $total . ".00";
 
                                         ?>
                                     </div>

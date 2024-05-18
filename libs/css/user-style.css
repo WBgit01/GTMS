@@ -338,6 +338,7 @@ body{
     border-radius: 5px;
     color: black;
     font-size: 17px;
+    text-transform: capitalize;
 }
 
 
@@ -689,6 +690,9 @@ p1 a{
     border: none;
 }
 
+/* -------------------------------------
+    DROPDOWN VALUES STYLES ON UPDATE PAGE
+------------------------------------- */
 
 /* -------------------------------------
     RESPONSIVE AND MOBILE FRIENDLY STYLES

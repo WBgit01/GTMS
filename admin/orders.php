@@ -72,6 +72,10 @@ $user_count = $user->countUser();
                     echo "</tr>";
                 echo "</tfoot>";
             echo "</table>";
+        }else{
+            echo "<div class='message-box-failed'>";
+                echo "No uniform request.";
+            echo "</div>";
         }
     ?>
     </div>

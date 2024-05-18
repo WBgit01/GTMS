@@ -15,11 +15,11 @@ if($_POST){
       
     // set product id to be deleted
     $order->id = $_POST['object_id'];
-    $order->status = "Approved";
+    $order->status = "Declined";
       
     // delete the product
-    if($order->updateRequest()){
-        echo "Request was updated.";
+    if($order->declineRequest()){
+        echo "Request was Decline.";
     }
       
     // if unable to update the product

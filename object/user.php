@@ -356,7 +356,7 @@ class User {
 
 	function readUser(){
 
-		$query = "SELECT firstname, lastname
+		$query = "SELECT firstname, lastname, address
 				FROM
 			" . $this->table_name . "
 				WHERE 
@@ -371,6 +371,7 @@ class User {
 
 		$this->firstname = $row['firstname']; 
 		$this->lastname = $row['lastname'];
+		$this->address = $row['address'];
 	}
 	
 

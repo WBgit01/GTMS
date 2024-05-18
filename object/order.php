@@ -133,7 +133,7 @@ class Order{
         $this->status = $row['status'];
     }
 
-    function updateRequest(){
+    function editRequest(){
     
         // Prepare the SQL query
         $query = "UPDATE 
@@ -219,6 +219,58 @@ class Order{
 		$order_count = $row['order_count'];
 		return $order_count;
 	}
+    function updateRequest(){
+    
+        // Prepare the SQL query
+        $query = "UPDATE 
+                    " . $this->table_name . "
+                    SET
+                        status = :status
+                    WHERE
+                        id = :id";
+        
+        // Prepare the statement
+        $stmt = $this->conn->prepare($query);
+        $this->status = htmlspecialchars(strip_tags($this->status));
+
+    
+        // Bind parameters
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindparam(":status", $this->status);
+    
+        // Execute the statement
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function declineRequest(){
+    
+        // Prepare the SQL query
+        $query = "UPDATE 
+                    " . $this->table_name . "
+                    SET
+                        status = :status
+                    WHERE
+                        id = :id";
+        
+        // Prepare the statement
+        $stmt = $this->conn->prepare($query);
+        $this->status = htmlspecialchars(strip_tags($this->status));
+
+    
+        // Bind parameters
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindparam(":status", $this->status);
+    
+        // Execute the statement
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 

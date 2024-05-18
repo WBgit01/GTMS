@@ -106,12 +106,31 @@ if ($_POST) {
         break;
 
 
-        case 'pe_attire':
+        case 'pe_attire_polo':
             $order->amount = "350.00";
             $order->status = "Pending";
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
-            $order->garment_type = "PE Attire";
+            $order->garment_type = "PE Polo Shirt";
+                        
+            if ($order->countOrder()) {
+                echo "<div class='message-box-failed'>";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
+                echo "</div>";
+            }else{
+                $order->createOrder();
+                echo "<div class='message-box-success'>";
+                    echo "Uniform Request Submit, please check your Order and the status";
+                echo "</div>";
+            }
+        break;
+
+        case 'pe_attire_pants':
+            $order->amount = "350.00";
+            $order->status = "Pending";
+            $order->gender = $_SESSION['gender'];
+            $order->student_id = $_SESSION['student_id'];
+            $order->garment_type = "PE Pants";
                         
             if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";
@@ -257,7 +276,7 @@ if ($_POST) {
                 echo "<div>Color: Green</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
-                echo "<input type='hidden' name='uniform' value='pe_attire'>";
+                echo "<input type='hidden' name='uniform' value='pe_attire_polo'>";
                 echo "<div class='btn2'>";
                 echo "<button type='submit'>Get This Now</button>";
                 echo "</div>";
@@ -276,7 +295,7 @@ if ($_POST) {
                 echo "<div>Color: Green</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
-                echo "<input type='hidden' name='uniform' value='pe_attire'>";
+                echo "<input type='hidden' name='uniform' value='pe_attire_pants'>";
                 echo "<div class='btn2'>";
                 echo "<button type='submit'>Get This Now</button>";
                 echo "</div>";

@@ -21,7 +21,7 @@ class Garmentsize{
     function read(){
 
         $query = "SELECT 
-                    id, size, garment_measure
+                    id, size, garment_type, gender, garment_measure
                 FROM 
                 ". $this->table_name . "
                 WHERE gender = ? && garment_type = ? ";

@@ -372,6 +372,18 @@ tfoot td{
     border: 2px solid transparent;
 }
 
+/* -------------------------------------
+    ALERT MESSAGE STYLES
+------------------------------------- */
+.message-box-failed{
+    margin-bottom: 10px;
+	color: #842029;
+	border: #f5c2c7;
+	text-align: center;
+	padding: 20px;
+	background-color: #f8d7da;
+	border-radius: .25rem;
+}
 
 /* -------------------------------------
     RESPONSIVE AND MOBILE FRIENDLY STYLES
