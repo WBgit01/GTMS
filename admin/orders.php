@@ -22,7 +22,7 @@ include_once 'layout_head.php';
 
 
 // Fetch orders
-$stmt = $transaction->readAll($from_record_num, $records_per_page);
+$stmt = $order->readRequest();
 $num = $stmt->rowCount();
 
 $user_count = $user->countUser();
@@ -40,9 +40,7 @@ $user_count = $user->countUser();
             echo "<table>";
                 echo "<thead>";
                     echo "<tr>";
-                        echo "<th>Order ID</th>";
                         echo "<th>Student ID</th>";
-                        echo "<th>Payment Status</th>";
                         echo "<th>Reference No</th>";
                         echo "<th>Status</th>";
                         echo "<th>Order Created</th>";
@@ -56,16 +54,14 @@ $user_count = $user->countUser();
                         extract($row);
 
                         echo "<tr>";
-                            echo "<td>{$order_id}</td>";
                             echo "<td>{$student_id}</td>";
-                            echo "<td>{$payment_status}</td>";
                             echo "<td>{$reference_no}</td>";
                             echo "<td>{$status}</td>";
                             echo "<td>{$created}</td>";
                             echo "<td>";
-                                echo "<a href='../user/view_request.php?oid={$order_id}' class='action_btn1'>View</a>";
-                                echo "<a href='../user/update_request.php?oid={$order_id}' class='action_btn2'>Update</a>";
-                                echo "<a href='#' class='action_btn3' onclick='deleteOrder({$order_id})'>Delete</a>";
+                                echo "<a href='../user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                                echo "<a href='../user/update_request.php?oid={$id}' class='action_btn2'>Update</a>";
+                                echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Delete</a>";
                             
                         echo "</tr>";
                     }

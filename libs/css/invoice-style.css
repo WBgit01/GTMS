@@ -303,6 +303,16 @@ ul li{
     text-align: center;
     font-weight: bold;
 }
+.status-message-updated{
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    border-radius: .25rem;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
 
 
 /* -------------------------------------

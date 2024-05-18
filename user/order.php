@@ -28,6 +28,7 @@ $order_count = $order->countOrder();
 
 if ($_POST) {
     switch ($_POST['uniform']) {
+
         case 'uniform_men_polo':
             $order->amount = "300.00";
             $order->status = "Pending";
@@ -66,25 +67,7 @@ if ($_POST) {
                 }
             break;
 
-            case 'uniform_men_set':
-                $order->amount = "630.00";
-                $order->status = "Pending";
-                $order->garment_type = "SET";
-                $order->gender = $_SESSION['gender'];
-                $order->student_id = $_SESSION['student_id'];
-                
-                if ($order->countOrder()) {
-                    echo "<div class='message-box-failed'>";
-                        echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
-                    echo "</div>";
-                }else{
-                    $order->createOrder();
-                    echo "<div class='message-box-success'>";
-                        echo "Uniform Request Submit, please check your Order and the status";
-                    echo "</div>";
-                }
-            break;
-        case 'uniform_woman_blouse':
+        case 'uniform_women_blouse':
             $order->amount = "300.00";
             $order->status = "Pending";
             $order->garment_type = "Blouse";
@@ -103,7 +86,7 @@ if ($_POST) {
             }
         break;
 
-        case 'uniform_woman_skirt':
+        case 'uniform_women_skirt':
             $order->amount = "280.00";
             $order->status = "Pending";
             $order->garment_type = "Skirt";
@@ -122,31 +105,13 @@ if ($_POST) {
             }
         break;
 
-        case 'uniform_woman_set':
-            $order->amount = "580.00";
-            $order->status = "Pending";
-            $order->garment_type = "(SET)";
-            $order->gender = $_SESSION['gender'];
-            $order->student_id = $_SESSION['student_id'];
-                
-            if ($order->countOrder()) {
-                echo "<div class='message-box-failed'>";
-                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
-                echo "</div>";
-            }else{
-                $order->createOrder();
-                echo "<div class='message-box-success'>";
-                    echo "Uniform Request Submit, please check your Order and the status";
-                echo "</div>";
-            }
-        break;
 
         case 'pe_attire':
             $order->amount = "350.00";
-
             $order->status = "Pending";
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
+            $order->garment_type = "PE Attire";
                         
             if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";

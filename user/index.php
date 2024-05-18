@@ -77,7 +77,12 @@ include_once 'layout_head.php';
                         echo "<div class='status-message-approved'>";
                             echo "{$status}";
                         echo "</div>";
-                    }else{
+                    }elseif($status == "Updated"){
+                        echo "<div class='status-message-updated'>";
+                            echo "{$status}";
+                        echo "</div>";
+                    }
+                    else{
                         echo "<div class='status-message-declined'>";
                             echo "{$status}";
                         echo "</div>";
@@ -102,7 +107,10 @@ include_once 'layout_head.php';
                             echo "<a delete-id='{$id}' class='action_btn3 delete-object'>Delete</a>";
                         }elseif($status == "Approved"){
                             echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                        }else{
+                        }elseif($status == "Updated"){
+                            echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                        }
+                        else{
                             echo "<a href='{$home_url}user/view_request.php?oid={$id}' class='action_btn1'>View</a>";
                             echo "<a href='update_request.php?oid={$id}' class='action_btn2'>Update</a>";
                         }

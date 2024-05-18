@@ -506,7 +506,7 @@ th{
 }
 
 tbody{
-    background: #c1e8ff;
+    /* background: #c1e8ff; */
 }
 
 td{
@@ -613,6 +613,13 @@ tfoot td{
     padding: 15px;
 }
 
+.status-message-updated{
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    border-radius: .25rem;
+    padding: 15px;
+}
 
 /* -------------------------------------
     TRACKING-PAGE STYLES

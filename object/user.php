@@ -56,7 +56,7 @@ class User {
 		$this->email_address=htmlspecialchars(strip_tags($this->email_address));
 		$this->password=htmlspecialchars(strip_tags($this->password));
 		$this->contact_no=htmlspecialchars(strip_tags($this->contact_no));
-		$this->address=htmlspecialchars(strip_tags($this->address));
+		// $this->address=htmlspecialchars(strip_tags($this->address));
 
 		//password hash
 		$password_hash = password_hash($this->password, PASSWORD_BCRYPT);
@@ -73,7 +73,7 @@ class User {
 		$stmt->bindParam(':access_level', $this->access_level);
 		$stmt->bindParam(':email_address', $this->email_address);
 		$stmt->bindParam(':contact_no', $this->contact_no);
-		$stmt->bindParam(':address', $this->address);
+		// $stmt->bindParam(':address', $this->address);
 		$stmt->bindParam(':password', $password_hash);
 		$stmt->bindParam(':created', $this->created);
 
@@ -352,6 +352,25 @@ class User {
 
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$this->image_profile=$row['image_profile'];
+	}
+
+	function readUser(){
+
+		$query = "SELECT firstname, lastname
+				FROM
+			" . $this->table_name . "
+				WHERE 
+					student_id = ?";
+		
+		$stmt = $this->conn->prepare($query);
+		
+		$stmt->bindParam(1, $this->student_id);
+		$stmt->execute();
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		$this->firstname = $row['firstname']; 
+		$this->lastname = $row['lastname'];
 	}
 	
 

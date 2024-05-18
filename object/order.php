@@ -40,6 +40,7 @@ class Order{
                     student_id = :student_id,
                     amount = :amount,
                     garment_type = :garment_type,
+
                     gender = :gender,
                     status = :status,
                     created = :created";
@@ -107,7 +108,7 @@ class Order{
 
     function readOne(){
         
-        $query = "SELECT reference_no, amount, garment_type, garment_id, gender, notes, status
+        $query = "SELECT student_id, reference_no, amount, garment_type, garment_id, gender, notes, status, created
                     FROM
                     " . $this->table_name . "
                     WHERE
@@ -122,46 +123,37 @@ class Order{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->reference_no = $row['reference_no'];
+        $this->student_id = $row['student_id'];
         $this->amount = $row['amount'];
         $this->notes = $row['notes'];
         $this->gender = $row['gender'];
         $this->garment_type = $row['garment_type'];
         $this->garment_id = $row['garment_id'];
+        $this->created = $row['created'];
         $this->status = $row['status'];
     }
 
     function updateRequest(){
-        // Check if the garment_id contains multiple IDs separated by comma
-        if (strpos($this->garment_id, ',') !== false) {
-            // If it does, split the string into an array of IDs
-            $ids = explode(',', $this->garment_id);
-    
-            // Loop through the IDs and sanitize them
-            foreach ($ids as &$id) {
-                $id = htmlspecialchars(strip_tags($id));
-            }
-    
-            // Join the sanitized IDs back into a comma-separated string
-            $this->garment_id = implode(',', $ids);
-        } else {
-            // If there's only one ID, sanitize it
-            $this->garment_id = htmlspecialchars(strip_tags($this->garment_id));
-        }
     
         // Prepare the SQL query
         $query = "UPDATE 
                     " . $this->table_name . "
                     SET
-                        garment_id = :garment_id
+                        garment_id = :garment_id,
+                        status = :status
                     WHERE
                         id = :id";
         
         // Prepare the statement
         $stmt = $this->conn->prepare($query);
+        $this->garment_id = htmlspecialchars(strip_tags($this->garment_id));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+
     
         // Bind parameters
         $stmt->bindParam(":garment_id", $this->garment_id);
         $stmt->bindParam(":id", $this->id);
+        $stmt->bindparam(":status", $this->status);
     
         // Execute the statement
         if ($stmt->execute()) {
@@ -184,7 +176,49 @@ class Order{
             return false;
         }
     }
-    
+
+    function readRequest(){
+        $query = "SELECT * 
+                    FROM   
+                    " . $this->table_name ." 
+                    WHERE
+                        status = 'Pending'";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function readUpadatedRequest(){
+        $query = "SELECT * 
+                    FROM   
+                    " . $this->table_name ." 
+                    WHERE
+                        status = 'Updated' || status = 'Approved' ";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+    function countOrderRequest(){
+
+		$query = "SELECT COUNT(*) as order_count
+					FROM 
+					" . $this->table_name . "
+					WHERE
+					status = 'Approved'";
+		
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		$order_count = $row['order_count'];
+		return $order_count;
+	}
 
 }
 

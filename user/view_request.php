@@ -9,13 +9,26 @@ include_once '../object/user.php';
 $database = new Database();
 $db = $database->getConnection();
 
+
 $order = new Order($db);
 $garment_size = new Garmentsize($db);
+$user = new User($db);
 
 // order id property that will be edited
 $order->id = $id;
-
 $order->readOne();
+
+$garment_id = $order->garment_id;
+
+$garment_size->id = $garment_id;
+$garment_size->readGarmentmeasure();
+
+
+$student_id = $order->student_id;
+
+//to get the name of the user base on student id 
+$user->student_id = $student_id;
+$user->readUser();
 
 $require_login = true;
 include_once '../login_checker.php';
@@ -33,7 +46,12 @@ include_once 'layout_head.php'; ?>
                 echo "<div class='status-message-approved'>";
                     echo $order->status;
                 echo "</div>";
-            }else{
+            }elseif($order->status == "Updated"){
+                echo "<div class='status-message-updated'>";
+                    echo $order->status;
+                echo "</div>";
+            }
+            else{
                 echo "<div class='status-message-pending'>";
                     echo $order->status;
                 echo "</div>";
@@ -56,7 +74,7 @@ include_once 'layout_head.php'; ?>
                         <div class = "hr"></div>
                         <div class = "invoice-head-middle">
                             <div class = "invoice-head-middle-left text-start">
-                                <p><span class = "text-bold">Date: </span>00-00-00 | 00:00:00</p> <!-- date time function -->
+                                <p><span class = "text-bold">Date: </span><?php echo $order->created; ?></p> <!-- date time function -->
                             </div>
                             <div class = "invoice-head-middle-right text-end">
                                 <p><spanf class = "text-bold">Reference No: </span><?php echo $order->reference_no; ?></p>
@@ -66,10 +84,10 @@ include_once 'layout_head.php'; ?>
                         <div class = "invoice-head-bottom">
                             <div class = "invoice-head-bottom-left">
                                 <ul>
-                                    <li class = 'text-bold'>Invoiced To:</li>
-                                    <li>Name of user</li> <!-- user name function -->
-                                    <li>Id of student</li> <!-- student id function -->
-                                    <li>Address of user</li> <!-- Address function -->
+                                    <li class = 'text-bold'>Invoiced To: <?php echo $user->firstname; echo " "; echo $user->lastname; ?></li>
+                                    <!-- <li>Name of user </li> -->
+                                    <li>Student ID: <?php echo $order->student_id; ?></li> <!-- student id function -->
+                                    <li>Address</li> <!-- Address function -->
                                     <!-- <li></li> -->
                                 </ul>
                             </div>
@@ -89,53 +107,49 @@ include_once 'layout_head.php'; ?>
                             <table>
                                 <thead>
                                     <tr>
-                                        <td class = "text-bold">Service</td>
-                                        <td class = "text-bold">Description</td>
-                                        <td class = "text-bold">Rate</td>
-                                        <td class = "text-bold">QTY</td>
+                                        <td class = "text-bold">Product</td>
+                                        <td class = "text-bold">Size</td>
+                                        <td class = "text-bold">Price</td>
+                                        <td class = "text-bold"></td>
                                         <td class = "text-bold">Amount</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Sample 1</td>
-                                        <td>Creating a website design</td>
-                                        <td>$50.00</td>
-                                        <td>10</td>
-                                        <td class = "text-end">$500.00</td>
+                                        <td><?php echo $order->garment_type; ?></td>
+                                        <td><?php echo $garment_size->size; ?></td>
+                                        <td><?php echo "$". $order->amount; ?></td>
+                                        <td></td>
+                                    <div class = "info-item-td text-end"></div>
+                                        <td class = "text-end"><?php echo "$". $order->amount; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Sample 2</td>
-                                        <td>Website Development</td>
-                                        <td>$50.00</td>
-                                        <td>10</td>
-                                        <td class = "text-end">$500.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sample 3</td>
-                                        <td>Uniform Men</td>
-                                        <td>$50.00</td>
-                                        <td>10</td>
-                                        <td class = "text-end">$500.00</td>
-                                    </tr>
-                                    <!-- <tr>
-                                        <td colspan="4">10</td>
-                                        <td>$500.00</td>
-                                    </tr> -->
                                 </tbody>
                             </table>
                             <div class = "invoice-body-bottom">
                                 <div class = "invoice-body-info-item border-bottom">
                                     <div class = "info-item-td text-end text-bold">Sub Total:</div>
-                                    <div class = "info-item-td text-end">$2150.00</div>
+                                    <div class = "info-item-td text-end"><?php echo "$". $order->amount; ?></div>
                                 </div>
                                 <div class = "invoice-body-info-item border-bottom">
                                     <div class = "info-item-td text-end text-bold">Tax:</div>
-                                    <div class = "info-item-td text-end">$215.00</div>
+                                    <div class = "info-item-td text-end">
+                                        <?php 
+                                            $amount = $order->amount;
+                                            $tax = $amount * 0.3;
+                                            echo  "$" . $tax;
+                                        ?>
+                                    </div>
                                 </div>
                                 <div class = "invoice-body-info-item">
                                     <div class = "info-item-td text-end text-bold">Total:</div>
-                                    <div class = "info-item-td text-end">$21365.00</div>
+                                    <div class = "info-item-td text-end">
+                                        <?php
+                                            $total = $amount + $tax;
+                                            echo  "$" . $total;
+
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -157,42 +171,5 @@ include_once 'layout_head.php'; ?>
         </div>
 
         <?php include_once 'layout_foot.php'; ?>
-
-
-
-
-
-
-        <!-- <div class="input_container">
-            <label>Reference No.</label>
-            <input type="text" value="<?php //echo $order->reference_no; ?>" disabled>
-        </div>
-        <div class="input_container">
-            <label>Amount</label>
-            <input type="text" value="<?php //echo $order->amount; ?>" disabled>
-        </div>
-
-        <div class="input_container">
-            <label>Garment Type</label>
-            <input type="text" value="<?php //echo $order->garment_type; ?>" disabled>
-        </div>
-
-        <div class="input_container">
-            <label>Garment Measure</label>
-            <?php
-                //$garment_size->id = $order->garment_id;
-                //$garment_size->readGarmentmeasure();
-                //echo "<input type='text' value='{$garment_size->garment_measure}' disabled>";
-            ?>
-                <label>Size</label>
-            <?php
-                //$garment_size->id = $order->garment_id;
-                //$garment_size->readGarmentmeasure();
-                //echo "<input type='text' value='{$garment_size->size}' disabled>";
-            ?>
-        </div>
-        </div>
-    </div>
-</div> -->
 
 
