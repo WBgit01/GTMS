@@ -37,18 +37,9 @@ $order_count = $order->countOrderRequest();
 <div class="panel_container">
     <h3 class="main_title">Statistics</h3>
     <div class="panel_wrapper">
-        <!-- PANEL-1 -->
-        <div class="panel_content lightcolor-1">
-            <div class="panel_header">
-                <div class="amount">
-                    <span class="title">Sales</span>
-                    <span class="amount_value">500</span>
-                </div>
-                <i class="fa-solid fa-peso-sign icon darkcolor-1"></i>
-            </div>
-        </div>
 
-        <!-- PANEL-2 -->
+
+        <!-- PANEL-1 -->
         <div class="panel_content lightcolor-2">
             <div class="panel_header">
                 <div class="amount">
@@ -59,26 +50,40 @@ $order_count = $order->countOrderRequest();
             </div>
         </div>
 
-        <!-- PANEL-3 -->
+
+        <!-- PANEL-2 -->
         <div class="panel_content lightcolor-3">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Orders</span>
+                    <span class="title">Approved Orders</span>
                     <span class="amount_value"><?php echo $order_count; ?></span>
                 </div>
                 <i class="fa-solid fa-cart-plus icon darkcolor-3"></i>
             </div>
         </div>
 
-        <!-- PANEL-4 -->
+
+        <!-- PANEL-3 -->
         <div class="panel_content lightcolor-4">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Products</span>
+                    <span class="title">Pending Orders</span>
                     <span class="amount_value">500</span>
                 </div>
                 <i class="fa-regular"></i>
                 <i class="fa-solid  fa-rectangle-list icon darkcolor-4"></i>
+            </div>
+        </div>
+
+
+        <!-- PANEL-4 -->
+        <div class="panel_content lightcolor-1">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Declined Orders</span>
+                    <span class="amount_value">500</span>
+                </div>
+                <i class="fa-solid fa-peso-sign icon darkcolor-1"></i>
             </div>
         </div>
     </div>
