@@ -63,19 +63,19 @@ include_once 'layout_head.php'; ?>
 <div class="panel_container" id="profile-container">
     <div class="panel_wrapper">
         <?php 
-            if ($order->status == "Declined") {
-                echo "<div class='status-message-declined'>";
-                    echo $order->status;
-                echo "</div>";
-            }elseif($order->status == "Approved"){
-                echo "<div class='status-message-approved'>";
-                    echo $order->status;
-                echo "</div>";
-            }else{
-                echo "<div class='status-message-pending'>";
-                    echo $order->status;
-                echo "</div>";
-            }
+            //if ($order->status == "Declined") {
+                //echo "<div class='status-message-declined'>";
+                //   echo $order->status;
+                //echo "</div>";
+            //}elseif($order->status == "Approved"){
+               //echo "<div class='status-message-approved'>";
+               //     echo $order->status;
+               //echo "</div>";
+            //}else{
+                // echo "<div class='status-message-pending'>";
+                //     echo $order->status;
+                // echo "</div>";
+            //}
         ?>
         <div class="input_container">
             <label>Reference No.</label>
@@ -94,13 +94,17 @@ include_once 'layout_head.php'; ?>
         <div class="input_container">
             <label>Garment Measure</label>
             <?php
-                $garment_size->id = $order->garment_id;
-                $garment_size->readGarmentmeasure();
-                if ($order->garment_id == "Not set") {
-                    echo "<input type='text' value='Size is not yet' disabled>";
+                if ($order->garment_id != "Not set") {
+                    $garment_size->id = $order->garment_id;
+                    $garment_size->readGarmentmeasure();
+                    echo "<input type='text' value='{$garment_size->garment_measure}' disabled>";
+                } else {
+                    echo "<input type='text' value='Size is not set' disabled>";
                 }
-                
-            ?>
+                ?>
+            </div>
+            
+            <div class="input_container">
                 <label>Size</label>
             <?php
                 $garment_size->id = $order->garment_id;
@@ -111,7 +115,8 @@ include_once 'layout_head.php'; ?>
         </div>
     </div>
 </div>
+    
 
-        <?php include_once 'layout_foot.php'; ?>
+<?php include_once 'layout_foot.php'; ?>
 
 
