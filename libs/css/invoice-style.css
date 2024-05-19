@@ -162,6 +162,11 @@ ul li{
     font-weight: 700;
 }
 
+.text-bold-bx1{
+    font-weight: 700;
+    text-align: right;
+}
+
 /* hr line */
 .hr{
     height: 1px;

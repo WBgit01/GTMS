@@ -15,12 +15,6 @@
                 </a>
             </li>
             <li class='items'>
-               <a href="tracking.php">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <span>Track Order</span>
-                </a>
-            </li>
-            <li class='items'>
                 <a href="profile.php">
                     <i class="fa-solid fa-user"></i>
                     <span>Profile</span>

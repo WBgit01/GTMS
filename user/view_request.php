@@ -84,11 +84,10 @@ include_once 'layout_head.php'; ?>
                         <div class = "invoice-head-bottom">
                             <div class = "invoice-head-bottom-left">
                                 <ul>
-                                    <li class = 'text-bold'>Invoiced To: <?php echo $user->firstname; echo " "; echo $user->lastname; ?></li>
-                                    <!-- <li>Name of user </li> -->
-                                    <li>Student ID: <?php echo "<strong>{$order->student_id}</strong>"; ?></li> <!-- student id function -->
-                                    <li>Address: <?php echo $user->address; ?></li> <!-- Address function -->
-                                    <!-- <li></li> -->
+                                    <li class = 'text-bold'>Invoiced To: </li>
+                                    <li>Name: <?php echo "<strong>$user->firstname</strong>"; echo " "; echo "<strong>$user->lastname</strong>"; ?> </li>
+                                    <li>Student ID: <?php echo "<strong>{$order->student_id}</strong>"; ?></li> <!-- student id  -->
+                                    <li>Address: <?php echo $user->address; ?></li> <!-- Address -->
                                 </ul>
                             </div>
                             <div class = "invoice-head-bottom-right">
@@ -96,8 +95,7 @@ include_once 'layout_head.php'; ?>
                                     <li class = 'text-bold'>Pay To:</li>
                                     <li>Garments Inc.</li>
                                     <li>Marinduque, Philippines</li>
-                                    <!-- <li></li> -->
-                                    <li>gtms@mail.com</li>
+                                    <li>gtms.portal@gmail.com</li>
                                 </ul>
                             </div>
                         </div>
@@ -111,7 +109,8 @@ include_once 'layout_head.php'; ?>
                                         <td class = "text-bold">Size</td>
                                         <td class = "text-bold">Price</td>
                                         <td class = "text-bold"></td>
-                                        <td class = "text-bold">Amount</td>
+                                        <td class = "text-bold"></td>
+                                        <td class = "text-bold-bx1">Amount</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -119,6 +118,7 @@ include_once 'layout_head.php'; ?>
                                         <td><?php echo $order->garment_type; ?></td>
                                         <td><?php echo $garment_size->size; ?></td>
                                         <td><?php echo "$". $order->amount; ?></td>
+                                        <td></td>
                                         <td></td>
                                     <div class = "info-item-td text-end"></div>
                                         <td class = "text-end"><?php echo "$". $order->amount; ?></td>

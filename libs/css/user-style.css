@@ -147,13 +147,13 @@ body{
     margin: auto;
 }
 
-#profile-container{
+/* #profile-container{
     background: white;
     padding: 2rem;
     border-radius: 10px;
     width: 75%;
     margin: auto;
-}
+} */
 
 .panel_wrapper{
     display: flex;
@@ -238,8 +238,8 @@ body{
 }
 
 .account_title{
-    font-size: 20px;
-    color: #1a1a1a;
+    font-size: 24px;
+    color: #3a7bd5;
     font-weight: bold;
     margin-left: 10px;
 }
@@ -346,31 +346,35 @@ body{
     ALERT MESSAGE STYLES
 ------------------------------------- */
 .message-box-failed{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 	color: #842029;
 	border: #f5c2c7;
 	text-align: center;
-	padding: 20px;
+    font-weight: bold;
+	padding: 16px;
 	background-color: #f8d7da;
 	border-radius: .25rem;
 }
+
 .message-box-info{
 	color: #055160;
 	border: #b6effb;
 	text-align: center;
-	padding: 20px;
+    font-weight: bold;
+	padding: 16px;
 	background-color: #cff4fc;
 	border-radius: .25rem;
 }
 
 .message-box-success{
-    width: 75%;
+    width: 100%;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 	color: #0f5132;
 	border: #badbcc;
 	text-align: center;
-	padding: 20px;
+    font-weight: bold;
+	padding: 16px;
 	background-color: #d1e7dd;
 	border-radius: .25rem;
 }
@@ -392,8 +396,10 @@ body{
 }
 
 .panel_wrapper2 .table_detail h2{
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 38px;
+    font-weight: bold;
+    color: #3a7bd5;
+    text-transform: uppercase;
 }
 
 .panel_wrapper2 .table_detail p{
@@ -410,7 +416,7 @@ body{
 
 .panel_wrapper2 .grid .box{
     width: 250px;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid #eee;
     text-align: center;
     padding: 20px;
@@ -437,7 +443,8 @@ body{
 }
 
 .panel_wrapper2 .grid .box .features > *{
-    color: black;
+    color: #3a7bd5;
+    font-weight: bolder;
     padding: 8px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -459,6 +466,7 @@ body{
     transform: scale(1.1);
     background: linear-gradient(to bottom, #7da0ca, #c1e8ff);
     transition-duration: 0.4s;
+    color: #fff;
 }
 
 .panel_wrapper2 .grid .box .title_box .price_table:hover{
@@ -472,6 +480,10 @@ body{
 .panel_wrapper2 .grid .box .button button:hover{
     background-color: white;
     color: #3a6073;
+}
+
+.uni-img{
+    width: 190px;
 }
 
 
@@ -599,6 +611,7 @@ tfoot td{
     border-radius: .25rem;
     padding: 15px;
 }
+
 .status-message-approved{
     color: #0f5132;
     background-color: #d1e7dd;
@@ -606,6 +619,7 @@ tfoot td{
     border-radius: .25rem;
     padding: 15px;
 }
+
 .status-message-declined{
     color: #842029;
     background-color: #f8d7da;
@@ -625,7 +639,7 @@ tfoot td{
 /* -------------------------------------
     TRACKING-PAGE STYLES
 ------------------------------------- */
-.search-container{
+/* .search-container{
     background: white;
     padding: 1rem;
     border-radius: 10px;
@@ -688,11 +702,8 @@ p1 a{
     background-color: #5483b3;
     color: #fff;
     border: none;
-}
+} */
 
-/* -------------------------------------
-    DROPDOWN VALUES STYLES ON UPDATE PAGE
-------------------------------------- */
 
 /* -------------------------------------
     RESPONSIVE AND MOBILE FRIENDLY STYLES
