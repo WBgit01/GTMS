@@ -70,7 +70,7 @@ if ($_POST) {
             break;
 
         case 'uniform_women_blouse':
-            $order->amount = "300.00";
+            $order->amount = "340.00";
             $order->status = "Pending";
             $order->garment_type = "Blouse";
             $order->gender = $_SESSION['gender'];
@@ -90,7 +90,7 @@ if ($_POST) {
         break;
 
         case 'uniform_women_skirt':
-            $order->amount = "280.00";
+            $order->amount = "330.00";
             $order->status = "Pending";
             $order->garment_type = "Skirt";
             $order->gender = $_SESSION['gender'];
@@ -111,12 +111,12 @@ if ($_POST) {
 
 
         case 'pe_attire_polo':
-            $order->amount = "350.00";
+            $order->amount = "355.00";
             $order->status = "Pending";
+            $order->garment_type = "PE Polo Shirt";
             $order->gender = $_SESSION['gender'];
             $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
-            $order->garment_type = "PE Polo Shirt";
                         
             if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";
@@ -131,13 +131,13 @@ if ($_POST) {
         break;
 
         case 'pe_attire_pants':
-            $order->amount = "350.00";
+            $order->amount = "345.00";
             $order->status = "Pending";
+            $order->garment_type = "PE Pants";
             $order->gender = $_SESSION['gender'];
             $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
-            $order->garment_type = "PE Pants";
-                        
+
             if ($order->countOrder()) {
                 echo "<div class='message-box-failed'>";
                     echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
@@ -171,7 +171,7 @@ if ($_POST) {
         break;
 
         case 'shs_pants_men':
-            $order->amount = "350.00";
+            $order->amount = "345.00";
             $order->status = "Pending";
             $order->garment_type = "SHS Pants";
             $order->gender = $_SESSION['gender'];
@@ -191,7 +191,7 @@ if ($_POST) {
         break;
 
         case 'shs_blouse_women':
-            $order->amount = "350.00";
+            $order->amount = "335.00";
             $order->status = "Pending";
             $order->garment_type = "SHS Blouse";
             $order->gender = $_SESSION['gender'];
@@ -211,7 +211,7 @@ if ($_POST) {
         break;
 
         case 'shs_skirt_women':
-            $order->amount = "350.00";
+            $order->amount = "345.00";
             $order->status = "Pending";
             $order->garment_type = "SHS Skirt";
             $order->gender = $_SESSION['gender'];
