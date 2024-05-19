@@ -302,10 +302,10 @@ class User {
 				mkdir($target_directory, 0777, true);
 			}
 	
-			// check if the file already exists
-			if (file_exists($target_file)) {
-				$result_message .= "<div>Image already exists. Try to change file name.</div>";
-			}
+			// // check if the file already exists
+			// if (file_exists($target_file)) {
+			// 	$result_message .= "<div>Image already exists. Try to change file name.</div>";
+			// }
 	
 			// make sure submitted file is not too large, can't be larger than 1 MB
 			if ($_FILES['image']['size'] > (1024000)) {
