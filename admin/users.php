@@ -60,8 +60,8 @@ $user_count = $user->countUser();
                             echo "<td>{$address}</td>";
                             echo "<td>";
                                 echo "<a href='../admin/view_user.php?uid={$id}' class='action_btn1'>View</a>";
-                                echo "<a href='#'class='action_btn2'>Update</a>";
-                                echo "<a href='#'class='action_btn3'>Delete</a>";
+                                echo "<a href='{$home_url}admin/update_user.php?uid={$id}'class='action_btn2'>Update</a>";
+                                echo "<a delete-id='{$id}' class='action_btn3 delete-object'>Delete</a>";
                                     
                         echo "</tr>";
                     }

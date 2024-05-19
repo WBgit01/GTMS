@@ -40,6 +40,23 @@ $(document).on('click', '.decline-object', function(){
 
   return false;
 });
+
+$(document).on('click', '.delete-object', function(){
+  
+  var id = $(this).attr('delete-id');
+
+  if (confirm("Are you sure to remove this User?")) {
+      $.post('delete_user.php', {
+          object_id: id
+      }, function(data){
+          location.reload();
+      }).fail(function() {
+          alert('Unable to delete.');
+      });
+  }
+
+  return false;
+});
 </script>
 </body>
 </html>
