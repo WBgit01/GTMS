@@ -39,7 +39,7 @@ class Course{
 
         $stmt->execute();
 
-        $this->name = $row['course_name'];
+        $this->course_name = $row['course_name'];
     }
 }
 

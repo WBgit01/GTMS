@@ -241,6 +241,57 @@ class User {
 		}
 	}
 
+
+
+	function adminUpdateProfile(){
+
+		$this->modified = date('Y-m-d H:i:s');
+
+
+		$query = "UPDATE
+					" . $this->table_name . "
+					SET
+					firstname = :firstname,
+					lastname = :lastname,
+					gender = :gender,
+					contact_no = :contact_no,
+					academic_year = :academic_year,
+					course = :course,
+					address = :address,
+					modified = :modified
+					WHERE
+						id = :id";
+		
+
+		$stmt = $this->conn->prepare($query);
+
+		$this->id=htmlspecialchars(strip_tags($this->id));
+		$this->firstname=htmlspecialchars(strip_tags($this->firstname));
+		$this->lastname=htmlspecialchars(strip_tags($this->lastname));
+		$this->gender=htmlspecialchars(strip_tags($this->gender));
+		$this->contact_no=htmlspecialchars(strip_tags($this->contact_no));
+		$this->academic_year=htmlspecialchars(strip_tags($this->academic_year));
+		$this->course=htmlspecialchars(strip_tags($this->course));
+		$this->address=htmlspecialchars(strip_tags($this->address));
+
+		$stmt->bindParam(':id', $this->id);
+		$stmt->bindParam(':firstname', $this->firstname);
+		$stmt->bindParam(':lastname', $this->lastname);
+		$stmt->bindParam(':gender', $this->gender);
+		$stmt->bindParam(':contact_no', $this->contact_no);
+		$stmt->bindParam(':academic_year', $this->academic_year);
+		$stmt->bindParam(':course', $this->course);
+		$stmt->bindParam(':address', $this->address);
+		$stmt->bindParam(':modified', $this->modified);
+
+
+		if ($stmt->execute()) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	function readOne(){
 		
 		$query = "SELECT 
@@ -377,6 +428,20 @@ class User {
 		$this->lastname = $row['lastname'];
 		$this->address = $row['address'];
 	}
+
+	function delete(){
+  
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+          
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->id);
+      
+        if($result = $stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 	
 
 }

@@ -476,6 +476,166 @@ tfoot td{
     font-weight: bold;
 }
 
+.account{
+    flex: 2;
+    width: 50%;
+    margin-left: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    height: auto;
+}
+
+.account_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.account_title{
+    font-size: 24px;
+    color: #3a7bd5;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.btn_container{
+    margin-right: 5px;
+}
+
+.btn_cancel{
+    width: 8em;
+    height: 3em;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    color: #FF6961;
+    font-weight: bold;
+    margin-right: 5px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    transition-duration: 0.2s;
+}
+
+.btn_cancel:hover{
+    background-color:#FF6961;
+    color: white;
+}
+
+.btn_save{
+    width: 8em;
+    height: 3em;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    color: #3fc495;
+    font-weight: bold;
+    margin-right: 5px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    transition-duration: 0.2s;
+}
+
+.btn_save:hover{
+    background-color: #3fc495;
+    color: #fff;
+}
+
+.profile_btn{
+    width: 4em;
+    height: 2em;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    color: #5483b3;
+    font-weight: bold;
+    margin-right: 5px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1);
+    transition-duration: 0.3s;
+}
+
+.profile_btn:hover{
+    background-color: #3fc495;
+    color: white;
+}
+
+.account_edit{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.input_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px;;
+}
+
+.input_container label{
+    color: #5483b3;
+    font-size: 18px;
+}
+
+.input_container input{
+    height: 35px;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    color: black;
+    font-size: 17px;
+    padding: 5px;
+    text-transform: capitalize;
+}
+
+.input_container select{
+    height: 35px;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    color: black;
+    font-size: 17px;
+    text-transform: capitalize;
+}
+
+
+/* -------------------------------------
+    ALERT MESSAGE STYLES
+------------------------------------- */
+.message-box-failed{
+    margin-bottom: 15px;
+	color: #842029;
+	border: #f5c2c7;
+	text-align: center;
+    font-weight: bold;
+	padding: 16px;
+	background-color: #f8d7da;
+	border-radius: .25rem;
+}
+
+.message-box-info{
+	color: #055160;
+	border: #b6effb;
+	text-align: center;
+    font-weight: bold;
+	padding: 16px;
+	background-color: #cff4fc;
+	border-radius: .25rem;
+}
+
+.message-box-success{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
+	color: #0f5132;
+	border: #badbcc;
+	text-align: center;
+    font-weight: bold;
+	padding: 16px;
+	background-color: #d1e7dd;
+	border-radius: .25rem;
+}
+
 
 
 
