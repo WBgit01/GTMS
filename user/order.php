@@ -185,7 +185,7 @@ if ($_POST) {
         case 'shs_blouse_women':
             $order->amount = "350.00";
             $order->status = "Pending";
-            $order->garment_type = "SHS Blouse"
+            $order->garment_type = "SHS Blouse";
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
                         
@@ -204,7 +204,7 @@ if ($_POST) {
         case 'shs_skirt_women':
             $order->amount = "350.00";
             $order->status = "Pending";
-            $order->garment_type = "SHS Skirt"
+            $order->garment_type = "SHS Skirt";
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
                         
@@ -365,7 +365,7 @@ if ($_POST) {
             if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Male') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
-                echo "<div class='title_box'>Uniform Men <strong>(Polo ONLY)</div>";
+                echo "<div class='title_box'>SHS Uniform Men <strong>(Polo ONLY)</div>";
                 echo "<div class='price_table'>";
                 echo "<b>₱310.00</b>";
                 echo "</div>";
@@ -384,7 +384,7 @@ if ($_POST) {
             if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Male') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
-                echo "<div class='title_box'>Uniform Men <strong>(Pants ONLY)</div>";
+                echo "<div class='title_box'>SHS Uniform Men <strong>(Pants ONLY)</div>";
                 echo "<div class='price_table'>";
                 echo "<b>₱320.00</b>";
                 echo "</div>";
@@ -405,7 +405,7 @@ if ($_POST) {
             if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Female') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
-                echo "<div class='title_box'>Uniform Women <strong>(Blouse)</div>";
+                echo "<div class='title_box'>SHS Uniform Women <strong>(Blouse)</div>";
                 echo "<div class='price_table'>";
                 echo "<b>₱320.00</b>";
                 echo "</div>";
@@ -424,7 +424,7 @@ if ($_POST) {
             if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Female') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
-                echo "<div class='title_box'>Uniform Women <strong>(Skirt)</div>";
+                echo "<div class='title_box'>SHS Uniform Women <strong>(Skirt)</div>";
                 echo "<div class='price_table'>";
                 echo "<b>₱320.00</b>";
                 echo "</div>";

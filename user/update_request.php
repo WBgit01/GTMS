@@ -78,8 +78,8 @@ if ($_POST) {
             </div>
 
             <?php
-                if ($order->gender == "male") {
-                    if ($order->garment_type == "Polo" || $order->garment_type == "Pants") {
+                if ($order->gender == "Male") {
+                    if ($order->garment_type == "Polo" || $order->garment_type == "Pants" || $order->garment_type == "SHS Polo") {
                         echo "<div class='input_container'>";
                         echo "<label>$order->garment_type</label>";
                         $garment_size->gender = $order->gender;
@@ -129,7 +129,7 @@ if ($_POST) {
                         
 
                     }
-                }elseif ($order->gender == "female") {
+                }elseif ($order->gender == "Female") {
                     if ($order->garment_type == "Blouse" || $order->garment_type == "Skirt" || $order->garment_type =="PE Polo Shirt") {
                         echo "<div class='input_container'>";
                         echo "<label>$order->garment_type</label>";
