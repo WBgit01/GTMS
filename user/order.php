@@ -144,9 +144,67 @@ if ($_POST) {
             }
         break;
 
-        case 'shs_uniform':
+        case 'shs_polo_men':
             $order->amount = "350.00";
             $order->status = "Pending";
+            $order->garment_type = "SHS Polo";
+            $order->gender = $_SESSION['gender'];
+            $order->student_id = $_SESSION['student_id'];
+                        
+            if ($order->countOrder()) {
+                echo "<div class='message-box-failed'>";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
+                echo "</div>";
+            }else{
+                $order->createOrder();
+                echo "<div class='message-box-success'>";
+                    echo "Uniform Request Submit, please check your Order and the status";
+                echo "</div>";
+            }
+        break;
+
+        case 'shs_pants_men':
+            $order->amount = "350.00";
+            $order->status = "Pending";
+            $order->garment_type = "SHS Pants";
+            $order->gender = $_SESSION['gender'];
+            $order->student_id = $_SESSION['student_id'];
+                        
+            if ($order->countOrder()) {
+                echo "<div class='message-box-failed'>";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
+                echo "</div>";
+            }else{
+                $order->createOrder();
+                echo "<div class='message-box-success'>";
+                    echo "Uniform Request Submit, please check your Order and the status";
+                echo "</div>";
+            }
+        break;
+
+        case 'shs_blouse_women':
+            $order->amount = "350.00";
+            $order->status = "Pending";
+            $order->garment_type = "SHS Blouse"
+            $order->gender = $_SESSION['gender'];
+            $order->student_id = $_SESSION['student_id'];
+                        
+            if ($order->countOrder()) {
+                echo "<div class='message-box-failed'>";
+                    echo "FAILED! You have pending Uniform Request please wait for the approval before making any Request. Limited (3) Request";
+                echo "</div>";
+            }else{
+                $order->createOrder();
+                echo "<div class='message-box-success'>";
+                    echo "Uniform Request Submit, please check your Order and the status";
+                echo "</div>";
+            }
+        break;
+
+        case 'shs_skirt_women':
+            $order->amount = "350.00";
+            $order->status = "Pending";
+            $order->garment_type = "SHS Skirt"
             $order->gender = $_SESSION['gender'];
             $order->student_id = $_SESSION['student_id'];
                         
@@ -184,7 +242,7 @@ if ($_POST) {
         <div class="grid">
             <?php
             $acad_year = explode(', ', '1, 2, 3, 4');
-            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='male') {
+            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='Male') {
                 echo "<form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Men <strong>(Polo ONLY)</strong></div>";
@@ -203,7 +261,7 @@ if ($_POST) {
                 echo "</form>";
             }
             $acad_year = explode(', ', '1, 2, 3, 4');
-            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='male') {
+            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='Male') {
                 echo "<form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Men <strong>(Pants ONLY)</strong></div>";
@@ -222,10 +280,8 @@ if ($_POST) {
                 echo "</form>";
             }
 
-
-
             //-----------PANEL 2 COLLEGE WOMEN-----------
-            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='female') {
+            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='Female') {
                 echo "<form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Women <strong>(Blouse)</strong></div>";
@@ -243,7 +299,8 @@ if ($_POST) {
                 echo"</div>";
                 echo "</form>";
             }
-            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='female') {
+
+            if (in_array($_SESSION['academic_year'], $acad_year) && $_SESSION['gender']=='Female') {
                 echo "<form action='".htmlspecialchars($_SERVER['PHP_SELF'])."' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Women <strong>(Skirt)</strong></div>";
@@ -262,10 +319,9 @@ if ($_POST) {
                 echo "</form>";
             }
         
-
             //-----------PANEL 3 SHS-COLLEGE P/E-----------
             $Acad_Year = explode(', ', '1, 2, 3, 4, 5');
-            if (in_array($_SESSION['academic_year'], $Acad_Year) && $_SESSION['gender']=='male' || $_SESSION['gender']=='female') {
+            if (in_array($_SESSION['academic_year'], $Acad_Year) && $_SESSION['gender']=='Male' || $_SESSION['gender']=='Female') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>PE Attire <strong>(Polo ONLY)</div>";
@@ -284,7 +340,7 @@ if ($_POST) {
                 echo "</form>";
             }
 
-            if (in_array($_SESSION['academic_year'], $Acad_Year) && $_SESSION['gender']=='male' || $_SESSION['gender']=='female') {
+            if (in_array($_SESSION['academic_year'], $Acad_Year) && $_SESSION['gender']=='Male' || $_SESSION['gender']=='Female') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>PE Attire <strong>(Pants ONLY)</div>";
@@ -306,7 +362,7 @@ if ($_POST) {
 
             //-----------PANEL 4 SHS MEN-----------
             $acad_Year = explode(', ', '5');
-            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='male') {
+            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Male') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Men <strong>(Polo ONLY)</div>";
@@ -317,7 +373,7 @@ if ($_POST) {
                 echo "<div>Color: Gray</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
-                echo "<input type='hidden' name='uniform' value='shs_uniform'>";
+                echo "<input type='hidden' name='uniform' value='shs_polo_men'>";
                 echo "<div class='btn2'>";
                 echo "<button type='submit'>Get This Now</button>";
                 echo "</div>";
@@ -325,7 +381,7 @@ if ($_POST) {
                 echo "</form>";
             }
 
-            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='male') {
+            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Male') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Men <strong>(Pants ONLY)</div>";
@@ -336,7 +392,7 @@ if ($_POST) {
                 echo "<div>Color: Gray</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
-                echo "<input type='hidden' name='uniform' value='shs_uniform'>";
+                echo "<input type='hidden' name='uniform' value='shs_pants_men'>";
                 echo "<div class='btn2'>";
                 echo "<button type='submit'>Get This Now</button>";
                 echo "</div>";
@@ -346,7 +402,7 @@ if ($_POST) {
 
 
             //-----------PANEL 5 SHS WOMEN-----------
-            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='female') {
+            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Female') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Women <strong>(Blouse)</div>";
@@ -357,7 +413,7 @@ if ($_POST) {
                 echo "<div>Color: White</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
-                echo "<input type='hidden' name='uniform' value='shs_uniform'>";
+                echo "<input type='hidden' name='uniform' value='shs_blouse_women'>";
                 echo "<div class='btn2'>";
                 echo "<button type='submit'>Get This Now</button>";
                 echo "</div>";
@@ -365,7 +421,7 @@ if ($_POST) {
                 echo "</form>";
             }
 
-            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='female') {
+            if (in_array($_SESSION['academic_year'], $acad_Year) && $_SESSION['gender']=='Female') {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<div class='title_box'>Uniform Women <strong>(Skirt)</div>";
@@ -376,7 +432,7 @@ if ($_POST) {
                 echo "<div>Color: Gray</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
-                echo "<input type='hidden' name='uniform' value='shs_uniform'>";
+                echo "<input type='hidden' name='uniform' value='shs_skirt_women'>";
                 echo "<div class='btn2'>";
                 echo "<button type='submit'>Get This Now</button>";
                 echo "</div>";
