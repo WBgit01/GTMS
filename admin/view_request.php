@@ -24,6 +24,7 @@ $garment_size->id = $garment_id;
 $garment_size->readGarmentmeasure();
 
 
+
 $student_id = $order->student_id;
 
 //to get the name of the user base on student id 
@@ -91,23 +92,7 @@ include_once 'layout_head.php'; ?>
             <input type="text" value="<?php echo $order->garment_type; ?>" disabled>
         </div>
 
-        <div class="input_container">
-            <label>Garment Measure</label>
-            <?php
-                $garment_size->id = $order->garment_id;
-                $garment_size->readGarmentmeasure();
-                if ($order->garment_id == "Not set") {
-                    echo "<input type='text' value='Size is not yet' disabled>";
-                }
-                
-            ?>
-                <label>Size</label>
-            <?php
-                $garment_size->id = $order->garment_id;
-                $garment_size->readGarmentmeasure();
-                echo "<input type='text' value='{$garment_size->size}' disabled>";
-            ?>
-        </div>
+
         </div>
     </div>
 </div>

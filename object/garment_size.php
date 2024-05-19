@@ -35,16 +35,22 @@ class Garmentsize{
 
     function readGarmentmeasure(){
         $query = "SELECT garment_measure, size FROM " . $this->table_name . " WHERE id = ? LIMIT 0,1";
-
+    
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
         $stmt->execute();
         
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->garment_measure = $row['garment_measure'];
-        $this->size = $row['size'];
+    
+        if ($row) { // Check if $row is not empty
+            $this->garment_measure = $row['garment_measure'];
+            $this->size = $row['size'];
+            return true; // Return true to indicate success
+        } else {
+            return false; // Return false if no rows were returned
+        }
     }
+    
 }
 
 
