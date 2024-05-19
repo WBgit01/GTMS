@@ -205,6 +205,43 @@ class Order{
 
         return $stmt;
     }
+
+    //READ APPROVED ORDERS/REQUEST
+    public function readApprovedRequests() {
+        $query = "SELECT * FROM orders WHERE status = 'approved'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+
+    //READ DECLINED ORDERS/REQUEST
+    public function readDeclinedRequests() {
+        $query = "SELECT * FROM orders WHERE status = 'declined'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    //COUNTS PENDING ORDERS/REQUEST
+    public function countPendingOrders() {
+        $query = "SELECT COUNT(*) as count FROM orders WHERE status = 'pending'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['count'];
+    }
+
+
+    //COUNTS DECLINED ORDERS/REQUEST
+    public function countDeclinedOrders() {
+        $query = "SELECT COUNT(*) as count FROM orders WHERE status = 'declined'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['count'];
+    }
+    
     function countOrderRequest(){
 
 		$query = "SELECT COUNT(*) as order_count
@@ -220,6 +257,7 @@ class Order{
 		$order_count = $row['order_count'];
 		return $order_count;
 	}
+
     function updateRequest(){
     
         // Prepare the SQL query

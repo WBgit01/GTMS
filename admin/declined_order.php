@@ -13,7 +13,7 @@ $order = new Order($db);
 $user = new User($db);
 $transaction = new Transaction($db);
 
-$page_title = "Orders Requests";
+$page_title = "Declined Requests";
 $require_login = true;
 include_once '../login_checker.php';
 
@@ -22,8 +22,9 @@ include_once 'layout_head.php';
 
 
 // Fetch orders
-$stmt = $order->readRequest();
+$stmt = $order->readDeclinedRequests();
 $num = $stmt->rowCount();
+
 
 $user_count = $user->countUser();
 ?>
@@ -59,9 +60,13 @@ $user_count = $user->countUser();
                             echo "<td>{$status}</td>";
                             echo "<td>{$created}</td>";
                             echo "<td>";
-                                echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                                echo "<a href='../admin/update_request.php?oid={$id}' class='action_btn2'>Update</a>";
-                                echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Delete</a>";
+                                if ($status == "Declined") {
+                                    echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                                } else {
+                                    echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                                    echo "<a update-id='{$id}' class='action_btn2 update-object'>Approved</a>";
+                                    echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Declined</a>";
+                                }
                             
                         echo "</tr>";
                     }
