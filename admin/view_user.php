@@ -22,10 +22,7 @@ $user->readOne();
 $page_title = "User Details";
 include_once 'sidebar.php';
 include_once "layout_head.php";
-
 ?>
-
-
 
 <div class="panel_container" id="profile-container">
     <div class="panel_wrapper">
@@ -109,7 +106,7 @@ include_once "layout_head.php";
                     echo "</select>";
                     ?>
                 </div>
-            </div>
+                </div>
             <div class="account_edit">
             </div>
         </form>

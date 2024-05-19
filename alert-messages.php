@@ -27,5 +27,4 @@ if($access_denied){
     </div>";
 }
 
-
 ?>

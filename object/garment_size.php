@@ -1,6 +1,5 @@
 <?php
 
-
 class Garmentsize{
 
 
@@ -52,6 +51,5 @@ class Garmentsize{
     }
     
 }
-
 
 ?>

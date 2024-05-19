@@ -37,7 +37,6 @@ body{
 .logo{
     height: 80px;
     padding: 16px;
-
 }
 
 .menu{
@@ -45,7 +44,6 @@ body{
     position: relative;
     list-style: none;
     padding: 0;
-
 }
 
 .menu li{
@@ -146,14 +144,6 @@ body{
     border-radius: 10px;
     margin: auto;
 }
-
-/* #profile-container{
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 75%;
-    margin: auto;
-} */
 
 .panel_wrapper{
     display: flex;
@@ -519,7 +509,7 @@ th{
 }
 
 tbody{
-    /* background: #c1e8ff; */
+    background: #dfdfdf;
 }
 
 td{

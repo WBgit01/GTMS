@@ -1,7 +1,5 @@
 <?php
-
 $id = isset($_GET['uid']) ? $_GET['uid'] : die('Error: ID not Found');
-
 include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/user.php';
@@ -47,8 +45,6 @@ if ($_POST) {
 }
 
 ?>
-
-
 
 <div class="panel_container" id="profile-container">
     <div class="panel_wrapper">

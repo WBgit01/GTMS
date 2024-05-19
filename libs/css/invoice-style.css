@@ -36,7 +36,6 @@ body{
 .logo{
     height: 80px;
     padding: 16px;
-
 }
 
 .menu{
@@ -44,7 +43,6 @@ body{
     position: relative;
     list-style: none;
     padding: 0;
-
 }
 
 .menu li{
@@ -137,7 +135,7 @@ ul li{
     margin: 2px 0;
 }
 
-/* text colors */
+/* TEXT COLORS */
 .text-dark{
     color: var(--dark-color);
 }
@@ -167,13 +165,12 @@ ul li{
     text-align: right;
 }
 
-/* hr line */
+/* HR LINE */
 .hr{
     height: 1px;
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* border-bottom */
 .border-bottom{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -288,6 +285,7 @@ ul li{
     text-align: center;
     font-weight: bold;
 }
+
 .status-message-approved{
     color: #0f5132;
     background-color: #d1e7dd;
@@ -298,6 +296,7 @@ ul li{
     text-align: center;
     font-weight: bold;
 }
+
 .status-message-declined{
     color: #842029;
     background-color: #f8d7da;
@@ -308,6 +307,7 @@ ul li{
     text-align: center;
     font-weight: bold;
 }
+
 .status-message-updated{
     color: #004085;
     background-color: #cce5ff;
@@ -396,11 +396,11 @@ ul li{
     }
 }
 
-.overflow-view{
-    overflow-x: scroll;
-}
-.invoice-body{
-    min-width: 600px;
+    .overflow-view{
+        overflow-x: scroll;
+    }
+    .invoice-body{
+        min-width: 600px;
 }
 
 
@@ -422,7 +422,6 @@ ul li{
     .header_wrapper {
         padding: 8px;
     }
-
 }
 
 

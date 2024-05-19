@@ -45,7 +45,7 @@ include_once 'layout_head.php';
     </div>
 
     <div class="panel_container">
-        <h3 class="main_title">Uniform Requests</h3>
+        <h3 class="main_title">Orders Request</h3>
         <div class="panel_wrapper">
             <?php
             if ($num > 0 ) {
@@ -122,7 +122,7 @@ include_once 'layout_head.php';
                 echo "</tbody>";
                 echo "<tfoot>";
                 echo "<tr>";
-                //echo "<td colspan='7' class='table_foot'>EXAMPLE TABLE FOOTER</td>";
+                echo "<td colspan='7' class='table_foot'>UNIFORM REQUEST DATA</td>";
                 echo "</tr>";
                 echo "</tfoot>";
                 echo "</table>";

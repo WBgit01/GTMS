@@ -10,10 +10,8 @@ include_once 'layout_head.php'; ?>
             <img src="../IMG/GTMS_logo1.png" class="logo-searchbar">
             <p1><span class="instruction-text">Instructions:</span> To find your transaction details,
              type your Order ID number into the search bar. This will show you the transactions already
-              saved in the system. If you can't see your transaction, you can reach out to <a href="mailto:example-admin@gmail.com">
+              saved in the system. If you can't see your transaction, you can reach out to <a href="mailto:gtms.portal@gmail.com">
                 example-admin@gmail.com</a> for help. we'll assist you in finding what you need.</p1>
-
-                
         </div>
         <div class="searchform-content">
             <input type="text" name='email' placeholder="Order ID" required><br>

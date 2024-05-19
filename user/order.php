@@ -243,9 +243,9 @@ if ($_POST) {
         <div class="table_detail">
             <h2>School Attire</h2>
         </div>
+
     <div class="grid">    
         <?php
-
             /* -------------------------------------
                 PANEL 1 - UNIFORM MALE - COLLEGE
             ------------------------------------- */
@@ -290,7 +290,7 @@ if ($_POST) {
                 echo "</form>";
             }
 
-            
+        
             /* -------------------------------------
                 PANEL 2 - UNIFORM FEMALE - COLLEGE
             ------------------------------------- */
@@ -334,7 +334,6 @@ if ($_POST) {
                 echo "</form>";
             }
         
-            
             /* -------------------------------------
                 PANEL 3 - UNIFORM MALE - SHS
             ------------------------------------- */
@@ -378,7 +377,6 @@ if ($_POST) {
                 echo "</div>";
                 echo "</form>";
             }
-
 
             /* -------------------------------------
                 PANEL 4 - UNIFORM FEMALE - SHS

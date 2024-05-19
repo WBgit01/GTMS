@@ -23,9 +23,7 @@ $num = $stmt->rowCount();
 $user_count = $user->countUser();
 ?>
 
-
 <!-- contents will be here -->
-
 <div class="table_wrapper">
     <h3 class="main_title">User Data</h3>
     <?php
@@ -75,7 +73,6 @@ $user_count = $user->countUser();
         }
     ?>
     </div>
-
 
 <?php include_once 'layout_foot.php'; ?>
 

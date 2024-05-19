@@ -1,6 +1,7 @@
-    <!-- all js script will be placed here -->
-    <script src="../libs/javascript/user-script.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- all js script will be placed here -->
+<script src="../libs/javascript/user-script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
 // JavaScript for deleting product
 $(document).on('click', '.delete-object', function(){
@@ -16,9 +17,10 @@ $(document).on('click', '.delete-object', function(){
             alert('Unable to delete.');
         });
     }
-  
+
     return false;
 });
+
 </script>
 </body>
 </html>

@@ -55,8 +55,6 @@ if ($_POST) {
 }
 ?>
 
-
-
 <div class="panel_container" id="profile-container">
     <div class="panel_wrapper">
         <form class="account" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
@@ -104,7 +102,6 @@ if ($_POST) {
                             }
                         }
                     ?>
-
 
                 </div>
 

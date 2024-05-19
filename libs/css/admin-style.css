@@ -45,7 +45,6 @@ body{
     position: relative;
     list-style: none;
     padding: 0;
-
 }
 
 .menu li{
@@ -359,8 +358,8 @@ tfoot td{
 .action_btn2{
     border: 2px solid green;
     color: green;
-
 }
+
 .action_btn3{
     border: 2px solid red;
     color: red;
@@ -370,8 +369,8 @@ tfoot td{
     background-color: blue;
     color: white;
     border: 2px solid transparent;
-
 }
+
 .action_btn2:hover{
     background-color: green;
     color: white;
@@ -382,19 +381,6 @@ tfoot td{
     background-color: red;
     color: white;
     border: 2px solid transparent;
-}
-
-/* -------------------------------------
-    ALERT MESSAGE STYLES
-------------------------------------- */
-.message-box-failed{
-    margin-bottom: 10px;
-	color: #842029;
-	border: #f5c2c7;
-	text-align: center;
-	padding: 20px;
-	background-color: #f8d7da;
-	border-radius: .25rem;
 }
 
 
@@ -445,6 +431,7 @@ tfoot td{
     text-align: center;
     font-weight: bold;
 }
+
 .status-message-approved{
     color: #0f5132;
     background-color: #d1e7dd;
@@ -455,6 +442,7 @@ tfoot td{
     text-align: center;
     font-weight: bold;
 }
+
 .status-message-declined{
     color: #842029;
     background-color: #f8d7da;
@@ -465,6 +453,7 @@ tfoot td{
     text-align: center;
     font-weight: bold;
 }
+
 .status-message-updated{
     color: #004085;
     background-color: #cce5ff;
@@ -635,8 +624,6 @@ tfoot td{
 	background-color: #d1e7dd;
 	border-radius: .25rem;
 }
-
-
 
 
 /* -------------------------------------

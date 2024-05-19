@@ -170,6 +170,6 @@ include_once 'layout_head.php'; ?>
             </div>
         </div>
 
-        <?php include_once 'layout_foot.php'; ?>
+<?php include_once 'layout_foot.php'; ?>
 
 

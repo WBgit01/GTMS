@@ -110,7 +110,6 @@ if ($_POST) {
                                 while ($row_polo_size = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     extract($row_polo_size);
                                     echo "<option value='{$id}'>{$size} - {$garment_measure}</option>";
-
                                 }
                         echo "</select>";
 
@@ -126,7 +125,6 @@ if ($_POST) {
 
                                 }
                         echo "</select>";
-                        
 
                     }
                 }elseif ($order->gender == "Female") {
@@ -167,14 +165,12 @@ if ($_POST) {
                     
                 }
             ?>
-
         </div>
         <div class="btn_container">
 
-                <button class="btn_save">Save</button>
+            <button class="btn_save">Save</button>
         </div>
     </div>
 </form>
-
 
 <?php include_once 'layout_foot.php'; ?>

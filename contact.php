@@ -1,13 +1,4 @@
 <?php 
-
-$page_title = "Contact US";
-// include_once 'layout_head.php';
-// ?>
-
-
-
-
-<?php 
 include_once "config/database.php";
 include_once "config/core.php";
 include_once "object/inquiry.php";

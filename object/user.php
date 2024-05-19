@@ -157,7 +157,6 @@ class User {
 		}else{
 			return false;
 		}
-
 	}
 
 	function contactExisted(){
@@ -184,7 +183,6 @@ class User {
 		}else{
 			return false;
 		}
-
 	}
 
 	function updateProfile(){
@@ -329,7 +327,6 @@ class User {
 		$this->academic_year = $row['academic_year'];
 		$this->image_profile=$row['image_profile'];
 
-
 	}
 
 	// will upload image file to server
@@ -443,6 +440,6 @@ class User {
         }
     }
 	
-
 }
+
 ?>
