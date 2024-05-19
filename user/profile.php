@@ -78,22 +78,17 @@ if ($_POST) {
             <div class="account_edit">
                 <div class="input_container">
                     <?php
-
-                        if ($user->gender == "") {
+                        if ($user->gender== "") {
                             echo "<label disabled name='gender'>Gender</label>";
                             echo "<select name='gender' required>";
                                 echo "<option value='' disabled selected></option>";
                                 echo "<option>Male</option>";
                                 echo "<option>Female</option>";
-                                echo "<option>Others</option>";
                             echo "</select>";
                         }else{
-                            echo "<label disabled name='gender'>Gender</label>";
-                            echo "<input type='text' name='gender' value='{$user->gender}' disabled>";
+                            echo "<label disabled>Gender</label>";
+                            echo "<input type='text' name='' value='{$user->gender}' disabled>";
                         }
-
-
-                    
                     ?>
 
 
@@ -162,8 +157,14 @@ if ($_POST) {
             </div>
             <div class="account_edit">
             <div class="input_container">
-                    <label>Profile Image</label>
-                    <input type="file" name="image" value="<?php echo $user->image_profile;?>">
+                    <?php
+                        if ($user->image_profile == "") {
+                            echo "<label>Profile Image</label>";
+                            echo "<input type='file' name='image'>";
+                        }else{
+
+                        }
+                    ?>
                 </div>
             </div>
         </form>
