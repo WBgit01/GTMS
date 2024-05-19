@@ -195,6 +195,17 @@ class Order {
 
         return $stmt;
     }
+    
+    public function searchByReferenceNo($reference_no) {
+        $reference_no = $reference_no ?? ''; // Ensure $reference_no is not null
+        $query = "SELECT * FROM " . $this->table_name . " WHERE reference_no = :reference_no";
+        $stmt = $this->conn->prepare($query);
+        $reference_no = htmlspecialchars(strip_tags($reference_no)); // Strip tags from the input
+        $stmt->bindParam(":reference_no", $reference_no);
+        $stmt->execute();
+        return $stmt;
+    }
+    
 
     public function readApprovedRequests() {
         $query = "SELECT * FROM orders WHERE status = 'approved'";

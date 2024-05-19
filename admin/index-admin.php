@@ -19,6 +19,7 @@ include_once '../login_checker.php';
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
 
+$reference_no = isset($_POST['search_query']) ? $_POST['search_query'] : '';
 $stmt = $order->readApprovedRequests();
 $num = $stmt->rowCount();
 
@@ -26,6 +27,9 @@ $stmt = $order->readDeclinedRequests();
 $num = $stmt->rowCount();
 
 $stmt = $order->readUpdatedOrder();
+$num = $stmt->rowCount();
+
+$stmt = $order->searchByReferenceNo($reference_no);
 $num = $stmt->rowCount();
 
 $user_count = $user->countUser();
@@ -80,59 +84,64 @@ $declinedCount = $order->countDeclinedOrders();
         </div>
 
         <h3 class="main_title">Search Order</h3>
-        <div class="search_bar">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Enter Reference no.">
-        </div>
+            <a href="#" div class="search-bar">
+                <form method="POST" action="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="search_query" placeholder="Enter Reference no...">
+                </form>
+            </a>
     </div>
+
+<div class="panel2_wrapper">
+    <?php
+    if ($num > 0) {
+        echo "<div class='table_container'>";
+        echo "<table>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th>Student ID</th>";
+        echo "<th>Reference No</th>";
+        echo "<th>Status</th>";
+        echo "<th>Order Created</th>";
+        echo "<th>Action</th>";
+        echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+
+            echo "<tr>";
+            echo "<td>{$student_id}</td>";
+            echo "<td>{$reference_no}</td>";
+            echo "<td>{$status}</td>";
+            echo "<td>{$created}</td>";
+            echo "<td>";
+            if ($status == "Approved") {
+                echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                echo "<a decline-id='{$id}' class='action_btn3 decline-object'>Decline</a>";
+            } else {
+                echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
+                echo "<a update-id='{$id}' class='action_btn2 update-object'>Approved</a>";
+                echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Declined</a>";
+            }
+            echo "</td>";
+            echo "</tr>";
+        }
+
+        echo "</tbody>";
+        echo "<tfoot>";
+        echo "<tr>";
+        echo "<td colspan='5' class='table_foot'>SEARCH RESULTS</td>";
+        echo "</tr>";
+        echo "</tfoot>";
+        echo "</table>";
+        echo "</div>";
+    } else {
+
+        echo "<div class='result_txt'>No transactions found.</div>";
+    }
+    ?>
 </div>
 
-    <?php
-        // SEARCHED ORDER SUPPOSED TO BE APPEAR HERE THIS IS TEMPORARY
-        include_once 'pending_request.php';
-    ?>
-
-    <!-- // if ($num > 0) {
-    //     echo "<div class='table_container'>";
-    //     echo "<table>";
-    //     echo "<thead>";
-    //     echo "<tr>";
-    //     echo "<th>Student ID</th>";
-    //     echo "<th>Reference No</th>";
-    //     echo "<th>Status</th>";
-    //     echo "<th>Order Created</th>";
-    //     echo "<th>Action</th>";
-    //     echo "</tr>";
-    //     echo "</thead>";
-
-    //     echo "<tbody>";
-
-    //     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    //         extract($row);
-
-    //         echo "<tr>";
-    //         echo "<td>{$student_id}</td>";
-    //         echo "<td>{$reference_no}</td>";
-    //         echo "<td>{$status}</td>";
-    //         echo "<td>{$created}</td>";
-    //         echo "<td>";
-    //         if ($status == "Approved") {
-    //             echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-    //             echo "<a decline-id='{$id}' class='action_btn3 decline-object'>Decline</a>";
-    //         } else {
-    //             echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-    //             echo "<a update-id='{$id}' class='action_btn2 update-object'>Approved</a>";
-    //             echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Declined</a>";
-    //         }
-    //         echo "</td>";
-    //         echo "</tr>";
-    //     }
-    //     echo "</tbody>";
-    //     echo "<tfoot>";
-    //     echo "<tr>";
-    //     echo "<td colspan='8' class='table_foot'>USERS ORDER LIST</td>";
-    //     echo "</tr>";
-    //     echo "</tfoot>";
-    //     echo "</table>";
-    // } -->
-
+<?php include_once 'layout_foot.php';?>
