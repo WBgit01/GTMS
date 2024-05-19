@@ -34,6 +34,7 @@ if ($_POST) {
             $order->status = "Pending";
             $order->garment_type = "Polo";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
             
             if ($order->countOrder()) {
@@ -53,6 +54,7 @@ if ($_POST) {
                 $order->status = "Pending";
                 $order->garment_type = "Pants";
                 $order->gender = $_SESSION['gender'];
+                $order->garment_id = "Not set";
                 $order->student_id = $_SESSION['student_id'];
                 
                 if ($order->countOrder()) {
@@ -72,6 +74,7 @@ if ($_POST) {
             $order->status = "Pending";
             $order->garment_type = "Blouse";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
                 
             if ($order->countOrder()) {
@@ -91,6 +94,7 @@ if ($_POST) {
             $order->status = "Pending";
             $order->garment_type = "Skirt";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
                 
             if ($order->countOrder()) {
@@ -110,6 +114,7 @@ if ($_POST) {
             $order->amount = "350.00";
             $order->status = "Pending";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
             $order->garment_type = "PE Polo Shirt";
                         
@@ -129,6 +134,7 @@ if ($_POST) {
             $order->amount = "350.00";
             $order->status = "Pending";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
             $order->garment_type = "PE Pants";
                         
@@ -149,6 +155,7 @@ if ($_POST) {
             $order->status = "Pending";
             $order->garment_type = "SHS Polo";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
                         
             if ($order->countOrder()) {
@@ -168,6 +175,7 @@ if ($_POST) {
             $order->status = "Pending";
             $order->garment_type = "SHS Pants";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
                         
             if ($order->countOrder()) {
@@ -187,6 +195,7 @@ if ($_POST) {
             $order->status = "Pending";
             $order->garment_type = "SHS Blouse";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
                         
             if ($order->countOrder()) {
@@ -206,6 +215,7 @@ if ($_POST) {
             $order->status = "Pending";
             $order->garment_type = "SHS Skirt";
             $order->gender = $_SESSION['gender'];
+            $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
                         
             if ($order->countOrder()) {

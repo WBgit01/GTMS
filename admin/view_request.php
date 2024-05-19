@@ -96,7 +96,10 @@ include_once 'layout_head.php'; ?>
             <?php
                 $garment_size->id = $order->garment_id;
                 $garment_size->readGarmentmeasure();
-                echo "<input type='text' value='{$garment_size->garment_measure}' disabled>";
+                if ($order->garment_id == "Not set") {
+                    echo "<input type='text' value='Size is not yet' disabled>";
+                }
+                
             ?>
                 <label>Size</label>
             <?php

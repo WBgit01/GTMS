@@ -40,7 +40,7 @@ class Order{
                     student_id = :student_id,
                     amount = :amount,
                     garment_type = :garment_type,
-
+                    garment_id = :garment_id,
                     gender = :gender,
                     status = :status,
                     created = :created";
@@ -51,6 +51,7 @@ class Order{
         $stmt->bindParam(':student_id', $this->student_id);
         $stmt->bindParam(':amount', $this->amount);
         $stmt->bindParam(':garment_type', $this->garment_type);
+        $stmt->bindParam(':garment_id', $this->garment_id);
         $stmt->bindParam(':gender', $this->gender);
         $stmt->bindParam(':status', $this->status);
         $stmt->bindParam(':created', $this->created);
