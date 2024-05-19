@@ -44,7 +44,6 @@ class User {
 					email_address = :email_address,
 					password = :password, 
 					contact_no = :contact_no, 
-					address = :address,
 					created = :created"; 
 
 		$stmt = $this->conn->prepare($query);
