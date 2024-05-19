@@ -50,7 +50,7 @@ if ($_POST) {
             break;
 
             case 'uniform_men_pants':
-                $order->amount = "330.00";
+                $order->amount = "350.00";
                 $order->status = "Pending";
                 $order->garment_type = "Pants";
                 $order->gender = $_SESSION['gender'];
@@ -131,7 +131,7 @@ if ($_POST) {
         break;
 
         case 'pe_attire_pants':
-            $order->amount = "345.00";
+            $order->amount = "350.00";
             $order->status = "Pending";
             $order->garment_type = "PE Pants";
             $order->gender = $_SESSION['gender'];
@@ -279,7 +279,7 @@ if ($_POST) {
                 echo "<b>₱350.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
-                echo "<div>Color: Grey</div>";
+                echo "<div>Color: Navy Blue</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
                 echo "<div class='btn2'>";
@@ -323,7 +323,7 @@ if ($_POST) {
                 echo "<b>₱330.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
-                echo "<div>Color: Grey</div>";
+                echo "<div>Color: Navy Blue</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
                 echo "<div class='btn2'>";
@@ -367,7 +367,7 @@ if ($_POST) {
                 echo "<b>₱345.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
-                echo "<div>Color: Grey</div>";
+                echo "<div>Color: Navy Blue</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
                 echo "<input type='hidden' name='uniform' value='shs_pants_men'>";
@@ -390,7 +390,7 @@ if ($_POST) {
                 echo "<b>₱335.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
-                echo "<div>Color: Grey</div>";
+                echo "<div>Color: Navy Blue</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
                 echo "<input type='hidden' name='uniform' value='shs_blouse_women'>";
@@ -410,7 +410,7 @@ if ($_POST) {
                 echo "<b>₱345.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
-                echo "<div>Color: Grey</div>";
+                echo "<div>Color: Black</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
                 echo "<input type='hidden' name='uniform' value='shs_skirt_women'>";
@@ -454,7 +454,7 @@ if ($_POST) {
                 echo "<b>₱350.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
-                echo "<div>Color: Grey</div>";
+                echo "<div>Color: Navy Blue</div>";
                 echo "<div>Quantity: 1</div>";
                 echo "</div>";
                 echo "<input type='hidden' name='uniform' value='pe_attire_pants'>";

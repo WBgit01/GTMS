@@ -9,10 +9,12 @@ include_once '../object/user.php';
 $database = new Database();
 $db = $database->getConnection();
 
-
 $order = new Order($db);
 $garment_size = new Garmentsize($db);
 $user = new User($db);
+
+$user_id = $_SESSION['user_id'];
+$user->getProfileimage($user_id);
 
 // order id property that will be edited
 $order->id = $id;
@@ -87,7 +89,7 @@ include_once 'layout_head.php'; ?>
                                     <li class = 'text-bold'>Invoiced To: </li>
                                     <li>Name: <?php echo "<strong>$user->firstname</strong>"; echo " "; echo "<strong>$user->lastname</strong>"; ?> </li>
                                     <li>Student ID: <?php echo "<strong>{$order->student_id}</strong>"; ?></li> <!-- student id  -->
-                                    <li>Address: <?php echo $user->address; ?></li> <!-- Address -->
+                                    <li>Address: <?php echo "<strong>{$user->address}</strong>"; ?></li> <!-- Address -->
                                 </ul>
                             </div>
                             <div class = "invoice-head-bottom-right">
