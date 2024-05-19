@@ -116,12 +116,12 @@ include_once 'layout_head.php'; ?>
                                 <tbody>
                                     <tr>
                                         <td><?php echo $order->garment_type; ?></td>
-                                        <td><?php echo $garment_size->size; ?></td>
-                                        <td><?php echo "$". $order->amount; ?></td>
+                                        <td><?php echo $garment_size->size . ' | ' . $garment_size->garment_measure; ?></td>
+                                        <td><?php echo "₱". $order->amount; ?></td>
                                         <td></td>
                                         <td></td>
                                     <div class = "info-item-td text-end"></div>
-                                        <td class = "text-end"><?php echo "$". $order->amount; ?></td>
+                                        <td class = "text-end"><?php echo "₱". $order->amount; ?></td>
                                     </tr>
                                     <tr>
                                 </tbody>
@@ -129,15 +129,15 @@ include_once 'layout_head.php'; ?>
                             <div class = "invoice-body-bottom">
                                 <div class = "invoice-body-info-item border-bottom">
                                     <div class = "info-item-td text-end text-bold">Sub Total:</div>
-                                    <div class = "info-item-td text-end"><?php echo "$". $order->amount; ?></div>
+                                    <div class = "info-item-td text-end"><?php echo "₱". $order->amount; ?></div>
                                 </div>
                                 <div class = "invoice-body-info-item border-bottom">
                                     <div class = "info-item-td text-end text-bold">Tax:</div>
                                     <div class = "info-item-td text-end">
                                         <?php 
                                             $amount = $order->amount;
-                                            $tax = $amount * 0.3;
-                                            echo  "$" . $tax . ".00";
+                                            $tax = $amount * 0.08;
+                                            echo  "₱" . $tax . ".00";
                                         ?>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@ include_once 'layout_head.php'; ?>
                                     <div class = "info-item-td text-end">
                                         <?php
                                             $total = $amount + $tax;
-                                            echo  "$" . $total . ".00";
+                                            echo  "₱" . $total . ".00";
 
                                         ?>
                                     </div>
