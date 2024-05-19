@@ -22,13 +22,14 @@
                         echo "<h2>{$page_title}</h2>";
                     }
                 ?>
-
             </div>
+
             <div class="user_info">
-                <div class="search_bar">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
-                </div>
+                <span class="title"><?php 
+                echo "<strong>{$_SESSION['firstname']}</strong>"; 
+                echo " ";
+                echo "<strong>{$_SESSION['lastname']}</strong>"; 
+                ?></span>
                 <a href="#"><img src="../IMG/Admin2.jpg" alt=""></a> <!-- admin-image -->
             </div>
         </div>

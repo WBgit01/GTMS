@@ -56,11 +56,11 @@ body{
 }
 
 .menu li:hover{
-    background: lightcoral;
+    background: #d67f7f;
 }
 
 .menu li.active{
-    background: lightcoral;
+    background: #d67f7f !important;
 }
 
 .menu a{
@@ -126,31 +126,6 @@ body{
     gap: 1rem;
 }
 
-.search_bar{
-    background: lightgray;
-    border-radius: 15px;
-    color: gray;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 12px;
-}
-
-.search_bar input{
-    background: transparent;
-    padding: 10px;
-}
-
-.search_bar i{
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
-
-.search_bar i:hover{
-    transform: scale(1.2);
-}
-
 
 /* -------------------------------------
     PANEL CONTAINER STYLES
@@ -169,8 +144,11 @@ body{
 
 .main_title{
     color: maroon;
+    padding-top: 10px;
     padding-bottom: 10px;
     font-size: 15px;
+    width: 100%;
+    text-align: left;
 }
 
 .panel_content{
@@ -202,13 +180,16 @@ body{
 }
 
 .title{
-    font-size: 12px;
+    font-size: 17px;
     font-weight: bold;
+    color: #3f3838;
 }
 
 .amount_value{
+    padding-top: 13px;
     font-size: 24px;
-    font-weight: 600;
+    font-weight: bolder;
+    color: #3f3c3c;
 }
 
 .icon{
@@ -222,40 +203,71 @@ body{
     background: red;
 }
 
+.search_bar {
+    background: lightgray;
+    border-radius: 15px;
+    color: gray;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 100%;
+    width: 100%;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+}
+
+.search_bar input {
+    background: transparent;
+    padding: 10px;
+    flex: 1;
+    border: none;
+    outline: none;
+}
+
+.search_bar i{
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.search_bar i:hover{
+    transform: scale(1.2);
+}
+
 
 /* -------------------------------------
     PANEL COLOR STYLES
 ------------------------------------- */
 .lightcolor-1{
-    background: lightcoral;
+    background: #f08f8f;
 }
 
 .lightcolor-2{
-    background: lightblue;
+    background: #67a2f5;
 }
 
 .lightcolor-3{
-    background: lightgreen;
+    background: #8cee8c;
 }
 
 .lightcolor-4{
-    background: lightsalmon;
+    background: #f1e3ba;
 }
 
 .darkcolor-1{
-    background: red;
+    background: #c51414;
 }
 
 .darkcolor-2{
-    background: blue;
+    background: #3a7bd5;
 }
 
 .darkcolor-3{
-    background: green;
+    background: #0b990b;
 }
 
 .darkcolor-4{
-    background: salmon;
+    background: #e9c352;
 }
 
 

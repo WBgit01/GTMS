@@ -92,9 +92,6 @@ include_once 'layout_head.php'; ?>
             <input type="text" value="<?php echo $order->garment_type; ?>" disabled>
         </div>
 
-<<<<<<< HEAD
-
-=======
         <div class="input_container">
             <label>Garment Measure</label>
             <?php
@@ -116,7 +113,6 @@ include_once 'layout_head.php'; ?>
                 echo "<input type='text' value='{$garment_size->size}' disabled>";
             ?>
         </div>
->>>>>>> 847dae55a981fe6d62b237e8f96b399d4fc40659
         </div>
     </div>
 </div>

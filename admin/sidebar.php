@@ -9,31 +9,29 @@
                 </a>
             </li>
             <li>
-                <a href="sales.php">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <span>Sales</span>
-                </a>
-            </li>
-            <li>
-                <a href="product_list.php">
-                    <i class="fa-regular fa-rectangle-list"></i>
-                    <span>Product List</span>
-                </a>
-            </li>
-            <li>
                 <a href="users.php">
                     <i class="fa-solid fa-users"></i>
                     <span>Users</span>
                 </a>
             </li>
-
             <li>
-                <a href="orders.php">
-                <i class="fa-solid fa-cart-plus"></i>
-                    <span>Order Requests</span>
+                <a href="approved_order.php">
+                <i class="fa-solid fa-shop"></i>
+                    <span>Approved Requests</span>
                 </a>
             </li>
-
+            <li>
+                <a href="pending_request.php">
+                <i class="fa-solid fa-cart-plus"></i>
+                    <span>Pending Requests</span>
+                </a>
+            </li>
+            <li>
+                <a href="declined_order.php">
+                <i class="fa-solid fa-shop-slash"></i>
+                    <span>Declined Requests</span>
+                </a>
+            </li>
             <li class="logout">
                 <a href="../logout.php">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
