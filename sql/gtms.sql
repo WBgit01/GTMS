@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2024 at 03:00 AM
+-- Generation Time: May 19, 2024 at 09:42 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -159,7 +159,7 @@ CREATE TABLE `orders` (
   `student_id` varchar(20) NOT NULL,
   `amount` varchar(50) NOT NULL,
   `garment_type` varchar(50) NOT NULL,
-  `garment_id` varchar(11) NOT NULL,
+  `garment_id` varchar(25) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `notes` varchar(555) NOT NULL,
   `status` varchar(20) NOT NULL,
@@ -176,7 +176,10 @@ INSERT INTO `orders` (`id`, `reference_no`, `student_id`, `amount`, `garment_typ
 (61, 'GTMS001900127', '26b756', '350.00', 'PE Polo Shirt', '17', 'female', '', 'Declined', '2024-05-19 02:45:16', '2024-05-18 18:45:16'),
 (62, 'GTMS007600261', '26b756', '350.00', 'PE Pants', '22', 'female', '', 'Declined', '2024-05-19 02:45:17', '2024-05-18 18:45:17'),
 (63, 'GTMS009700906', '26b756', '300.00', 'Blouse', '', 'female', '', 'Pending', '2024-05-19 02:45:18', '2024-05-18 18:45:18'),
-(64, 'GTMS007700321', '57b519', '350.00', 'SHS Polo', '26', 'Male', '', 'Updated', '2024-05-19 08:44:13', '2024-05-19 00:44:13');
+(64, 'GTMS007700321', '57b519', '350.00', 'SHS Polo', '26', 'Male', '', 'Updated', '2024-05-19 08:44:13', '2024-05-19 00:44:13'),
+(65, 'GTMS003900541', '57b519', '350.00', 'SHS Polo', 'Not set', 'Male', '', 'Pending', '2024-05-19 09:20:25', '2024-05-19 01:20:25'),
+(66, 'GTMS005900088', '57b519', '350.00', 'SHS Polo', 'Not set', 'Male', '', 'Pending', '2024-05-19 09:21:33', '2024-05-19 01:21:33'),
+(67, 'GTMS003400919', '57b519', '350.00', 'PE Pants', 'Not set', 'Both', '', 'Pending', '2024-05-19 10:14:34', '2024-05-19 02:14:34');
 
 -- --------------------------------------------------------
 
@@ -223,6 +226,7 @@ CREATE TABLE `users` (
   `academic_year` varchar(255) NOT NULL,
   `access_level` varchar(25) NOT NULL,
   `image_profile` varchar(255) NOT NULL,
+  `profile_status` varchar(50) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -231,12 +235,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `created`, `modified`) VALUES
-(1, '22b0959', 'willdell ', 'bravo', 'female', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '1', 'Student', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
-(2, '22b093', 'Alexisss', 'Dumale', '', 'admin_gtms@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '', '', '', '', 'Admin', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
-(39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '2024-04-29 10:39:41', '2024-04-29 19:25:18'),
-(40, '26b756', 'ALEXIS', 'DUMALE', 'female', 'kesha@gmail.com', '$2y$10$cVp4aDRs.iOn7UJ9aEfywe8WR/Geg66GAjlAymfoJWv/Ydcm8P9li', '999-999-9999', '30# alvarez street', '3', '1', 'Student', '', '2024-05-14 10:55:58', '2024-05-14 18:56:54'),
-(41, '57b519', 'ALEXIS', 'DUMALE', 'Male', 'alexisdumale@gmail.com', '$2y$10$.XR4d34d/WgUqKDoilblAOAdhXZHSuERxbzfPcfeTHpDhq8gK778e', '953-330-7696', 'ANAPOG-SIBUCAO', '3', '5', 'Student', '', '2024-05-19 00:19:57', '2024-05-19 08:22:57');
+INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `email_address`, `password`, `contact_no`, `address`, `course`, `academic_year`, `access_level`, `image_profile`, `profile_status`, `created`, `modified`) VALUES
+(1, '22b0959', 'willdell ', 'bravo', 'female', 'student_gmts@gmail.com', '$2y$10$RMDuRnTJba0Mz0.orByD3.TQNtL6caw3OehRz/fipMFvNtMK5nIfO', '09533307696', '', '', '1', 'Student', '', '', '2024-03-22 17:32:03', '2024-04-28 17:13:27'),
+(2, '22b093', 'Alexisss', 'Dumale', '', 'admin_gtms@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '', '', '', '', 'Admin', '', '', '2024-03-22 11:45:41', '2024-04-28 17:13:27'),
+(39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '', '2024-04-29 10:39:41', '2024-04-29 19:25:18'),
+(40, '26b756', 'ALEXIS', 'DUMALE', 'female', 'kesha@gmail.com', '$2y$10$cVp4aDRs.iOn7UJ9aEfywe8WR/Geg66GAjlAymfoJWv/Ydcm8P9li', '999-999-9999', '30# alvarez street', '3', '1', 'Student', '', '', '2024-05-14 10:55:58', '2024-05-14 18:56:54'),
+(41, '57b519', 'ALEXIS', 'DUMALE', 'Female', 'alexisdumale@gmail.com', '$2y$10$.XR4d34d/WgUqKDoilblAOAdhXZHSuERxbzfPcfeTHpDhq8gK778e', '953-330-7696', 'ANAPOG-SIBUCAO', '3', '5', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', 'Updated', '2024-05-19 00:19:57', '2024-05-19 15:19:39');
 
 --
 -- Indexes for dumped tables
@@ -316,7 +320,7 @@ ALTER TABLE `inquiries`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `transactions`
