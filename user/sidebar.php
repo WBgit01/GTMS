@@ -15,10 +15,19 @@
                 </a>
             </li>
             <li class='items'>
-                <a href="profile.php">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profile</span>
-                </a>
+                <?php
+                    if ($_SESSION['profile_status'] == "Updated") {
+                        echo "<a href='view_profile.php'>";
+                            echo "<i class='fa-solid fa-user'></i>";
+                            echo "<span>Profile</span>";
+                        echo "</a>";
+                    }else{
+                        echo "<a href='profile.php'>";
+                            echo "<i class='fa-solid fa-use'></i>";
+                        echo "<span>Profile</span>";
+                        echo "</a>";
+                    }
+                ?>
             </li>
 
             <li class="logout">

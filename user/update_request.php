@@ -149,22 +149,22 @@ if ($_POST) {
                                     }
                                 }
                         echo "</select>";
-                    }else{
-                        $garment_size->gender = "both";
-                        $garment_size->garment_type = "PE Pants";
-                        $stmt = $garment_size->read();
-                        echo "<div class='input_container'>";
-                        echo "<label>PE Pants</label>";
-                            echo "<select name='garment_id' required>";
-                                echo "<option disabled>Select Pants Size</option>";
-                                while ($row_pe_pants_size = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    extract($row_pe_pants_size);
-                                    echo "<option value='{$id}'>{$garment_type}-{$size}-{$garment_measure}</option>";
-
-                                }
-                        echo "</select>";
-                        
                     }
+                }else{
+                    $garment_size->gender = "Both";
+                    $garment_size->garment_type = "PE Pants";
+                    $stmt = $garment_size->read();
+                    echo "<div class='input_container'>";
+                    echo "<label>PE Pants</label>";
+                        echo "<select name='garment_id' required>";
+                            echo "<option disabled>Select Pants Size</option>";
+                            while ($row_pe_pants_size = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                extract($row_pe_pants_size);
+                                echo "<option value='{$id}'>{$garment_type}-{$size}-{$garment_measure}</option>";
+
+                            }
+                    echo "</select>";
+                    
                 }
             ?>
 

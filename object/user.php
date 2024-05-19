@@ -19,6 +19,7 @@ class User {
 	public $address;
 	public $gender;
 	public $image_profile;
+	public $profile_status;
 	public $modified;
 
 
@@ -94,7 +95,7 @@ class User {
 	// check if given email exist in the database
 	function emailExists(){
 		// query to check if email exists
-		$query = "SELECT id, firstname, lastname, student_id, access_level, gender, academic_year, password, image_profile
+		$query = "SELECT id, firstname, lastname, student_id, access_level, profile_status, gender, academic_year, password, image_profile
 				FROM " . $this->table_name . "
 				WHERE email_address = ? OR student_id = ?
 				LIMIT 0,1";
@@ -124,6 +125,7 @@ class User {
 			$this->contact_no = $row['contact_no'];
 			$this->address = $row['address'];
 			$this->academic_year = $row['academic_year'];
+			$this->profile_status = $row['profile_status'];
 			// return true because email exists in the database
 			return true;
 		}
@@ -201,7 +203,8 @@ class User {
 					course = :course,
 					address = :address,
 					image_profile = :image_profile,
-					modified = :modified
+					modified = :modified,
+					profile_status = :profile_status
 					WHERE
 						id = :id";
 		
@@ -217,6 +220,7 @@ class User {
 		$this->academic_year=htmlspecialchars(strip_tags($this->academic_year));
 		$this->course=htmlspecialchars(strip_tags($this->course));
 		$this->address=htmlspecialchars(strip_tags($this->address));
+		$this->profile_status=htmlspecialchars(strip_tags($this->profile_status));
 
 		$stmt->bindParam(':id', $this->id);
 		$stmt->bindParam(':image_profile', $this->image_profile);
@@ -228,6 +232,7 @@ class User {
 		$stmt->bindParam(':course', $this->course);
 		$stmt->bindParam(':address', $this->address);
 		$stmt->bindParam(':modified', $this->modified);
+		$stmt->bindParam(':profile_status', $this->profile_status);
 
 		if ($stmt->execute()) {
 			return true;

@@ -38,14 +38,13 @@ if ($_POST) {
     $user->contact_no = $_POST['contact_no'];
     $user->course = $_POST['course'];
     $user->address = $_POST['address'];
-    $user->profile_status = "Updated";
+
 
     if ($user->updateProfile()) {
         echo $user->uploadPhoto();
         
         echo "<div class='message-box-success'>";
             echo "Profile Updated";
-            header("Location:{$home_url}user/view_profile.php");
         echo "</div>";
     }else{
         echo "<div class='message-box-failed'>";
@@ -63,45 +62,31 @@ if ($_POST) {
             <div class="account_header">
                 <h1 class="account_title">Account Setting</h1>
                 <div class="btn_container">
-                    <button class="btn_cancel">Cancel</button>
-                    <button class="btn_save">Save</button>
                 </div>
             </div>
             <div class="account_edit">
                 <div class="input_container">
                     <label>Firstname</label>
-                    <input type="text" name="firstname" placeholder="Firstname" value="<?php echo $user->firstname;?>">
+                    <input type="text" name="firstname" placeholder="Firstname" value="<?php echo $user->firstname;?>" disabled>
                 </div>
                 <div class="input_container">
                     <label>Lastname</label>
-                    <input type="text" name="lastname" placeholder="Lastname" value="<?php echo $user->lastname;?>">
+                    <input type="text" name="lastname" placeholder="Lastname" value="<?php echo $user->lastname;?>" disabled>
                 </div>
             </div>
             <div class="account_edit">
                 <div class="input_container">
                     <?php
-                        if ($user->gender == "") {
-                            echo "<label disabled>Gender</label>";
-                            echo "<select name= 'gender' required>";
-                                echo "<option value='Male'>Male</option>";
-                                echo "<option value='Female'>Female</option>";
+                        if ($user->gender== "") {
+                            echo "<label disabled name='gender'>Gender</label>";
+                            echo "<select name='gender' required>";
+                                echo "<option value='' disabled selected></option>";
+                                echo "<option>Male</option>";
+                                echo "<option>Female</option>";
                             echo "</select>";
-
-
                         }else{
-                            if ($user->gender == "Male") {
-                                echo "<label disabled>Gender</label>";
-                                echo "<select name= 'gender' required disabled>";
-                                echo "<option value='Male' selected>Male</option>";
-                                echo "<option value='Female'>Female</option>";
-                                echo "</select>";
-                            }else{
-                                echo "<label disabled>Gender</label>";
-                                echo "<select name= 'gender' required disabled>";
-                                echo "<option value='Male'>Male</option>";
-                                echo "<option value='Female'selected>Female</option>";
-                                echo "</select>";
-                            }
+                            echo "<label disabled>Gender</label>";
+                            echo "<input type='text' name='' value='{$user->gender}' disabled>";
                         }
                     ?>
 
@@ -110,7 +95,7 @@ if ($_POST) {
 
                 <div class="input_container">
                     <label>Email</label>
-                    <input type="text" name="email_address" placeholder="Email" value="<?php echo $user->email_address;?>" required disabled>
+                    <input type="text" name="email_address" placeholder="Email" value="<?php echo $user->email_address;?>" disabled>
                 </div>
             </div>
             <div class="account_edit">
@@ -119,11 +104,11 @@ if ($_POST) {
             <div class="account_edit">
                 <div class="input_container">
                     <label>Address</label>
-                    <input type="text" name="address" placeholder="Address" value="<?php echo $user->address;?>" required>
+                    <input type="text" name="address" placeholder="Address" value="<?php echo $user->address;?>" disabled>
                 </div>
                 <div class="input_container">
                     <label>Contact Number</label>
-                    <input type="text" name="contact_no" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<?php echo $user->contact_no;?>" required>
+                    <input type="text" name="contact_no" placeholder="XXX-XXX-XXXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<?php echo $user->contact_no;?>" disabled>
                 </div>
             </div>
             <div class="account_edit">
@@ -131,7 +116,7 @@ if ($_POST) {
                     <label>Year Level</label>
                     <?php
                         $stmt = $academic_year->read();
-                        echo "<select name='academic_year'>";
+                        echo "<select name='academic_year' disabled>";
                         echo "<option disabled selected>Select Academic Year</option>";
                         while ($row_academic = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             $academic_id = $row_academic['id'];
@@ -151,7 +136,7 @@ if ($_POST) {
                     <label>Course</label>
                     <?php
                     $stmt = $course->read();
-                    echo "<select name='course'>";
+                    echo "<select name='course' disabled>";
                     echo "<option disabled>Select Course</option>";
                     while ($row_course = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         $course_id = $row_course['id'];
@@ -166,18 +151,6 @@ if ($_POST) {
                         echo "$course_name</option>";
                     }
                     echo "</select>";
-                    ?>
-                </div>
-            </div>
-            <div class="account_edit">
-            <div class="input_container">
-                    <?php
-                        if ($user->image_profile == "") {
-                            echo "<label>Profile Image</label>";
-                            echo "<input type='file' name='image'>";
-                        }else{
-                            echo "<input type='text' name='image' value='$user->image_profile'>";
-                        }
                     ?>
                 </div>
             </div>

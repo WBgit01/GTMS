@@ -35,6 +35,7 @@ if($_POST){
         $_SESSION['student_id'] = $user->student_id;
         $_SESSION['academic_year'] = $user->academic_year;
         $_SESSION['gender'] = $user->gender;
+        $_SESSION['profile_status'] = $user->profile_status;
 
         if ($user->access_level == "Admin") {
             $_SESSION['isAccessible'] = true;
