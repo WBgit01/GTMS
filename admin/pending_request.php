@@ -20,7 +20,6 @@ include_once '../login_checker.php';
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
 
-
 // Fetch orders
 $stmt = $order->readRequest();
 $num = $stmt->rowCount();
@@ -28,9 +27,7 @@ $num = $stmt->rowCount();
 $user_count = $user->countUser();
 ?>
 
-
 <!-- contents will be here -->
-
 <div class="table_wrapper">
     <h3 class="main_title">Order Data</h3>
     <?php
@@ -85,7 +82,6 @@ $user_count = $user->countUser();
         }
     ?>
     </div>
-
 
 <?php include_once 'layout_foot.php'; ?>
 

@@ -87,7 +87,7 @@ class Order{
 		
 		$order_count = $row['order_count'];
 		
-        if ($order_count >= 4) {
+        if ($order_count >= 3) {
             return true;
         }else{
 

@@ -163,7 +163,8 @@ nav .land_btn:hover{
 }
 
 .services .service-items .item:hover{
-    border-color: #93c7c5;
+    border-color: #85f5f1;
+    transform: translateY(-5px);
 }
 
 .services .service-items .item .icon{

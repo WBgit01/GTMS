@@ -3,8 +3,10 @@
     <script src="./libs/javascript/login-script.js"></script>
     <script src="./libs/javascript/user-script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-// JavaScript for deleting product
+   
+        
+<!-- JavaScript for deleting product  -->
+<script>
 $(document).on('click', '.update-object', function(){
   
     var id = $(this).attr('update-id');
@@ -21,6 +23,7 @@ $(document).on('click', '.update-object', function(){
   
     return false;
 });
+
 $(document).on('click', '.decline-object', function(){
   
   var id = $(this).attr('decline-id');
