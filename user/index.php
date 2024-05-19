@@ -97,6 +97,8 @@ include_once 'layout_head.php';
                     echo "<td>";
                         if ($status == "Pending") {
                             echo "<strong>Please set your Size. Update this Order</strong>";
+                        }elseif ($status == "Updated") {
+                            echo "<strong>Please wait for approval.</strong>";
                         }else{
                         
                         }

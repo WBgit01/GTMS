@@ -145,7 +145,7 @@ if ($_POST) {
                                     if ($order->garment_id == $garment_id) {
                                         echo "<option value='{$garment_id}'selected>{$size} - {$garment_measure}</option>";
                                     } else {
-                                        echo "<option value='{$id}'>{$garment_type}-{$size}-{$gender}-{$garment_measure}</option>";
+                                        echo "<option value='{$id}'>{$size}-{$garment_measure}</option>";
                                     }
                                 }
                         echo "</select>";

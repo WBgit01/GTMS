@@ -116,7 +116,8 @@ include_once 'layout_head.php'; ?>
                                 <tbody>
                                     <tr>
                                         <td><?php echo $order->garment_type; ?></td>
-                                        <td><?php echo $garment_size->size; ?></td>
+                                        <td><?php echo "<span style='text-transform: capitalize;'>" . $garment_size->size . "</span>"; ?></td>
+
                                         <td><?php echo "$". $order->amount; ?></td>
                                         <td></td>
                                         <td></td>

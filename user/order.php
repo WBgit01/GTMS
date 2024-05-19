@@ -133,7 +133,7 @@ if ($_POST) {
         case 'pe_attire_pants':
             $order->amount = "350.00";
             $order->status = "Pending";
-            $order->gender = $_SESSION['gender'];
+            $order->gender = "Both";
             $order->garment_id = "Not set";
             $order->student_id = $_SESSION['student_id'];
             $order->garment_type = "PE Pants";
