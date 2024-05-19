@@ -95,7 +95,7 @@ class User {
 	// check if given email exist in the database
 	function emailExists(){
 		// query to check if email exists
-		$query = "SELECT id, firstname, lastname, student_id, access_level, profile_status, gender, academic_year, password, image_profile
+		$query = "SELECT id, firstname, lastname, student_id, address, contact_no, access_level, profile_status, gender, academic_year, password, image_profile
 				FROM " . $this->table_name . "
 				WHERE email_address = ? OR student_id = ?
 				LIMIT 0,1";
