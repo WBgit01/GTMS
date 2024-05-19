@@ -21,7 +21,7 @@ include_once 'sidebar.php';
 include_once 'layout_head.php';
 
 // Fetch orders
-$stmt = $order->readRequest();
+$stmt = $order->readUpdatedOrder();
 $num = $stmt->rowCount();
 
 $user_count = $user->countUser();

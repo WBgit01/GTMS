@@ -19,18 +19,18 @@ include_once '../login_checker.php';
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
 
-$stmt = $order->readUpadatedRequest();
-$num = $stmt->rowCount();
-
 $stmt = $order->readApprovedRequests();
 $num = $stmt->rowCount();
 
 $stmt = $order->readDeclinedRequests();
 $num = $stmt->rowCount();
 
+$stmt = $order->readUpdatedOrder();
+$num = $stmt->rowCount();
+
 $user_count = $user->countUser();
 $order_count = $order->countOrderRequest();
-$pendingCount = $order->countPendingOrders();
+$UpdatedCount = $order->countUpdatedOrders();
 $declinedCount = $order->countDeclinedOrders();
 ?>
 
@@ -62,7 +62,7 @@ $declinedCount = $order->countDeclinedOrders();
             <div class="panel_header">
                 <div class="amount">
                     <span class="title">Pending Requests</span>
-                    <span class="amount_value"><?php echo $pendingCount; ?></span>
+                    <span class="amount_value"><?php echo $UpdatedCount; ?></span>
                 </div>
                 <i class="fa-regular"></i>
                 <i class="fa-solid fa-cart-plus icon darkcolor-4"></i>

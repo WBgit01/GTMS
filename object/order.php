@@ -1,11 +1,10 @@
 <?php
 
-class Order{
+class Order {
     
     private $conn;
     private $table_name = "orders";
-
-
+    
     public $id;
     public $reference_no;
     public $student_id;
@@ -18,20 +17,17 @@ class Order{
     public $status;
     public $modified;
 
-    public function __construct($db){
+    public function __construct($db) {
         $this->conn = $db;
     }
 
-    
-    function createOrder(){
-
+    public function createOrder() {
         $this->created = date('Y-m-d H:i:s');
 
         // generate reference no.
-		$digits = str_pad(mt_rand(0, 99), 4, '0', STR_PAD_LEFT);
-		$randomNumber = str_pad(mt_rand(0, 999), 5, '0', STR_PAD_LEFT);
-		$generated_reference_no = 'GTMS' . $digits . $randomNumber;
-
+        $digits = str_pad(mt_rand(0, 99), 4, '0', STR_PAD_LEFT);
+        $randomNumber = str_pad(mt_rand(0, 999), 5, '0', STR_PAD_LEFT);
+        $generated_reference_no = 'GTMS' . $digits . $randomNumber;
 
         $query = "INSERT INTO
                     " . $this->table_name . "
@@ -58,43 +54,42 @@ class Order{
 
         if ($stmt->execute()) {
             return true;
-        }else{
+        } else {
             $this->showError($stmt);
-			return false;
+            return false;
         }
     }
 
     public function showError($stmt) {
-		echo "<pre>";
-		print_r($stmt->errorInfo());
-		echo "</pre>";
-	}
+        echo "<pre>";
+        print_r($stmt->errorInfo());
+        echo "</pre>";
+    }
 
-    function countOrder(){
+    public function countOrder() {
+        $query = "SELECT COUNT(*) as order_count
+                    FROM 
+                    " . $this->table_name . "
+                    WHERE
+                    student_id = :student_id";
 
-		$query = "SELECT COUNT(*) as order_count
-					FROM 
-					" . $this->table_name . "
-					WHERE
-					student_id = :student_id";
-		
-		$stmt = $this->conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':student_id', $this->student_id);
         // $stmt->bindParam(':status', $this->status);
-		$stmt->execute();
-		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		$order_count = $row['order_count'];
-		
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $order_count = $row['order_count'];
+
         if ($order_count >= 3) {
             return true;
-        }else{
-
+        } else {
+            return false;
         }
-	}
+    }
 
-    function readAll(){
+    public function readAll() {
         $query = "SELECT *
                     FROM   
                     " . $this->table_name ." 
@@ -107,15 +102,14 @@ class Order{
         return $stmt;
     }
 
-    function readOne(){
-        
+    public function readOne() {
         $query = "SELECT student_id, reference_no, amount, garment_type, garment_id, gender, notes, status, created
                     FROM
                     " . $this->table_name . "
                     WHERE
                     id = ?
                     LIMIT 0,1";
-        
+
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(1, $this->id);
@@ -134,8 +128,7 @@ class Order{
         $this->status = $row['status'];
     }
 
-    function editRequest(){
-    
+    public function editRequest() {
         // Prepare the SQL query
         $query = "UPDATE 
                     " . $this->table_name . "
@@ -144,18 +137,18 @@ class Order{
                         status = :status
                     WHERE
                         id = :id";
-        
+
         // Prepare the statement
         $stmt = $this->conn->prepare($query);
         $this->garment_id = htmlspecialchars(strip_tags($this->garment_id));
         $this->status = htmlspecialchars(strip_tags($this->status));
 
-    
+
         // Bind parameters
         $stmt->bindParam(":garment_id", $this->garment_id);
         $stmt->bindParam(":id", $this->id);
         $stmt->bindparam(":status", $this->status);
-    
+
         // Execute the statement
         if ($stmt->execute()) {
             return true;
@@ -164,21 +157,20 @@ class Order{
         }
     }
 
-    function delete(){
-  
+    public function delete() {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
-          
+
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
-      
+
         if($result = $stmt->execute()){
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    function readRequest(){
+    public function readRequest() {
         $query = "SELECT * 
                     FROM   
                     " . $this->table_name ." 
@@ -186,13 +178,12 @@ class Order{
                         status = 'Pending'";
 
         $stmt = $this->conn->prepare($query);
-
         $stmt->execute();
 
         return $stmt;
     }
 
-    function readUpadatedRequest(){
+    public function readUpdatedOrder() {
         $query = "SELECT * 
                     FROM   
                     " . $this->table_name ." 
@@ -200,13 +191,11 @@ class Order{
                         status = 'Updated' || status = 'Approved' ";
 
         $stmt = $this->conn->prepare($query);
-
         $stmt->execute();
 
         return $stmt;
     }
 
-    //READ APPROVED ORDERS/REQUEST
     public function readApprovedRequests() {
         $query = "SELECT * FROM orders WHERE status = 'approved'";
         $stmt = $this->conn->prepare($query);
@@ -214,8 +203,6 @@ class Order{
         return $stmt;
     }
 
-
-    //READ DECLINED ORDERS/REQUEST
     public function readDeclinedRequests() {
         $query = "SELECT * FROM orders WHERE status = 'declined'";
         $stmt = $this->conn->prepare($query);
@@ -223,17 +210,21 @@ class Order{
         return $stmt;
     }
 
-    //COUNTS PENDING ORDERS/REQUEST
-    public function countPendingOrders() {
-        $query = "SELECT COUNT(*) as count FROM orders WHERE status = 'pending'";
+    public function readUpdatedRequests() {
+        $query = "SELECT * FROM orders WHERE status = 'updated'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+    
+    public function countUpdatedOrders() {
+        $query = "SELECT COUNT(*) as count FROM orders WHERE status = 'updated'";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row['count'];
     }
 
-
-    //COUNTS DECLINED ORDERS/REQUEST
     public function countDeclinedOrders() {
         $query = "SELECT COUNT(*) as count FROM orders WHERE status = 'declined'";
         $stmt = $this->conn->prepare($query);
@@ -242,50 +233,22 @@ class Order{
         return $row['count'];
     }
     
-    function countOrderRequest(){
-
-		$query = "SELECT COUNT(*) as order_count
-					FROM 
-					" . $this->table_name . "
-					WHERE
-					status = 'Approved'";
-		
-		$stmt = $this->conn->prepare($query);
-		$stmt->execute();
-		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		$order_count = $row['order_count'];
-		return $order_count;
-	}
-
-    function updateRequest(){
-    
-        // Prepare the SQL query
-        $query = "UPDATE 
+    public function countOrderRequest() {
+        $query = "SELECT COUNT(*) as order_count
+                    FROM 
                     " . $this->table_name . "
-                    SET
-                        status = :status
                     WHERE
-                        id = :id";
-        
-        // Prepare the statement
-        $stmt = $this->conn->prepare($query);
-        $this->status = htmlspecialchars(strip_tags($this->status));
+                    status = 'Approved'";
 
-    
-        // Bind parameters
-        $stmt->bindParam(":id", $this->id);
-        $stmt->bindparam(":status", $this->status);
-    
-        // Execute the statement
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $order_count = $row['order_count'];
+        return $order_count;
     }
-    function declineRequest(){
-    
+
+    public function updateRequest() {
         // Prepare the SQL query
         $query = "UPDATE 
                     " . $this->table_name . "
@@ -293,16 +256,15 @@ class Order{
                         status = :status
                     WHERE
                         id = :id";
-        
+
         // Prepare the statement
         $stmt = $this->conn->prepare($query);
         $this->status = htmlspecialchars(strip_tags($this->status));
 
-    
         // Bind parameters
         $stmt->bindParam(":id", $this->id);
         $stmt->bindparam(":status", $this->status);
-    
+
         // Execute the statement
         if ($stmt->execute()) {
             return true;
@@ -311,6 +273,30 @@ class Order{
         }
     }
 
+    public function declineRequest() {
+        // Prepare the SQL query
+        $query = "UPDATE 
+                    " . $this->table_name . "
+                    SET
+                        status = :status
+                    WHERE
+                        id = :id";
+
+        // Prepare the statement
+        $stmt = $this->conn->prepare($query);
+        $this->status = htmlspecialchars(strip_tags($this->status));
+
+        // Bind parameters
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindparam(":status", $this->status);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
-?> 
+?>
