@@ -276,7 +276,7 @@ if ($_POST) {
                 echo "<img src='../IMG/Uniform-Men/Pants.png' alt='Uniform Image' class='uni-img'>";
                 echo "<div class='title_box'>Uniform Men <strong>(Pants)</strong></div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱300.00</b>";
+                echo "<b>₱350.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: Grey</div>";
@@ -300,7 +300,7 @@ if ($_POST) {
                 echo "<img src='../IMG/Uniform-Woman/Blouse.png' alt='Uniform Image' class='uni-img'>";
                 echo "<div class='title_box'>Uniform Women <strong>(Blouse)</strong></div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱300.00</b>";
+                echo "<b>₱340.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: White</div>";
@@ -320,7 +320,7 @@ if ($_POST) {
                 echo "<img src='../IMG/Uniform-Woman/Skirt.png' alt='Uniform Image' class='uni-img'>";
                 echo "<div class='title_box'>Uniform Women <strong>(Skirt)</strong></div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱300.00</b>";
+                echo "<b>₱330.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: Grey</div>";
@@ -342,9 +342,9 @@ if ($_POST) {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<img src='../IMG/SHS-uni-Men/Polo.png' alt='Uniform Image' class='uni-img'>";
-                echo "<div class='title_box'>SHS Uniform Men <strong>(Polo)</div>";
+                echo "<div class='title_box'>Uniform Men <strong>(Polo)</div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱310.00</b>";
+                echo "<b>₱350.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: White</div>";
@@ -362,9 +362,9 @@ if ($_POST) {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<img src='../IMG/SHS-uni-Men/Pants.png' alt='Uniform Image' class='uni-img'>";
-                echo "<div class='title_box'>SHS Uniform Men <strong>(Pants)</div>";
+                echo "<div class='title_box'>Uniform Men <strong>(Pants)</div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱320.00</b>";
+                echo "<b>₱345.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: Grey</div>";
@@ -385,9 +385,9 @@ if ($_POST) {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<img src='../IMG/SHS-uni-woman/Blouse.png' alt='Uniform Image' class='uni-img'>";
-                echo "<div class='title_box'>SHS Uniform Women <strong>(Blouse)</div>";
+                echo "<div class='title_box'>Uniform Women <strong>(Blouse)</div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱320.00</b>";
+                echo "<b>₱335.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: Grey</div>";
@@ -405,9 +405,9 @@ if ($_POST) {
                 echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>";
                 echo "<div class='box bx1'>";
                 echo "<img src='../IMG/SHS-uni-woman/Skirt.png' alt='Uniform Image' class='uni-img'>";
-                echo "<div class='title_box'>SHS Uniform Women <strong>(Skirt)</div>";
+                echo "<div class='title_box'>Uniform Women <strong>(Skirt)</div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱320.00</b>";
+                echo "<b>₱345.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: Grey</div>";
@@ -431,7 +431,7 @@ if ($_POST) {
                 echo "<img src='../IMG/PE-set/Polo.png' alt='Uniform Image' class='uni-img'>";
                 echo "<div class='title_box'>PE Attire <strong>(Polo)</div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱300.00</b>";
+                echo "<b>₱355.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: White</div>";
@@ -451,7 +451,7 @@ if ($_POST) {
                 echo "<img src='../IMG/PE-set/Pants.png' alt='Uniform Image' class='uni-img'>";
                 echo "<div class='title_box'>PE Attire <strong>(Pants)</div>";
                 echo "<div class='price_table'>";
-                echo "<b>₱300.00</b>";
+                echo "<b>₱350.00</b>";
                 echo "</div>";
                 echo "<div class='features'>";
                 echo "<div>Color: Grey</div>";
