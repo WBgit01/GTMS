@@ -206,7 +206,6 @@ class Order {
         return $stmt;
     }
     
-
     public function readApprovedRequests() {
         $query = "SELECT * FROM orders WHERE status = 'approved'";
         $stmt = $this->conn->prepare($query);

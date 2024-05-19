@@ -21,7 +21,7 @@ include_once 'sidebar.php';
 include_once 'layout_head.php';
 
 // Fetch orders
-$stmt = $order->readUpdatedOrder();
+$stmt = $order->readUpdatedRequests();
 $num = $stmt->rowCount();
 
 $user_count = $user->countUser();
@@ -56,14 +56,14 @@ $user_count = $user->countUser();
                             echo "<td>{$status}</td>";
                             echo "<td>{$created}</td>";
                             echo "<td>";
-                                if ($status == "Pending") {
+                                if ($status == "Updated") {
                                     echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
                                     echo "<a update-id='{$id}' class='action_btn2 update-object'>Approved</a>";
                                     echo "<a decline-id='{$id}' class='action_btn3 decline-object'>Decline</a>";
                                 } else {
                                     echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                                    echo "<a update-id='{$id}' class='action_btn2 update-object'>Approved</a>";
-                                    echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Declined</a>";
+                                    echo "<a update-id='{$id}' class='action_btn2 update-object'>Approve</a>";
+                                    echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Decline</a>";
                                 }
                             
                         echo "</tr>";

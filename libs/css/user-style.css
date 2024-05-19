@@ -509,7 +509,7 @@ th{
 }
 
 tbody{
-    background: #dfdfdf;
+    background: #ebeaea;
 }
 
 td{
@@ -625,75 +625,6 @@ tfoot td{
     border-radius: .25rem;
     padding: 15px;
 }
-
-/* -------------------------------------
-    TRACKING-PAGE STYLES
-------------------------------------- */
-/* .search-container{
-    background: white;
-    padding: 1rem;
-    border-radius: 10px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.searchform-container{
-    text-align: center;
-    padding: 6.5rem;
-}
-
-.logo-searchbar{
-    width: 400px;
-    margin-bottom: 1.5rem;
-}
-
-.header2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.searchform-content input{
-    margin-top: 2rem;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 15px 50px;
-    font-size: 18px;
-}
-
-p1{
-    text-align: center;
-    font-size: 18px;
-}
-
-p1 span{
-    font-weight: bold;
-}
-
-p1 a{
-    text-decoration: none;
-    border: none;
-}
-
-.searchform-content input[type="submit"]{
-    background-color: fff;
-    margin-top: 2rem;
-    border: 1px solid #5483b3;
-    font-weight: bold;
-    color: #5483b3;
-    cursor: pointer;
-    transition-duration: 0.3s;
-}
-
-.searchform-content input[type="submit"]:hover{
-    background-color: #5483b3;
-    color: #fff;
-    border: none;
-} */
-
 
 /* -------------------------------------
     RESPONSIVE AND MOBILE FRIENDLY STYLES

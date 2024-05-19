@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
         
-<!-- JavaScript for deleting product  -->
+<!-- JavaScript for declining product  -->
 <script>
 $(document).on('click', '.update-object', function(){
   
