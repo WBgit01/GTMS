@@ -8,7 +8,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
-$academic_year = new Academic_year($db);
+$academic_year_obj = new Academic_year($db);
 
 $page_title = "Users";
 $require_login = true;
@@ -21,6 +21,7 @@ include_once 'layout_head.php';
 $stmt = $user->readUsers();
 $num = $stmt->rowCount();
 $user_count = $user->countUser();
+
 
 
 ?>
@@ -47,21 +48,21 @@ $user_count = $user->countUser();
                 echo "</thead>";
 
                 echo "<tbody>";
+                
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
                         extract($row);
 
-                        
-                        //read Academic id
-                        $academic_year_name = $academic_year->readName();
-                        $academic_year = $user->$acadmic_year;
-
+                        $acad_id = $academic_year;
+                        $acad_yearID = $academic_year_obj->readAcademicYear($acad_id);
+                        var_dump($acad_yearID);
                         echo "<tr>";
                             echo "<td>{$student_id}</td>";
                             echo "<td>{$firstname}</td>";
                             echo "<td>{$lastname}</td>";
                             echo "<td>{$gender}</td>";
                             echo "<td>{$contact_no}</td>";
-                            echo "<td>{$academic_year}</td>";
+                            echo "<td>{$acad_yearID}</td>";
                             echo "<td>{$address}</td>";
                             echo "<td>";
                                 echo "<a href='../admin/view_user.php?uid={$id}' class='action_btn1'>View</a>";

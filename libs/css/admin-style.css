@@ -20,7 +20,7 @@ body{
     top: 0;
     left: 0;
     bottom: 0;
-    width: 110px;
+    width: 240px;
     height: 100vh;
     padding: 0 1.7rem;
     color: white;
@@ -258,6 +258,7 @@ body{
 table{
     width: 100%;
     border-collapse: collapse;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 thead{

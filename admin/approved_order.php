@@ -13,13 +13,12 @@ $order = new Order($db);
 $user = new User($db);
 $transaction = new Transaction($db);
 
-$page_title = "Approved Requests";
+$page_title = "  📊 Order Summary";
 $require_login = true;
 include_once '../login_checker.php';
 
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
-
 
 // Fetch orders
 $stmt = $order->readApprovedRequests();
@@ -28,15 +27,10 @@ $num = $stmt->rowCount();
 $user_count = $user->countUser();
 ?>
 
-
 <!-- contents will be here -->
-
-<div class="table_wrapper">
-    <h3 class="main_title">Order Data</h3>
-    <?php
-        if ($num>0) {
-
-            echo "<div class='table_container'>";
+<?php
+    if ($num > 0) {
+        echo "<div class='table_container'>";
             echo "<table>";
                 echo "<thead>";
                     echo "<tr>";
@@ -63,26 +57,26 @@ $user_count = $user->countUser();
                                     echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
                                 } else {
                                     echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                                    echo "<a update-id='{$id}' class='action_btn2 update-object'>Approved</a>";
+                                    echo "<a update-id='{$id}' class='action_btn2 update-object'>Approve</a>";
                                 }
-                            
+                            echo "</td>";
                         echo "</tr>";
                     }
                 echo "</tbody>";
+                
                 echo "<tfoot>";
                     echo "<tr>";
-                        echo "<td colspan='8' class='table_foot'>USERS ORDER LIST</td>";
+                        echo "<td colspan='8' class='table_foot'></td>";
                     echo "</tr>";
                 echo "</tfoot>";
             echo "</table>";
-        }else{
-            echo "<div class='message-box-failed'>";
-                echo "No uniform request.";
-            echo "</div>";
-        }
-    ?>
-    </div>
-
+        echo "</div>";
+    } else {
+        echo "<div class='message-box-failed'>";
+            echo "No uniform request.";
+        echo "</div>";
+    }
+?>
 
 <?php include_once 'layout_foot.php'; ?>
 

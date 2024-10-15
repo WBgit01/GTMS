@@ -10,8 +10,8 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-      <!-- MAIN CONTENT||BODY -->
-      <div class="main_content">
+    <!-- MAIN CONTENT||BODY -->
+    <div class="main_content">
         <div class="header_wrapper">
             <div class="header_title">
                 <?php 
@@ -23,6 +23,7 @@
                     }
                 ?>
             </div>
+            
 
             <div class="user_info">
                 <span class="title"><?php 
@@ -33,5 +34,6 @@
                 <a href="#"><img src="../IMG/Admin2.jpg" alt=""></a> <!-- admin-image -->
             </div>
         </div>
+        <div class="table_wrapper">
 
     

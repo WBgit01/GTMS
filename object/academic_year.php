@@ -6,7 +6,7 @@ class Academic_year{
     private $table_name = "academic_year";
 
     public $id;
-    public $academic_year;
+    public $academic_year_name;
     public $created;
     public $modified;
 
@@ -39,12 +39,34 @@ class Academic_year{
 
         $stmt->execute();
 
-        if ($row) {
-            $this->academic_year = $row['academic_year'];
-        }
-    
-        return $this->academic_year;
+        $this->academic_year_name = $row['academic_year'];
     }
+
+    function readAcademicYear($acad_id) {
+        // Use single equal sign for SQL query comparison
+        $query = "SELECT academic_year FROM " . $this->table_name . " WHERE id = : "{$acad_id}" LIMIT 1";
+    
+        // Prepare the query
+        $stmt = $this->conn->prepare($query);
+    
+        // Bind the parameter using named placeholders
+        $stmt->bindParam(':acad_id', $acad_id);
+    
+        // Execute the query
+        $stmt->execute();
+    
+        // Fetch the result
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // If the row exists, assign the academic year to the class property
+        if ($row) {
+            $this->academic_year_name = $row['academic_year'];
+        } else {
+            // Handle case where no result is found
+            $this->academic_year_name = null;  // or some other default value
+        }
+    }
+    
 }
 
 ?>
