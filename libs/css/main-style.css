@@ -1,6 +1,7 @@
 html {
     scroll-behavior: smooth;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color:#2F2F2F
 }
 
 * {
@@ -25,7 +26,8 @@ li {
 }
 
 nav {
-    background-color: #fff;
+    background-color: #6B6B6B;
+    /* background-color: #fff; */
     position: sticky;
     top: 0;
     padding: 0 85px;
