@@ -2,11 +2,13 @@
 include_once '../config/core.php';
 include_once '../config/database.php';
 include_once '../object/user.php';
+include_once '../object/academic_year.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
 $user = new User($db);
+$academic_year = new Academic_year($db);
 
 $page_title = "Users";
 $require_login = true;
@@ -16,11 +18,11 @@ include_once 'sidebar.php';
 include_once 'layout_head.php';
 
 // Fetch users
-$stmt = $db->prepare("SELECT * FROM users WHERE access_level = 'student'");
-$stmt->execute();
-
+$stmt = $user->readUsers();
 $num = $stmt->rowCount();
 $user_count = $user->countUser();
+
+
 ?>
 
 <!-- contents will be here -->
@@ -47,6 +49,11 @@ $user_count = $user->countUser();
                 echo "<tbody>";
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         extract($row);
+
+                        
+                        //read Academic id
+                        $academic_year_name = $academic_year->readName();
+                        $academic_year = $user->$acadmic_year;
 
                         echo "<tr>";
                             echo "<td>{$student_id}</td>";

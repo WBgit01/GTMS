@@ -39,7 +39,11 @@ class Academic_year{
 
         $stmt->execute();
 
-        $this->academic_year = $row['academic_year'];
+        if ($row) {
+            $this->academic_year = $row['academic_year'];
+        }
+    
+        return $this->academic_year;
     }
 }
 

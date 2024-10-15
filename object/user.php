@@ -239,8 +239,6 @@ class User {
 		}
 	}
 
-
-
 	function adminUpdateProfile(){
 
 		$this->modified = date('Y-m-d H:i:s');
@@ -439,6 +437,20 @@ class User {
             return false;
         }
     }
+
+	function readUsers(){
+
+		$query = "SELECT * FROM 
+					" . $this->table_name . "
+				WHERE 
+				access_level = 'Student'";
+		
+		$stmt = $this->conn->prepare($query);
+
+		$stmt->execute();
+
+		return $stmt;
+	}
 	
 }
 
