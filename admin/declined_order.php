@@ -13,7 +13,7 @@ $order = new Order($db);
 $user = new User($db);
 $transaction = new Transaction($db);
 
-$page_title = "Declined Requests";
+$page_title = "❌ Declined Orders";
 $require_login = true;
 include_once '../login_checker.php';
 
@@ -32,8 +32,6 @@ $user_count = $user->countUser();
 
 <!-- contents will be here -->
 
-<div class="table_wrapper">
-    <h3 class="main_title">Order Data</h3>
     <?php
         if ($num>0) {
 
@@ -73,7 +71,7 @@ $user_count = $user->countUser();
                 echo "</tbody>";
                 echo "<tfoot>";
                     echo "<tr>";
-                        echo "<td colspan='8' class='table_foot'>USERS ORDER LIST</td>";
+                        echo "<td colspan='8' class='table_foot'></td>";
                     echo "</tr>";
                 echo "</tfoot>";
             echo "</table>";
@@ -83,7 +81,7 @@ $user_count = $user->countUser();
             echo "</div>";
         }
     ?>
-    </div>
+
 
 
 <?php include_once 'layout_foot.php'; ?>

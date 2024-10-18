@@ -258,7 +258,6 @@ body{
 table{
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 thead{
@@ -278,8 +277,9 @@ tbody{
 td{
     text-align: center;
     padding: 15px;
-    font-size: 14px;
-    color: black;
+    font-size: 15px;
+    text-transform: capitalize;
+
 }
 
 tr:nth-child(even){

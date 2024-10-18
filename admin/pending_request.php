@@ -13,7 +13,7 @@ $order = new Order($db);
 $user = new User($db);
 $transaction = new Transaction($db);
 
-$page_title = "Pending Requests";
+$page_title = "⌛ Pending Lists";
 $require_login = true;
 include_once '../login_checker.php';
 

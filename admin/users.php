@@ -10,7 +10,7 @@ $db = $database->getConnection();
 $user = new User($db);
 $academic_year_obj = new Academic_year($db);
 
-$page_title = "Users";
+$page_title = "👩‍💻 Users";
 $require_login = true;
 include_once '../login_checker.php';
 
@@ -27,8 +27,7 @@ $user_count = $user->countUser();
 ?>
 
 <!-- contents will be here -->
-<div class="table_wrapper">
-    <h3 class="main_title">User Data</h3>
+
     <?php
         if ($num>0) {
 
@@ -40,8 +39,8 @@ $user_count = $user->countUser();
                         echo "<th>Firstname</th>";
                         echo "<th>Lastname</th>";
                         echo "<th>Gender</th>";
+                        echo "<th>School Year</th>";
                         echo "<th>Contact</th>";
-                        echo "<th>Academic Year</th>";
                         echo "<th>Address</th>";
                         echo "<th>Action</th>";
                     echo "</tr>";
@@ -50,31 +49,30 @@ $user_count = $user->countUser();
                 echo "<tbody>";
                 
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
                         extract($row);
-
-                        $acad_id = $academic_year;
-                        $acad_yearID = $academic_year_obj->readAcademicYear($acad_id);
-                        var_dump($acad_yearID);
+                        
+                        $academic_year_obj->id =  $academic_year;
+                        $academic_year_obj->readName();
+                       
                         echo "<tr>";
                             echo "<td>{$student_id}</td>";
                             echo "<td>{$firstname}</td>";
                             echo "<td>{$lastname}</td>";
                             echo "<td>{$gender}</td>";
+                            echo "<td>{$academic_year_obj->academic_year_name}</td>";
                             echo "<td>{$contact_no}</td>";
-                            echo "<td>{$acad_yearID}</td>";
                             echo "<td>{$address}</td>";
                             echo "<td>";
                                 echo "<a href='../admin/view_user.php?uid={$id}' class='action_btn1'>View</a>";
                                 echo "<a href='{$home_url}admin/update_user.php?uid={$id}'class='action_btn2'>Update</a>";
                                 echo "<a delete-id='{$id}' class='action_btn3 delete-object'>Delete</a>";
-                                    
                         echo "</tr>";
                     }
+
                 echo "</tbody>";
                 echo "<tfoot>";
                     echo "<tr>";
-                        echo "<td colspan='8' class='table_foot'>USERS ACCOUNT LIST</td>";
+                        echo "<td colspan='8' class='table_foot'></td>";
                     echo "</tr>";
                 echo "</tfoot>";
             echo "</table>";

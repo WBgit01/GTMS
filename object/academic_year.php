@@ -29,43 +29,28 @@ class Academic_year{
         return $stmt;
     }
 
-    function readName(){
-
-        $query = "SELECT academic_year FROM " . $this->table_name ." WHERE id = ? limit 0,1";
-
-        $stmt= $this->conn->prepare($query);
-
-        $stmt->bindParam(1, $this->id);
-
-        $stmt->execute();
-
-        $this->academic_year_name = $row['academic_year'];
-    }
-
-    function readAcademicYear($acad_id) {
-        // Use single equal sign for SQL query comparison
-        $query = "SELECT academic_year FROM " . $this->table_name . " WHERE id = : "{$acad_id}" LIMIT 1";
-    
+    function readName() {
         // Prepare the query
+        $query = "SELECT academic_year FROM " . $this->table_name . " WHERE id = ?";
+    
+        // Prepare the statement
         $stmt = $this->conn->prepare($query);
     
-        // Bind the parameter using named placeholders
-        $stmt->bindParam(':acad_id', $acad_id);
+        // Bind the parameter
+        $stmt->bindParam(1, $this->id);
     
-        // Execute the query
+        // Execute the statement
         $stmt->execute();
     
-        // Fetch the result
+        // Fetch the row from the result set
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
-        // If the row exists, assign the academic year to the class property
-        if ($row) {
+        // Assign the value to the property
+        if($row) {
             $this->academic_year_name = $row['academic_year'];
-        } else {
-            // Handle case where no result is found
-            $this->academic_year_name = null;  // or some other default value
         }
     }
+    
     
 }
 

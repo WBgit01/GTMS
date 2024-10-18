@@ -17,19 +17,19 @@
             <li>
                 <a href="approved_order.php">
                 <i class="fa-solid fa-shop"></i>
-                    <span>Approved Requests</span>
+                    <span>Orders Approved</span>
                 </a>
             </li>
             <li>
                 <a href="pending_request.php">
                 <i class="fa-solid fa-cart-plus"></i>
-                    <span>Pending Requests</span>
+                    <span>Pending List</span>
                 </a>
             </li>
             <li>
                 <a href="declined_order.php">
                 <i class="fa-solid fa-shop-slash"></i>
-                    <span>Declined Requests</span>
+                    <span>Rejected Orders</span>
                 </a>
             </li>
             <li class="logout">
