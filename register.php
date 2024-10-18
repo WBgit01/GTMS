@@ -25,7 +25,6 @@ if ($_POST) {
     $confirm_password = $_POST['confirm_password'];
 
 
-
     // check the post Data before saving to database
     if ($user->emailExisted()) {
         echo "<div class='message-box-failed'>";
@@ -52,10 +51,12 @@ if ($_POST) {
 
 }
 ?>
-<i class="fa-solid fa-xmark form_close"></i>
+
 <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-        
+    
+
     <h3>Sign Up</h3>
+    
     <div class="input_box">
         <input type="name" name="firstname" placeholder="First Name" required/>
         <i class="fa-regular fa-user name"></i>
