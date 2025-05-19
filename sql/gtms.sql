@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2024 at 09:42 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: May 19, 2025 at 11:46 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `academic_year` (
   `academic_year` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `academic_year`
@@ -56,7 +56,7 @@ CREATE TABLE `courses` (
   `name` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `courses`
@@ -81,7 +81,7 @@ CREATE TABLE `garment_sizes` (
   `garment_type` varchar(50) NOT NULL,
   `garment_measure` varchar(255) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `garment_sizes`
@@ -138,7 +138,7 @@ CREATE TABLE `inquiries` (
   `phone` varchar(11) NOT NULL,
   `message` varchar(255) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `inquiries`
@@ -165,7 +165,7 @@ CREATE TABLE `orders` (
   `status` varchar(20) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
@@ -196,7 +196,7 @@ CREATE TABLE `transactions` (
   `reference_no` varchar(50) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transactions`
@@ -229,7 +229,7 @@ CREATE TABLE `users` (
   `profile_status` varchar(50) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `modified` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -241,6 +241,29 @@ INSERT INTO `users` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `ema
 (39, '11b146', 'ALEXIS', 'DUMALE', 'male', 'ajcodalify@gmail.com', '$2y$10$fVjiVlbUg8IyLhRjvKRiA.z5JagJXWfMxLxdQYU4ZVvuYpcdu63xi', '+63953330769', 'ANAPOG-SIBUCAO', '3', '1', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', '', '2024-04-29 10:39:41', '2024-04-29 19:25:18'),
 (40, '26b756', 'ALEXIS', 'DUMALE', 'female', 'kesha@gmail.com', '$2y$10$cVp4aDRs.iOn7UJ9aEfywe8WR/Geg66GAjlAymfoJWv/Ydcm8P9li', '999-999-9999', '30# alvarez street', '3', '1', 'Student', '', '', '2024-05-14 10:55:58', '2024-05-14 18:56:54'),
 (41, '57b519', 'ALEXIS', 'DUMALE', 'Female', 'alexisdumale@gmail.com', '$2y$10$.XR4d34d/WgUqKDoilblAOAdhXZHSuERxbzfPcfeTHpDhq8gK778e', '953-330-7696', 'ANAPOG-SIBUCAO', '3', '5', 'Student', 'ef2489c475dfbd7931a807bcb8dc10db8d4ae0de-Admin2.jpg', 'Updated', '2024-05-19 00:19:57', '2024-05-19 15:19:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendo_machines`
+--
+
+CREATE TABLE `vendo_machines` (
+  `id` int(11) NOT NULL,
+  `vendo_name` varchar(250) NOT NULL,
+  `vendo_location` varchar(250) NOT NULL,
+  `vendo_revenue` varchar(250) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `no_con_device` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vendo_machines`
+--
+
+INSERT INTO `vendo_machines` (`id`, `vendo_name`, `vendo_location`, `vendo_revenue`, `status`, `no_con_device`) VALUES
+(1, 'vendo-pobla-100', 'mogpog,anapog-sibucao', '282908', 'active', 42),
+(2, 'vendo-villamendez-12321', 'mogpog,villamendez', '282908', 'active', 42);
 
 --
 -- Indexes for dumped tables
@@ -289,6 +312,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `vendo_machines`
+--
+ALTER TABLE `vendo_machines`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -333,6 +362,12 @@ ALTER TABLE `transactions`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `vendo_machines`
+--
+ALTER TABLE `vendo_machines`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
