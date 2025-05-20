@@ -75,8 +75,8 @@ $num = $stmt->rowCount();
 
             }else {
                 echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                echo "<a update-id='{$id}' class='action_btn2 update-object'>Approve</a>";
-                echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Decline</a>";
+                
+                
             }
             echo "</td>";
             echo "</tr>";
