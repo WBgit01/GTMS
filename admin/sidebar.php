@@ -9,9 +9,9 @@
                 </a>
             </li>
             <li>
-                <a href="users.php">
+                <a href="vendo.php">
                     <i class="fa-solid fa-users"></i>
-                    <span>Users</span>
+                    <span>Vendo</span>
                 </a>
             </li>
             <li>
@@ -30,6 +30,12 @@
                 <a href="declined_order.php">
                 <i class="fa-solid fa-shop-slash"></i>
                     <span>Rejected Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="help_content.php">
+                <i class="fa fa-info" aria-hidden="true"></i>
+                    <span>Need Assistance?</span>
                 </a>
             </li>
             <li class="logout">

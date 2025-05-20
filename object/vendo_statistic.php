@@ -1,16 +1,16 @@
 <?php
 
-class Vendo {
+class VendoStatistic {
 
 	private $conn;
-	private $table_name = "vendo_machines";
+	private $table_name = "vendo_users";
 
 	public $id;
-	public $vendo_name;
-    public $vendo_location;
-    public $vendo_revenue;
+	public $vendo_id;
+    public $device_mac_address;
+    public $device_duration;
     public $staus;
-    public $no_con_device;
+    public $device_ip_address;
 
     	public function __construct($db) {
 		$this->conn = $db;
@@ -46,14 +46,15 @@ class Vendo {
     public function readVendoUsers($vendo_id) {
         $query = "SELECT * 
                 FROM " . $this->table_name . " 
-                WHERE vendo_id = :vendo";
+                WHERE vendo_id = :vendo_id";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $vendo_id);
+        $stmt->bindParam(':vendo_id', $vendo_id, PDO::PARAM_INT); // Bind safely
         $stmt->execute();
 
         return $stmt;
     }
+
 
 
 
