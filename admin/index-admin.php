@@ -4,7 +4,7 @@ include_once '../config/database.php';
 include_once '../object/transaction.php';
 include_once '../object/user.php';
 include_once '../object/order.php';
-sadas
+
 $database = new Database();
 $db = $database->getConnection();
 

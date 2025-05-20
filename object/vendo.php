@@ -16,7 +16,7 @@ class Vendo {
 		$this->conn = $db;
 	}
 
-    	function readVendo(){
+    function readVendo(){
 
 		$query = "SELECT * FROM 
 					" . $this->table_name . "";
@@ -27,6 +27,22 @@ class Vendo {
 
 		return $stmt;
 	}
+
+    function readAll($from_records_num, $records_per_page){
+        $query = "SELECT * 
+                    FROM   
+                    " . $this->table_name ." 
+                    ORDER BY 
+                    id ASC 
+                    LIMIT {$from_records_num}, {$records_per_page}";
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
 
 
 }

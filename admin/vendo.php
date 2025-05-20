@@ -67,7 +67,7 @@ $num = $stmt->rowCount();
 
             }elseif ($status == "Updated") {
                 echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                echo "<a update-id='{$id}' class='action_btn2 update-object'>Approve</a>";
+                
                 echo "<a decline-id='{$id}' class='action_btn3 decline-object'>Decline</a>";
 
             }elseif ($status == "Declined") {
