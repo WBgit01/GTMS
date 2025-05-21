@@ -13,7 +13,7 @@ $db = $database->getConnection();
 $vendo = new vendo($db);
 $vendo_statistic = new VendoStatistic($db);
 
-$page_title = "Vendo Statistic";
+$page_title = "Vendo-pobla-200";
 $require_login = true;
 $isAccessible = $_SESSION['isAccessible'];
 include_once '../login_checker.php';
@@ -29,6 +29,56 @@ $num = $stmt->rowCount();
     <h3 class="main_title">Statistics</h3>
     <div class="panel_wrapper">
 
+        <div class="panel_content lightcolor-2">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Connected User</span>
+                    <span class="amount_value">3</span>
+                </div>
+                <i class="fa-solid fa-users icon darkcolor-2"></i>
+            </div>
+        </div>
+
+        <div class="panel_content lightcolor-4">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Daily Sales</span>
+                    <span class="amount_value">28,290</span>
+                </div>
+                <i class="fa-solid fa-peso-sign icon darkcolor-4"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-3">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Weekly Sales</span>
+                    <span class="amount_value">28,2908</span>
+                </div>
+                <i class="fa-solid fa-coins icon darkcolor-3"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-1">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Monthly Sales</span>
+                    <span class="amount_value">28,2908</span>
+                </div>
+                <i class="fa-solid fa-hand-holding-dollar icon darkcolor-1"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-5">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Yearly Sales</span>
+                    <span class="amount_value">28,2908</span>
+                </div>
+                <i class="fa-solid fa-money-bill-trend-up icon darkcolor-5"></i>
+            </div>
+        </div>
+        
+
+        <h3 class="main_title">Devices</h3>
+
     </div>
 
     <div class="panel2_wrapper">
@@ -42,7 +92,6 @@ $num = $stmt->rowCount();
                 echo "<th>Device Duration</th>";
                 echo "<th>Status</th>";
                 echo "<th>IP Address</th>";
-                echo "<th>Action</th>";
             echo "</tr>";
         echo "</thead>";
 
@@ -54,9 +103,6 @@ $num = $stmt->rowCount();
                 echo "<td>{$device_duration}</td>";
                 echo "<td>{$status}</td>";
                 echo "<td>{$device_ip_address}</td>";
-                echo "<td>";
-                    echo "<a href='../admin/view_vendo?vid={$vendo_id}' class='action_btn1'>View</a>";
-                echo "</td>";
             echo "</tr>";
         }
         echo "</tbody>";

@@ -2,39 +2,39 @@
     <div class="sidebar">
         <div class="logo"></div>
         <ul class="menu">
-            <li class="dash">
-                <a href="index-admin.php">
-                    <i class="fa-solid fa-gauge"></i>
+            <li>
+                <a href="vendo.php">
+                    <i class="fa-solid fa-bars"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="vendo.php">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Vendo</span>
+                <a href="downtime.php">
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+                    <span>Downtime Logs</span>
                 </a>
             </li>
             <li>
                 <a href="approved_order.php">
-                <i class="fa-solid fa-shop"></i>
-                    <span>Orders Approved</span>
+                <i class="fa-solid fa-bell"></i>
+                    <span>Alerts</span>
                 </a>
             </li>
             <li>
                 <a href="pending_request.php">
-                <i class="fa-solid fa-cart-plus"></i>
-                    <span>Pending List</span>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>System Settings</span>
                 </a>
             </li>
             <li>
                 <a href="declined_order.php">
-                <i class="fa-solid fa-shop-slash"></i>
-                    <span>Rejected Orders</span>
+                <i class="fa-solid fa-gear"></i>
+                    <span>Profile Settings</span>
                 </a>
             </li>
             <li>
                 <a href="help_content.php">
-                <i class="fa fa-info" aria-hidden="true"></i>
+                <i class="fa-solid fa-circle-info"></i>
                     <span>Need Assistance?</span>
                 </a>
             </li>

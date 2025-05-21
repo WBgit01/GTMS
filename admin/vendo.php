@@ -30,7 +30,57 @@ $num = $stmt->rowCount();
     <h3 class="main_title">Statistics</h3>
     <div class="panel_wrapper">
 
+        <div class="panel_content lightcolor-4">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Total Revenue</span>
+                    <span class="amount_value">565,816</span>
+                </div>
+                <i class="fa-solid fa-chart-simple icon darkcolor-4"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-2">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Total Devices Connected</span>
+                    <span class="amount_value">565,816</span>
+                </div>
+                <i class="fa-solid fa-mobile-retro icon darkcolor-2"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-3">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Active Vendo</span>
+                    <span class="amount_value">2</span>
+                </div>
+                <i class="fa-solid fa-circle-up icon darkcolor-3"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-1">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Inactive Vendo</span>
+                    <span class="amount_value">3</span>
+                </div>
+                <i class="fa-solid fa-circle-down icon darkcolor-1"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-5">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Total Vendo</span>
+                    <span class="amount_value">5</span>
+                </div>
+                <i class="fa-solid fa-house-signal icon darkcolor-5"></i>
+            </div>
+        </div>
 
+
+
+
+
+        <h3 class="main_title"></h3>
     </div>
 
 <div class="panel2_wrapper">
@@ -45,8 +95,8 @@ $num = $stmt->rowCount();
                 echo "<th>Vendo Revenue</th>";
                 echo "<th>Vendo Location</th>";
                 echo "<th>Status</th>";
-                echo "<th>No.of Devices Connected</th>";
-                echo "<th>Action</th>";
+                echo "<th>Connected Devices</th>";
+                echo "<th>Details</th>";
             echo "</tr>";
         echo "</thead>";
 

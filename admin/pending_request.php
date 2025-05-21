@@ -13,7 +13,7 @@ $order = new Order($db);
 $user = new User($db);
 $transaction = new Transaction($db);
 
-$page_title = "⌛ Pending Lists";
+$page_title = "Machine Settings";
 $require_login = true;
 include_once '../login_checker.php';
 
@@ -29,7 +29,8 @@ $user_count = $user->countUser();
 
 <!-- contents will be here -->
 <div class="table_wrapper">
-    <h3 class="main_title">Order Data</h3>
+    <h3 class="main_title">Vendo Settings</h3>
+    
     <?php
         if ($num>0) {
 
@@ -37,11 +38,9 @@ $user_count = $user->countUser();
             echo "<table>";
                 echo "<thead>";
                     echo "<tr>";
-                        echo "<th>Student ID</th>";
-                        echo "<th>Reference No</th>";
-                        echo "<th>Status</th>";
-                        echo "<th>Order Created</th>";
-                        echo "<th>Action</th>";
+                        echo "<th>Vendo ID</th>";
+                        echo "<th>Vendo Name</th>";
+                        echo "<th>Vendo Location</th>";
                     echo "</tr>";
                 echo "</thead>";
 
@@ -50,30 +49,10 @@ $user_count = $user->countUser();
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         extract($row);
 
-                        echo "<tr>";
-                            echo "<td>{$student_id}</td>";
-                            echo "<td>{$reference_no}</td>";
-                            echo "<td>{$status}</td>";
-                            echo "<td>{$created}</td>";
-                            echo "<td>";
-                                if ($status == "Updated") {
-                                    echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                                    echo "<a update-id='{$id}' class='action_btn2 update-object'>Approved</a>";
-                                    echo "<a decline-id='{$id}' class='action_btn3 decline-object'>Decline</a>";
-                                } else {
-                                    echo "<a href='../admin/view_request.php?oid={$id}' class='action_btn1'>View</a>";
-                                    echo "<a update-id='{$id}' class='action_btn2 update-object'>Approve</a>";
-                                    echo "<a href='#' class='action_btn3' onclick='deleteOrder({$id})'>Decline</a>";
-                                }
-                            
-                        echo "</tr>";
+                        
                     }
                 echo "</tbody>";
-                echo "<tfoot>";
-                    echo "<tr>";
-                        echo "<td colspan='8' class='table_foot'>USERS ORDER LIST</td>";
-                    echo "</tr>";
-                echo "</tfoot>";
+                
             echo "</table>";
         }else{
             echo "<div class='message-box-failed'>";
