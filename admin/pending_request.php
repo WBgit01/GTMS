@@ -30,7 +30,6 @@ $user_count = $user->countUser();
 <!-- contents will be here -->
 <div class="table_wrapper">
     <h3 class="main_title">Vendo Settings</h3>
-    
     <?php
         if ($num>0) {
 

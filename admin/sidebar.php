@@ -22,14 +22,8 @@
             </li>
             <li>
                 <a href="pending_request.php">
-                <i class="fa-solid fa-screwdriver-wrench"></i>
-                    <span>System Settings</span>
-                </a>
-            </li>
-            <li>
-                <a href="declined_order.php">
                 <i class="fa-solid fa-gear"></i>
-                    <span>Profile Settings</span>
+                    <span>System Settings</span>
                 </a>
             </li>
             <li>
