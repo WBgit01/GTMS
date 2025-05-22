@@ -55,6 +55,17 @@ class Vendo {
         return $stmt;
     }
 
+    public function getTotalRevenue() {
+        $query = "SELECT SUM(vendo_revenue) AS total_revenue FROM " . $this->table_name . "";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row['total_revenue'] ?? 0;
+    }
+
+
 
 
 

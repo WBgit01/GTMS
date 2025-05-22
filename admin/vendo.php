@@ -18,11 +18,10 @@ include_once '../login_checker.php';
 include_once 'sidebar.php'; 
 include_once 'layout_head.php';
 
-
-
 $stmt = $vendo->readVendo();
 $num = $stmt->rowCount();
 
+$total_revenue = $vendo->getTotalRevenue();
 
 ?>
 
@@ -34,7 +33,7 @@ $num = $stmt->rowCount();
             <div class="panel_header">
                 <div class="amount">
                     <span class="title">Total Revenue</span>
-                    <span class="amount_value">565,816</span>
+                    <span class="amount_value"><?php echo "₱ ". number_format($total_revenue, 2); ?></span>
                 </div>
                 <i class="fa-solid fa-chart-simple icon darkcolor-4"></i>
             </div>
@@ -70,22 +69,18 @@ $num = $stmt->rowCount();
             <div class="panel_header">
                 <div class="amount">
                     <span class="title">Total Vendo</span>
-                    <span class="amount_value">5</span>
+                    <span class="amount_value"><?php echo $num; ?></span>
                 </div>
                 <i class="fa-solid fa-house-signal icon darkcolor-5"></i>
             </div>
         </div>
 
-
-
-
-
         <h3 class="main_title"></h3>
     </div>
 
-<div class="panel2_wrapper">
-    <?php
-    if ($num > 0) {
+    <div class="panel2_wrapper">
+        <?php
+        if ($num > 0) {
         echo "<div class='table_container'>";
         echo "<table>";
         echo "<thead>";
@@ -103,24 +98,28 @@ $num = $stmt->rowCount();
         echo "<tbody>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
+            $total_revenue += (float)$vendo_revenue;
+
             echo "<tr>";
                 echo "<td>{$id}</td>";
                 echo "<td>{$vendo_name}</td>";
-                echo "<td>{$vendo_revenue}</td>";
+                echo "<td>₱" . number_format($vendo_revenue, 2) . "</td>";
                 echo "<td>{$vendo_location}</td>";
                 echo "<td>{$status}</td>";
                 echo "<td>{$no_con_device}</td>";
-                echo "<td>";
-                    echo "<a href='../admin/view_vendo.php?vid={$id}' class='action_btn1'>View</a>";
-                echo "</td>";
+                echo "<td><a href='../admin/view_vendo.php?vid={$id}' class='action_btn1'>View</a></td>";
             echo "</tr>";
         }
         echo "</tbody>";
-    } else {
-
-        echo "<div class='result_txt'>No transactions found.</div>";
-    }
-    ?>
+        echo "</table>";
+        echo "</div>";
+        ?>
+    </div>
 </div>
 
-<?php include_once 'layout_foot.php';?>
+<?php
+} else {
+    echo "<div class='result_txt'>No transactions found.</div>";
+}
+include_once 'layout_foot.php';
+?>
