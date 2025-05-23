@@ -29,49 +29,76 @@ $total_revenue = $vendo->getTotalRevenue();
     <h3 class="main_title">Statistics</h3>
     <div class="panel_wrapper">
 
-        <div class="panel_content lightcolor-4">
+        <div class="panel_content lightcolor-1">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Total Revenue</span>
+                    <span class="title">Today Total Revenue</span>
                     <span class="amount_value"><?php echo "₱ ". number_format($total_revenue, 2); ?></span>
                 </div>
-                <i class="fa-solid fa-chart-simple icon darkcolor-4"></i>
+                <i class="fa-solid fa-peso-sign icon darkcolor-1"></i>
             </div>
         </div>
         <div class="panel_content lightcolor-2">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Total Devices Connected</span>
-                    <span class="amount_value">565,816</span>
+                    <span class="title">Weekly Revenue</span>
+                    <span class="amount_value">₱ 10,745</span>
                 </div>
-                <i class="fa-solid fa-mobile-retro icon darkcolor-2"></i>
+                <i class="fa-solid fa-coins icon darkcolor-2"></i>
             </div>
         </div>
         <div class="panel_content lightcolor-3">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Active Vendo</span>
-                    <span class="amount_value">2</span>
+                    <span class="title">Monthly Revenue</span>
+                    <span class="amount_value">₱ 322,350</span>
                 </div>
-                <i class="fa-solid fa-circle-up icon darkcolor-3"></i>
+                <i class="fa-solid fa-hand-holding-dollar icon darkcolor-3"></i>
             </div>
         </div>
-        <div class="panel_content lightcolor-1">
+        <div class="panel_content lightcolor-4">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Inactive Vendo</span>
-                    <span class="amount_value">3</span>
+                    <span class="title">Yearly Revenue</span>
+                    <span class="amount_value">₱ 3,868,200</span>
                 </div>
-                <i class="fa-solid fa-circle-down icon darkcolor-1"></i>
+                <i class="fa-solid fa-chart-simple icon darkcolor-4"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-8">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Total Connected Users</span>
+                    <span class="amount_value">105</span>
+                </div>
+                <i class="fa-solid fa-mobile-retro icon darkcolor-8"></i>
             </div>
         </div>
         <div class="panel_content lightcolor-5">
             <div class="panel_header">
                 <div class="amount">
+                    <span class="title">Active Vendo</span>
+                    <span class="amount_value">3</span>
+                </div>
+                <i class="fa-solid fa-circle-up icon darkcolor-5"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-6">
+            <div class="panel_header">
+                <div class="amount">
+                    <span class="title">Inactive Vendo</span>
+                    <span class="amount_value">0</span>
+                </div>
+                <i class="fa-solid fa-circle-down icon darkcolor-6"></i>
+            </div>
+        </div>
+        <div class="panel_content lightcolor-7">
+            <div class="panel_header">
+                <div class="amount">
                     <span class="title">Total Vendo</span>
                     <span class="amount_value"><?php echo $num; ?></span>
                 </div>
-                <i class="fa-solid fa-house-signal icon darkcolor-5"></i>
+                <i class="fa-solid fa-house-signal icon darkcolor-7"></i>
             </div>
         </div>
 

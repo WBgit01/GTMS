@@ -7,8 +7,9 @@ $database = new Database();
 $db = $database->getConnection();
 
 
-$page_title = "Troubleshoot Guide";
+$page_title = "Guide/Help";
 $require_login = true;
+$isAccessible = $_SESSION['isAccessible'];
 include_once '../login_checker.php';
 
 include_once 'sidebar.php'; 
@@ -20,18 +21,16 @@ include_once 'layout_head.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Help & FAQ</title>
-    <link rel="stylesheet" href="../libs/css/help_content.css"></link>
+    <link rel="stylesheet" href="../libs/css/help_content.css">
 </head>
 <body>
 
 <div class="faq-container">
-    <h2>Help/Guide</h2>
 
     <div class="faq-item">
         <button class="faq-question">Why is the admin dashboard not loading or running slowly?</button>
         <div class="faq-answer">
-            <p>This usually happens due to server overload, poor internet connection, or outdated software; try restarting the server, checking your internet, clearing cache, and updating the dashboard software.</p>
+            <p>HThis usually happens due to server overload, poor internet connection, or outdated software; try restarting the server, checking your internet, clearing cache, and updating the dashboard software.</p>
         </div>
     </div>
 
@@ -71,7 +70,7 @@ include_once 'layout_head.php';
     </div>
 
     <div class="faq-item">
-        <button class="faq-question">What if firmware or software updates keep failing?</button>
+        <button class="faq-question">WWhat if firmware or software updates keep failing?</button>
         <div class="faq-answer">
             <p>Updates may fail due to unstable internet or corrupted files; ensure a stable connection, retry the update, try manual installation, and backup configurations before updating.</p>
         </div>

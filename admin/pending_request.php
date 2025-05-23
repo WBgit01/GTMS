@@ -13,7 +13,7 @@ $order = new Order($db);
 $user = new User($db);
 $transaction = new Transaction($db);
 
-$page_title = "Machine Settings";
+$page_title = "System Settings";
 $require_login = true;
 include_once '../login_checker.php';
 
@@ -27,38 +27,40 @@ $num = $stmt->rowCount();
 $user_count = $user->countUser();
 ?>
 
-<!-- contents will be here -->
-<div class="table_wrapper">
-    <h3 class="main_title">Vendo Settings</h3>
-    <?php
-        if ($num>0) {
 
-            echo "<div class='table_container'>";
-            echo "<table>";
-                echo "<thead>";
-                    echo "<tr>";
-                        echo "<th>Vendo ID</th>";
-                        echo "<th>Vendo Name</th>";
-                        echo "<th>Vendo Location</th>";
-                    echo "</tr>";
-                echo "</thead>";
+    <div class="table_wrapper">
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../libs/css/system_settings.css" />
+</head>
+<body>
+  <!-- Your HTML content here -->
+  <!-- System Settings Section -->
+<div class="settings-container">
+  <div class="settings-buttons">
+    <button class="settings-btn">
+      <span class="btn-title">Profile Settings</span>
+      <span class="btn-description">Manage your account details such as name, email, contact number, and address.</span>
+    </button>
+    <button class="settings-btn">
+      <span class="btn-title">Machine Settings</span>
+      <span class="btn-description">Add, edit, or remove vending machines from the system. You can update each machine’s name and location here.</span>
+    </button>
+    <button class="settings-btn">
+      <span class="btn-title">Alert Settings</span>
+      <span class="btn-description">Set up alerts to know when something needs your attention, and pick how to get notified.</span>
+    </button>
+  </div>
+</div>
 
-                echo "<tbody>";
 
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        extract($row);
+</body>
+</html>
 
-                        
-                    }
-                echo "</tbody>";
-                
-            echo "</table>";
-        }else{
-            echo "<div class='message-box-failed'>";
-                echo "No uniform request.";
-            echo "</div>";
-        }
-    ?>
+
     </div>
 
 <?php include_once 'layout_foot.php'; ?>

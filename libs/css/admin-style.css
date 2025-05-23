@@ -207,35 +207,67 @@ body{
     PANEL COLOR STYLES
 ------------------------------------- */
 .lightcolor-1{
-    background: #f08f8f;
+    background: #BFDBFE; 
 }
 
 .lightcolor-2{
-    background: #67a2f5;
+    background: #FDE68A; 
 }
 
 .lightcolor-3{
-    background: #8cee8c;
+    background: #F9A8D4; 
 }
 
 .lightcolor-4{
-    background: #f1e3ba;
+    background: #C4B5FD; 
+}
+
+.lightcolor-5{
+    background: #86EFAC; 
+}
+
+.lightcolor-6{
+    background: #FCA5A5; 
+}
+
+.lightcolor-7{
+    background: #7DD3FC; 
+}
+
+.lightcolor-8 {
+  background: #FFDCA6;
 }
 
 .darkcolor-1{
-    background: #c51414;
+    background: #1E3A8A;
 }
 
 .darkcolor-2{
-    background: #3a7bd5;
+    background: #B45309;
 }
 
 .darkcolor-3{
-    background: #0b990b;
+    background: #BE185D;
 }
 
 .darkcolor-4{
-    background: #e9c352;
+    background: #5B21B6;
+}
+
+.darkcolor-5{
+    background: #166534;
+}
+
+.darkcolor-6{
+    background: #991B1B;
+}
+
+.darkcolor-7{
+    background: #0E7490;
+}
+
+.darkcolor-8 {
+  background: #B45309; /* rich golden amber, matches well */
 }
 
 

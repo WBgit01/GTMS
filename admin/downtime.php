@@ -54,12 +54,11 @@ $num = $stmt->rowCount();
             echo "<tr>";
                 echo "<td>{$id}</td>";
                 echo "<td>{$vendo_name}</td>";
-                echo "<td>{$vendo_revenue}</td>";
                 echo "<td>{$vendo_location}</td>";
-                echo "<td>{$status}</td>";
-                echo "<td>{$no_con_device}</td>";
-                echo "<td>";
-                echo "</td>";
+                echo "<td>02/24/24</td>";
+                echo "<td>7:54 pm</td>";
+                echo "<td>8:54 pm</td>";
+                echo "<td>1 hour</td>";
             echo "</tr>";
         }
         echo "</tbody>";

@@ -42,17 +42,17 @@ $num = $stmt->rowCount();
         <div class="panel_content lightcolor-4">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Daily Sales</span>
-                    <span class="amount_value">28,290</span>
+                    <span class="title">Disconnected User</span>
+                    <span class="amount_value">0</span>
                 </div>
-                <i class="fa-solid fa-peso-sign icon darkcolor-4"></i>
+                <i class="fa-solid fa-users-slash icon darkcolor-4"></i>
             </div>
         </div>
         <div class="panel_content lightcolor-3">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Weekly Sales</span>
-                    <span class="amount_value">28,2908</span>
+                    <span class="title">Today Sales</span>
+                    <span class="amount_value">₱ 3,150</span>
                 </div>
                 <i class="fa-solid fa-coins icon darkcolor-3"></i>
             </div>
@@ -60,19 +60,10 @@ $num = $stmt->rowCount();
         <div class="panel_content lightcolor-1">
             <div class="panel_header">
                 <div class="amount">
-                    <span class="title">Monthly Sales</span>
-                    <span class="amount_value">28,2908</span>
+                    <span class="title">Previous Sales</span>
+                    <span class="amount_value">₱ 12,600</span>
                 </div>
                 <i class="fa-solid fa-hand-holding-dollar icon darkcolor-1"></i>
-            </div>
-        </div>
-        <div class="panel_content lightcolor-5">
-            <div class="panel_header">
-                <div class="amount">
-                    <span class="title">Yearly Sales</span>
-                    <span class="amount_value">28,2908</span>
-                </div>
-                <i class="fa-solid fa-money-bill-trend-up icon darkcolor-5"></i>
             </div>
         </div>
         
