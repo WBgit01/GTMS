@@ -103,7 +103,6 @@ $total_revenue = $vendo->getTotalRevenue();
         </div>
 
         <h3 class="main_title"></h3>
-    </div>
 
     <div class="panel2_wrapper">
         <?php

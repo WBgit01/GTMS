@@ -29,36 +29,27 @@ $user_count = $user->countUser();
 
 
     <div class="table_wrapper">
-     <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../libs/css/system_settings.css" />
-</head>
-<body>
-  <!-- Your HTML content here -->
-  <!-- System Settings Section -->
-<div class="settings-container">
-  <div class="settings-buttons">
-    <button class="settings-btn">
-      <span class="btn-title">Profile Settings</span>
-      <span class="btn-description">Manage your account details such as name, email, contact number, and address.</span>
-    </button>
-    <button class="settings-btn">
-      <span class="btn-title">Machine Settings</span>
-      <span class="btn-description">Add, edit, or remove vending machines from the system. You can update each machine’s name and location here.</span>
-    </button>
-    <button class="settings-btn">
-      <span class="btn-title">Alert Settings</span>
-      <span class="btn-description">Set up alerts to know when something needs your attention, and pick how to get notified.</span>
-    </button>
-  </div>
-</div>
+      <link rel="stylesheet" href="../libs/css/system_settings.css" />
 
-
-</body>
-</html>
+      
+      <div class="settings-buttons">
+        <button class="settings-btn">
+          <span class="btn-title">Profile Settings</span>
+          <span class="btn-description">Manage your account details such as name, email, contact number, and address.</span>
+        </button>
+        <button class="settings-btn">
+          <span class="btn-title">Password Settings</span>
+          <span class="btn-description">Manage your account password and security.</span>
+        </button>
+        <button class="settings-btn">
+          <span class="btn-title">Machine Settings</span>
+          <span class="btn-description">Add, edit, or remove vending machines from the system. You can update each machine’s name and location here.</span>
+        </button>
+        <button class="settings-btn">
+          <span class="btn-title">Alert Settings</span>
+          <span class="btn-description">Set up alerts to know when something needs your attention, and pick how to get notified.</span>
+        </button>
+      </div>
 
 
     </div>
